@@ -110,13 +110,7 @@ The provider may modify, update, suspend, or discontinue AirPulse or any of its 
 
 These Terms apply for as long as you use the app. They end when you stop using AirPulse and remove it from your device, except for provisions that are intended to survive termination.
 
-## 16. Governing Law and Venue
-
-Governing law: [INSERT GOVERNING LAW]
-
-Venue / courts: [INSERT JURISDICTION AND VENUE IF REQUIRED]
-
-## 17. Contact
+## 16. Contact
 
 For legal or support-related questions, please contact:
 
