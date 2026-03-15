@@ -11,7 +11,7 @@ This Privacy Policy explains how AirPulse collects, uses, stores, and shares inf
 The controller responsible for processing personal data in connection with AirPulse is:
 
 - Legal name: Christian Range
-- Contact email: airpulseapp@icloud.com
+- Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
 
 ## 3. Information We Process
 
@@ -160,4 +160,4 @@ We may update this Privacy Policy from time to time to reflect changes in the ap
 For privacy-related questions, please contact:
 
 - Legal name: Christian Range
-- Contact email: airpulseapp@icloud.com
+- Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)

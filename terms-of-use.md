@@ -7,7 +7,7 @@ Effective date: 15 March 2026
 AirPulse is provided by:
 
 - Legal name: Christian Range
-- Contact email: airpulseapp@icloud.com
+- Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
 
 ## 2. Acceptance of These Terms
 
@@ -115,4 +115,4 @@ These Terms apply for as long as you use the app. They end when you stop using A
 For legal or support-related questions, please contact:
 
 - Legal name: Christian Range
-- Contact email: airpulseapp@icloud.com
+- Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
