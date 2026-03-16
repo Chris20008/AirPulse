@@ -7,7 +7,7 @@
     <title>AirPulse</title>
     <meta
       name="description"
-      content="AirPulse bringt Herzfrequenz-Tracking mit AirPods Pro 3 auf ein klares, iPhone-natives Interface mit Live Activity, Verlauf und smarten Automationen."
+      content="AirPulse zeigt deine Herzfrequenz mit AirPods Pro 3 in Echtzeit an, startet das Tracking automatisch beim Einsetzen und bringt Live Activity, Verlauf und Widgets auf das iPhone."
     />
 
     <link rel="icon" href="assets/Version7.png" type="image/png" />
@@ -16,7 +16,7 @@
     <meta property="og:title" content="AirPulse" />
     <meta
       property="og:description"
-      content="Herzfrequenz live mit AirPods Pro 3 verfolgen. Entwickelt für iPhone, Live Activities und einen schnellen, klaren Alltagseinsatz."
+      content="Herzfrequenz live mit AirPods Pro 3 verfolgen. Das Tracking startet automatisch beim Einsetzen und bleibt über Live Activity, Widgets und Verlauf jederzeit im Blick."
     />
     <meta property="og:type" content="website" />
 
@@ -763,14 +763,44 @@
           padding-top: 14px;
         }
 
-        .topbar,
+        .topbar {
+          position: static;
+          top: auto;
+          gap: 10px;
+          padding: 12px 14px;
+        }
+
         .galleryIntroRow {
           flex-direction: column;
           align-items: flex-start;
         }
 
+        .brand {
+          gap: 10px;
+        }
+
+        .brandmark {
+          width: 42px;
+          height: 42px;
+          border-radius: 14px;
+        }
+
+        .brandcopy strong {
+          font-size: 15px;
+        }
+
+        .brandcopy span {
+          font-size: 12px;
+        }
+
         .nav {
           justify-content: flex-start;
+          gap: 8px;
+        }
+
+        .nav a {
+          padding: 8px 12px;
+          font-size: 12px;
         }
 
         .heroCard,
@@ -851,11 +881,11 @@
       <main>
         <section class="hero" aria-label="AirPulse Hero">
           <article class="heroCard glass">
-            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>iPhone-native Pulse Tracking</div>
-            <h1 class="heroTitle">Dein Puls. Live auf dem iPhone.</h1>
+            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>Automatischer Start mit AirPods Pro 3</div>
+            <h1 class="heroTitle">Tracking startet beim Einsetzen deiner AirPods Pro 3.</h1>
             <p class="heroText">
-              AirPulse macht Herzfrequenz-Tracking mit AirPods Pro 3 schnell, klar und alltagstauglich. Live Activity,
-              Verlauf, smarte Filter und eine Oberfläche, die sich wie ein natürlicher Teil von iOS anfühlt.
+              AirPulse erkennt kompatible AirPods Pro 3 und startet das Herzfrequenz-Tracking automatisch, ohne dass du es
+              manuell anstoßen musst. Live Activity, Widgets und Verlauf halten deine Werte anschließend direkt auf dem iPhone sichtbar.
             </p>
 
             <div class="heroActions">
@@ -870,7 +900,7 @@
               </div>
               <div class="metaItem">
                 <strong>Smart</strong>
-                <span>Filter, Automationen und Low-Power-Logik</span>
+                <span>Automatischer Start, Standortfilter und Geräteauswahl</span>
               </div>
               <div class="metaItem">
                 <strong>Private</strong>
@@ -918,8 +948,8 @@
                 <p>Wichtige Infos landen dort, wo du sie erwartest.</p>
               </article>
               <article>
-                <strong>Routine</strong>
-                <p>Weniger Tippen, schneller starten, natürlicher im Alltag.</p>
+                <strong>Automatischer Start</strong>
+                <p>Beim Einsetzen unterstützter AirPods Pro 3 beginnt das Tracking ohne manuellen Start.</p>
               </article>
             </div>
           </aside>
@@ -931,13 +961,13 @@
             <h2 class="sectionTitle">Entwickelt für kurze Blicke, nicht für überladene Dashboards.</h2>
             <p class="sectionText">
               Die App konzentriert sich auf genau das, was im Alltag zählt: aktuelle Herzfrequenz, klare Historie und
-              Funktionen, die automatisch im Hintergrund mitdenken statt dich auszubremsen.
+              Funktionen, die den Tracking-Start vereinfachen und die wichtigsten Werte schnell sichtbar machen.
             </p>
 
             <div class="featureGrid">
               <div class="featureBox">
                 <strong>Echtzeit ohne Umwege</strong>
-                <p>Starte dein Tracking schnell und sieh deinen Puls sofort auf iPhone, Sperrbildschirm und Dynamic Island.</p>
+                <p>Sieh deine Herzfrequenz sofort auf dem iPhone sowie auf Sperrbildschirm und Dynamic Island.</p>
               </div>
               <div class="featureBox">
                 <strong>Verlauf mit Substanz</strong>
@@ -948,8 +978,8 @@
                 <p>Nutze Filter, um Tracking nur dort zu aktivieren, wo es für dich sinnvoll ist.</p>
               </div>
               <div class="featureBox">
-                <strong>Mehr Kontrolle über Energie</strong>
-                <p>Low-Power-Verhalten und Berechtigungen greifen sauber ineinander, damit die App planbar bleibt.</p>
+                <strong>Klare Systemintegration</strong>
+                <p>HealthKit, Mitteilungen und optionale Standortfreigabe bilden die Grundlage für die verfügbaren Funktionen.</p>
               </div>
             </div>
           </article>
@@ -973,27 +1003,27 @@
 
         <section class="section sectionCard glass" aria-label="Vorteile">
           <p class="sectionLabel">Erlebnis</p>
-          <h2 class="sectionTitle">Modern, ruhig und sichtbar iOS-inspiriert.</h2>
+          <h2 class="sectionTitle">Auf die Funktionen reduziert, die im Alltag wirklich zählen.</h2>
           <p class="sectionText">
-            Von Glasflächen über weiche Tiefe bis zur klaren Typografie ist alles darauf ausgelegt, vertraut zu wirken und
-            gleichzeitig eigenständig genug zu bleiben, um als Produktseite Charakter zu haben.
+            AirPulse konzentriert sich auf automatische Tracking-Starts, gut sichtbare Live-Werte und eine verständliche Historie.
+            So bleibt die App schnell erfassbar und funktional statt überladen.
           </p>
 
           <div class="benefits">
             <article class="benefitCard">
               <div class="benefitIcon">01</div>
-              <strong>Fokussierte Startfläche</strong>
-              <p>Der Einstieg erklärt in Sekunden, was die App kann und warum sie auf dem iPhone Sinn ergibt.</p>
+              <strong>Automatisch im richtigen Moment</strong>
+              <p>Das Tracking startet beim Einsetzen kompatibler AirPods Pro 3, statt erst manuell ausgelöst werden zu müssen.</p>
             </article>
             <article class="benefitCard">
               <div class="benefitIcon">02</div>
-              <strong>Präzisere Copy</strong>
-              <p>Weniger Wiederholung, mehr Nutzenargumente und klarere Sprache für App Store, Website und Support-Kontext.</p>
+              <strong>Werte schnell im Blick</strong>
+              <p>Live Activity, Widgets und Verlauf helfen dir dabei, aktuelle und letzte Werte ohne Umwege zu sehen.</p>
             </article>
             <article class="benefitCard">
               <div class="benefitIcon">03</div>
-              <strong>Vertrauen ohne Overkill</strong>
-              <p>Datenschutz, Kompatibilität und technische Hinweise bleiben sichtbar, ohne die Seite zu überfrachten.</p>
+              <strong>Kontrolle über den Einsatz</strong>
+              <p>Geräteauswahl, Standortfilter und lokale Einstellungen helfen dabei, das Tracking an deinen Ablauf anzupassen.</p>
             </article>
           </div>
         </section>
@@ -1027,6 +1057,15 @@
               </div>
             </div>
           </div>
+        </section>
+
+        <section class="section sectionCard glass" aria-label="Kontakt und Weiterentwicklung">
+          <p class="sectionLabel">Feedback</p>
+          <h2 class="sectionTitle">AirPulse wird kontinuierlich weiterentwickelt.</h2>
+          <p class="sectionText">
+            Du hast eine Idee für ein neues Feature oder möchtest dir eine bestimmte Funktion wünschen? Dann schreib uns an
+            <a href="mailto:airpulseapp@icloud.com">airpulseapp@icloud.com</a>.
+          </p>
         </section>
 
         <section class="section legalGrid" aria-label="Rechtliche Links">
