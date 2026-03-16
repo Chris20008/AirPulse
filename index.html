@@ -313,6 +313,42 @@
         color: var(--text-soft);
       }
 
+      .heroFocus {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 720px;
+        margin-top: 16px;
+      }
+
+      .focusChip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 0 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        color: var(--text-soft);
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .focusChip.strong {
+        background: rgba(255, 95, 87, 0.1);
+        border-color: rgba(255, 95, 87, 0.18);
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .heroFocusText {
+        max-width: 720px;
+        margin: 14px 0 0;
+        color: var(--text-soft);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
       .heroActions {
         display: flex;
         flex-wrap: wrap;
@@ -988,6 +1024,17 @@
             <p class="heroText">
               AirPulse erkennt kompatible AirPods Pro 3 und startet das Herzfrequenz-Tracking automatisch, ohne dass du es
               manuell anstoßen musst. Live Activity, Widgets und Verlauf halten deine Werte anschließend direkt auf dem iPhone sichtbar.
+            </p>
+
+            <div class="heroFocus" aria-label="Fokus der App">
+              <div class="focusChip strong">Nur Puls</div>
+              <div class="focusChip">Keine Kalorien</div>
+              <div class="focusChip">Keine Workouts</div>
+              <div class="focusChip">Kein unnötiger Overhead</div>
+            </div>
+
+            <p class="heroFocusText">
+              AirPulse ist bewusst auf Herzfrequenz reduziert und startet kein klassisches Workout mit zusätzlichem Kalorien- oder Aktivitätstracking.
             </p>
 
             <div class="heroActions">
