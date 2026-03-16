@@ -6,15 +6,15 @@ Christian Range
 
 ### Disclaimer
 
-I do not assume any liability for the content of the App. While I strive to keep the information correct and up to date, I cannot guarantee the accuracy, completeness, or timeliness of the content.
+I make reasonable efforts to keep the information about the App accurate and up to date. However, I cannot guarantee that all content is always complete, accurate, or current.
 
 ### Data Privacy
 
-AirPulse processes app-related data primarily locally on the device. Depending on the features used, the App may access health data, notification settings, device-related information, and optional location data in order to provide its functionality.
+AirPulse processes app-related data primarily on the device itself. Depending on the features you use, the App may access health data, notification settings, device-related information, and optional location data in order to provide its functionality.
 AirPulse does not require a user account.
-If Apple services such as HealthKit, iCloud, Siri, Shortcuts, widgets, or Live Activities are used, their use is additionally subject to Apple’s applicable terms and privacy policies.
+If Apple services such as HealthKit, iCloud, Siri, Shortcuts, widgets, or Live Activities are used, their use is also subject to Apple’s applicable terms and privacy policies.
 
-More details are available in the [Pricacy Policy](https://chris20008.github.io/AirPulse/privacy-policy)
+More details are available in the [Privacy Policy](https://chris20008.github.io/AirPulse/privacy-policy).
 
 ### Contact
 

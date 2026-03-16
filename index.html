@@ -7,69 +7,89 @@
     <title>AirPulse</title>
     <meta
       name="description"
-      content="AirPulse – kompakte, moderne App für Live-Puls-/Aktivitätsanzeige, Live Activities und Widgets."
+      content="AirPulse bringt Herzfrequenz-Tracking mit AirPods Pro 3 auf ein klares, iPhone-natives Interface mit Live Activity, Verlauf und smarten Automationen."
     />
 
     <link rel="icon" href="assets/Version7.png" type="image/png" />
-    <meta name="theme-color" content="#F4B0AA" />
+    <meta name="theme-color" content="#f7f7fb" />
 
     <meta property="og:title" content="AirPulse" />
     <meta
       property="og:description"
-      content="Miss deine Herzfrequenz mit AirPods Pro 3 in Echtzeit – Live Activity, Verlauf und Statistiken."
+      content="Herzfrequenz live mit AirPods Pro 3 verfolgen. Entwickelt für iPhone, Live Activities und einen schnellen, klaren Alltagseinsatz."
     />
     <meta property="og:type" content="website" />
 
     <style>
       :root {
         color-scheme: light;
-
-        /* Color schema aligned to the provided App Store screenshots:
-           warm pink background + deep dark cards + red accent. */
-        --bg: #f4b0aa;
-        --bg2: rgba(244, 176, 170, 0.65);
-        --page-text: rgba(17, 17, 19, 0.88);
-        --page-muted: rgba(17, 17, 19, 0.62);
-        --card: rgba(17, 17, 19, 0.92);
-        --card-2: rgba(28, 28, 32, 0.90);
-        --card-border: rgba(255, 255, 255, 0.10);
-        --text: rgba(255, 255, 255, 0.92);
-        --muted: rgba(255, 255, 255, 0.72);
-        --muted2: rgba(255, 255, 255, 0.58);
-        --accent: #e3453c;
-        --accent-soft: rgba(227, 69, 60, 0.22);
-        --focus: rgba(227, 69, 60, 0.55);
-        --shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
-        --radius: 22px;
+        --bg: #f5f6fb;
+        --surface: rgba(255, 255, 255, 0.74);
+        --surface-strong: rgba(255, 255, 255, 0.9);
+        --text: #101728;
+        --text-soft: rgba(16, 23, 40, 0.72);
+        --text-muted: rgba(16, 23, 40, 0.54);
+        --text-on-dark: rgba(255, 255, 255, 0.96);
+        --text-on-dark-soft: rgba(255, 255, 255, 0.7);
+        --accent: #ff5f57;
+        --accent-strong: #ff3b30;
+        --accent-soft: rgba(255, 95, 87, 0.14);
+        --blue-soft: rgba(87, 132, 255, 0.18);
+        --shadow-xl: 0 36px 90px rgba(15, 23, 40, 0.14);
+        --shadow-lg: 0 20px 54px rgba(15, 23, 40, 0.1);
+        --shadow-md: 0 12px 28px rgba(15, 23, 40, 0.08);
+        --radius-xl: 34px;
+        --radius-lg: 26px;
+        --radius-md: 20px;
+        --wrap: 1180px;
       }
 
       * {
         box-sizing: border-box;
       }
 
-      html,
-      body {
-        height: 100%;
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
         margin: 0;
-        font-family:
-          ui-sans-serif,
-          system-ui,
-          -apple-system,
-          Segoe UI,
-          Roboto,
-          Helvetica,
-          Arial,
-          "Apple Color Emoji",
-          "Segoe UI Emoji";
-        line-height: 1.5;
-        color: var(--page-text);
+        min-height: 100vh;
+        font-family: "SF Pro Display", "SF Pro Text", "Helvetica Neue", ui-rounded, -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.45;
+        color: var(--text);
         background:
-          radial-gradient(900px 520px at 20% 0%, rgba(255, 255, 255, 0.18), transparent 55%),
-          radial-gradient(800px 520px at 95% 20%, rgba(227, 69, 60, 0.16), transparent 60%),
-          linear-gradient(180deg, var(--bg), var(--bg2));
+          radial-gradient(circle at top left, rgba(255, 95, 87, 0.2), transparent 28%),
+          radial-gradient(circle at 85% 18%, rgba(87, 132, 255, 0.18), transparent 32%),
+          linear-gradient(180deg, #fbfbfe 0%, var(--bg) 48%, #eef2fb 100%);
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(18px);
+      }
+
+      body::before {
+        top: -160px;
+        right: -120px;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        background: rgba(255, 95, 87, 0.16);
+      }
+
+      body::after {
+        left: -160px;
+        bottom: 16vh;
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        background: rgba(87, 132, 255, 0.14);
       }
 
       a {
@@ -79,90 +99,106 @@
 
       a:focus-visible,
       button:focus-visible {
-        outline: 3px solid var(--focus);
+        outline: 3px solid rgba(255, 95, 87, 0.45);
         outline-offset: 3px;
-        border-radius: 10px;
+        border-radius: 14px;
       }
 
-      .wrap {
-        max-width: 1024px;
+      img {
+        max-width: 100%;
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        width: min(calc(100% - 32px), var(--wrap));
         margin: 0 auto;
-        padding: 34px 20px 62px;
+        padding: 24px 0 56px;
       }
 
-      header {
+      .glass {
+        background: var(--surface);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        box-shadow: var(--shadow-lg);
+        backdrop-filter: blur(24px) saturate(160%);
+        -webkit-backdrop-filter: blur(24px) saturate(160%);
+      }
+
+      .topbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 16px;
+        gap: 18px;
+        padding: 14px 16px;
+        border-radius: 24px;
+        position: sticky;
+        top: 18px;
+        z-index: 20;
       }
 
       .brand {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 14px;
         min-width: 0;
       }
 
-      .logo {
-        width: 44px;
-        height: 44px;
-        border-radius: 14px;
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+      .brandmark {
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
         flex: 0 0 auto;
       }
 
-      .logo img {
-        width: 44px;
-        height: 44px;
+      .brandmark img {
         display: block;
-        border-radius: 14px;
+        width: 100%;
+        height: 100%;
       }
 
-      .brand h1 {
+      .brandcopy strong,
+      .brandcopy span {
+        display: block;
+      }
+
+      .brandcopy strong {
         font-size: 16px;
-        margin: 0;
-        letter-spacing: 0.2px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        letter-spacing: -0.2px;
       }
 
-      .brand p {
-        margin: 0;
+      .brandcopy span {
         font-size: 13px;
-        color: var(--page-muted);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        color: var(--text-muted);
       }
 
-      nav {
+      .nav {
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
         justify-content: flex-end;
       }
 
-      .navlink {
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid var(--card-border);
-        background: rgba(17, 17, 19, 0.55);
-        backdrop-filter: blur(10px);
+      .nav a {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        color: var(--text-soft);
         font-size: 13px;
-        color: var(--muted);
         transition:
-          transform 120ms ease,
-          background-color 120ms ease,
-          border-color 120ms ease;
+          transform 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease,
+          box-shadow 180ms ease;
       }
 
-      .navlink:hover {
+      .nav a:hover {
         transform: translateY(-1px);
-        background: rgba(17, 17, 19, 0.72);
-        border-color: rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--text);
+        box-shadow: var(--shadow-md);
       }
 
       main {
@@ -171,138 +207,460 @@
 
       .hero {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 18px;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 20px;
         align-items: stretch;
       }
 
-      @media (max-width: 860px) {
-        .hero {
-          grid-template-columns: 1fr;
-        }
-
-        header {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        nav {
-          justify-content: flex-start;
-        }
+      .heroCard,
+      .showcaseCard,
+      .sectionCard,
+      .legalCard,
+      .galleryIntro,
+      .darkPanel {
+        border-radius: var(--radius-xl);
       }
 
-      .card {
-        border-radius: var(--radius);
-        padding: 22px;
-        background: var(--card);
-        border: 1px solid var(--card-border);
-        box-shadow: var(--shadow);
-        backdrop-filter: blur(12px);
+      .heroCard {
+        padding: 34px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .heroCard::before {
+        content: "";
+        position: absolute;
+        inset: -120px auto auto -120px;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: rgba(255, 95, 87, 0.12);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.66);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-soft);
+      }
+
+      .pulseDot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent-strong);
+        box-shadow: 0 0 0 8px var(--accent-soft);
+      }
+
+      .heroTitle {
+        max-width: 11ch;
+        margin: 18px 0 14px;
+        font-size: clamp(42px, 7vw, 76px);
+        line-height: 0.95;
+        letter-spacing: -0.055em;
+      }
+
+      .heroText {
+        max-width: 640px;
+        margin: 0;
+        font-size: clamp(17px, 2vw, 20px);
+        line-height: 1.58;
+        color: var(--text-soft);
+      }
+
+      .heroActions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 50px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 15px;
+        font-weight: 600;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, #ff786c, #ff4f45);
+        color: #fff;
+        box-shadow: 0 16px 28px rgba(255, 79, 69, 0.26);
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(148, 163, 184, 0.18);
         color: var(--text);
       }
 
-      .card.soft {
-        background: var(--card-2);
+      .heroMeta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 26px;
       }
 
-      .headline {
-        font-size: clamp(28px, 4vw, 40px);
-        line-height: 1.1;
-        margin: 0 0 10px;
-        letter-spacing: -0.5px;
+      .metaItem {
+        padding: 16px 18px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.56);
+        border: 1px solid rgba(255, 255, 255, 0.68);
       }
 
-      .kicker {
-        margin: 0 0 10px;
-        color: var(--muted2);
+      .metaItem strong {
+        display: block;
+        font-size: 18px;
+        letter-spacing: -0.03em;
+      }
+
+      .metaItem span {
+        display: block;
+        margin-top: 4px;
+        color: var(--text-muted);
         font-size: 13px;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
       }
 
-      .sub {
-        margin: 0;
-        color: var(--muted);
-        font-size: 15px;
+      .showcaseCard {
+        position: relative;
+        min-height: 100%;
+        padding: 26px;
+        overflow: hidden;
+        background:
+          linear-gradient(160deg, rgba(15, 23, 40, 0.96), rgba(25, 35, 58, 0.88)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent);
+        color: var(--text-on-dark);
+        box-shadow: var(--shadow-xl);
       }
 
-      .copy {
-        margin-top: 14px;
-        color: var(--muted);
-        font-size: 15px;
+      .showcaseGlow {
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        border-radius: 50%;
+        right: -120px;
+        top: -90px;
+        background: radial-gradient(circle, rgba(255, 95, 87, 0.34), transparent 64%);
       }
 
-      .badges {
+      .showcaseTop {
+        position: relative;
         display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 18px;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
       }
 
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 12px;
-        border-radius: 999px;
-        border: 1px solid var(--card-border);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--muted);
+      .showcaseTop p,
+      .showcaseTop strong,
+      .showcaseFooter p,
+      .showcaseFooter strong {
+        margin: 0;
+      }
+
+      .showcaseTop p,
+      .showcaseFooter p {
+        color: var(--text-on-dark-soft);
         font-size: 13px;
       }
 
-      .dot {
-        width: 10px;
-        height: 10px;
+      .showcaseBadge {
+        padding: 9px 12px;
         border-radius: 999px;
-        background: var(--accent);
-        box-shadow: 0 0 0 4px var(--accent-soft);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        font-size: 12px;
+        color: var(--text-on-dark-soft);
       }
 
-      .featureTitle {
-        margin: 0 0 10px;
-        font-size: 14px;
-        color: var(--muted2);
-        letter-spacing: 0.4px;
-        text-transform: uppercase;
+      .showcaseCenter {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 500px;
+        padding: 32px 0;
       }
 
-      ul.features {
-        margin: 0;
-        padding-left: 18px;
-        color: var(--muted);
+      .phoneFrame {
+        position: relative;
+        width: min(320px, 100%);
+        padding: 14px;
+        border-radius: 42px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 28px 68px rgba(0, 0, 0, 0.28);
       }
 
-      ul.features li {
-        margin: 10px 0;
+      .phoneFrame::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 12px;
+        transform: translateX(-50%);
+        width: 34%;
+        height: 24px;
+        border-radius: 0 0 18px 18px;
+        background: rgba(6, 10, 18, 0.82);
+        z-index: 2;
+      }
+
+      .phoneFrame img {
+        display: block;
+        width: 100%;
+        border-radius: 30px;
+      }
+
+      .floatingStat,
+      .floatingPanel {
+        position: absolute;
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+      }
+
+      .floatingStat {
+        top: 78px;
+        right: 8px;
+        padding: 14px 16px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .floatingStat strong {
+        display: block;
+        font-size: 30px;
+        letter-spacing: -0.05em;
+      }
+
+      .floatingStat span,
+      .floatingPanel span {
+        color: var(--text-on-dark-soft);
+        font-size: 12px;
+      }
+
+      .floatingPanel {
+        left: 0;
+        bottom: 54px;
+        width: 200px;
+        padding: 16px;
+        border-radius: 24px;
+        background: rgba(7, 13, 24, 0.54);
+      }
+
+      .floatingPanel strong {
+        display: block;
+        margin-top: 8px;
+        font-size: 16px;
+      }
+
+      .miniBars {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 7px;
+        align-items: end;
+        height: 50px;
+        margin-top: 10px;
+      }
+
+      .miniBars i {
+        display: block;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(255, 95, 87, 0.96), rgba(255, 95, 87, 0.28));
+      }
+
+      .miniBars i:nth-child(1) { height: 42%; }
+      .miniBars i:nth-child(2) { height: 74%; }
+      .miniBars i:nth-child(3) { height: 58%; }
+      .miniBars i:nth-child(4) { height: 92%; }
+      .miniBars i:nth-child(5) { height: 68%; }
+      .miniBars i:nth-child(6) { height: 84%; }
+
+      .showcaseFooter {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .showcaseFooter article {
+        padding: 16px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       .section {
-        margin-top: 18px;
+        margin-top: 20px;
       }
 
-      .sectionHeader {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 12px;
+      .twoColumn {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        gap: 20px;
       }
 
-      .sectionHeader h3 {
+      .sectionCard {
+        padding: 28px;
+      }
+
+      .sectionLabel {
+        margin: 0 0 12px;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .sectionTitle {
         margin: 0;
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+      }
+
+      .sectionText {
+        margin: 16px 0 0;
+        color: var(--text-soft);
+        font-size: 16px;
+      }
+
+      .featureGrid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .featureBox {
+        padding: 20px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.56);
+        border: 1px solid rgba(255, 255, 255, 0.68);
+      }
+
+      .featureBox strong,
+      .benefitCard strong,
+      .legalCard strong {
+        display: block;
         font-size: 18px;
-        letter-spacing: -0.2px;
-        color: var(--page-text);
+        letter-spacing: -0.02em;
       }
 
-      .sectionHeader p {
-        margin: 0;
-        color: var(--page-muted);
+      .featureBox p,
+      .benefitCard p,
+      .legalCard p,
+      .galleryIntro p,
+      footer p {
+        margin: 8px 0 0;
+        color: var(--text-soft);
+      }
+
+      .benefits {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 22px;
+      }
+
+      .benefitCard {
+        padding: 22px;
+        border-radius: 26px;
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.74);
+      }
+
+      .benefitIcon {
+        width: 42px;
+        height: 42px;
+        display: inline-grid;
+        place-items: center;
+        margin-bottom: 16px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(255, 95, 87, 0.18), rgba(87, 132, 255, 0.2));
+        color: var(--accent-strong);
+        font-weight: 700;
+      }
+
+      .darkPanel {
+        padding: 30px;
+        background:
+          radial-gradient(circle at top left, rgba(255, 95, 87, 0.18), transparent 34%),
+          linear-gradient(160deg, rgba(15, 23, 40, 0.98), rgba(20, 30, 51, 0.92));
+        color: var(--text-on-dark);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .darkPanel .sectionLabel,
+      .darkPanel .sectionText,
+      .darkPanel ul,
+      .darkPanel p,
+      .darkPanel li {
+        color: var(--text-on-dark-soft);
+      }
+
+      .checkList {
+        margin: 20px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 12px;
+      }
+
+      .checkList li {
+        padding: 14px 16px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .gallerySection {
+        margin-top: 20px;
+      }
+
+      .galleryIntro {
+        padding: 26px 28px;
+        margin-bottom: 14px;
+      }
+
+      .galleryIntroRow {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: end;
+      }
+
+      .galleryHint {
+        flex: 0 0 auto;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        color: var(--text-muted);
         font-size: 13px;
       }
 
-      /* Apple-like vertical scroll drives horizontal gallery */
       .hScrollStage {
         position: relative;
       }
@@ -313,34 +671,33 @@
         height: 100vh;
         height: 100svh;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
       }
 
       .shotsOuter {
-        --shot-w: clamp(260px, 78vw, 340px);
-
+        width: 100%;
+        --shot-w: clamp(280px, 32vw, 360px);
         overflow: hidden;
-        border-radius: var(--radius);
+        border-radius: var(--radius-xl);
         contain: paint;
       }
 
       .shotsTrack {
         display: flex;
-        gap: 14px;
-        padding: 6px calc((100% - var(--shot-w)) / 2) 10px;
+        gap: 16px;
+        padding: 8px calc((100% - var(--shot-w)) / 2) 10px;
         will-change: transform;
         transform: translate3d(0, 0, 0);
       }
 
       .shot {
-        border-radius: var(--radius);
-        overflow: hidden;
-        border: 1px solid var(--card-border);
-        background: rgba(17, 17, 19, 0.80);
-        box-shadow: var(--shadow);
-        flex: 0 0 auto;
         width: var(--shot-w);
+        flex: 0 0 auto;
+        border-radius: 34px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        box-shadow: var(--shadow-xl);
       }
 
       .shot img {
@@ -349,8 +706,104 @@
         height: auto;
       }
 
-      /* Mobile: fallback to native horizontal scroll to keep momentum buttery on iOS Safari. */
-      @media (max-width: 720px) {
+      .legalGrid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .legalCard {
+        padding: 24px;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .legalCard:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+        background: var(--surface-strong);
+      }
+
+      .legalCard span {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 18px;
+        color: var(--accent-strong);
+        font-weight: 600;
+      }
+
+      footer {
+        padding: 30px 4px 10px;
+      }
+
+      footer p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      @media (max-width: 1080px) {
+        .hero,
+        .twoColumn,
+        .benefits,
+        .legalGrid {
+          grid-template-columns: 1fr;
+        }
+
+        .heroTitle {
+          max-width: none;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: min(calc(100% - 20px), var(--wrap));
+          padding-top: 14px;
+        }
+
+        .topbar,
+        .galleryIntroRow {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav {
+          justify-content: flex-start;
+        }
+
+        .heroCard,
+        .showcaseCard,
+        .sectionCard,
+        .darkPanel,
+        .galleryIntro,
+        .legalCard {
+          padding: 22px;
+          border-radius: 28px;
+        }
+
+        .heroMeta,
+        .showcaseFooter,
+        .featureGrid {
+          grid-template-columns: 1fr;
+        }
+
+        .showcaseCenter {
+          min-height: 420px;
+        }
+
+        .floatingStat {
+          right: 2px;
+          top: 54px;
+        }
+
+        .floatingPanel {
+          left: 0;
+          bottom: 24px;
+          width: 168px;
+        }
+
         .hScrollSticky {
           position: static;
           height: auto;
@@ -363,136 +816,205 @@
         }
 
         .shotsTrack {
-          padding: 14px 12px;
+          padding: 8px 12px 10px;
           scroll-snap-type: x mandatory;
         }
 
         .shot {
+          width: min(82vw, 320px);
           scroll-snap-align: center;
         }
-      }
-
-      .legal {
-        margin-top: 18px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-      }
-
-      @media (max-width: 720px) {
-        .legal {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .legal a {
-        padding: 14px 14px;
-        border-radius: 16px;
-        border: 1px solid var(--card-border);
-        background: var(--card-2);
-        color: var(--muted);
-        transition:
-          transform 120ms ease,
-          background-color 120ms ease,
-          border-color 120ms ease;
-      }
-
-      .legal a:hover {
-        transform: translateY(-1px);
-        background: rgba(28, 28, 32, 0.96);
-        border-color: rgba(255, 255, 255, 0.18);
-      }
-
-      footer {
-        margin-top: 26px;
-        color: var(--page-muted);
-        font-size: 12px;
-      }
-
-      .divider {
-        height: 1px;
-        background: rgba(255, 255, 255, 0.10);
-        margin: 18px 0;
       }
     </style>
   </head>
 
   <body>
-    <div class="wrap">
-      <header>
-        <div class="brand" aria-label="Projekt">
-          <div class="logo">
+    <div class="page">
+      <header class="topbar glass">
+        <div class="brand" aria-label="AirPulse">
+          <div class="brandmark">
             <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" />
           </div>
-          <div>
-            <h1>AirPulse</h1>
-            <p>Herzfrequenz-Tracking mit AirPods Pro 3</p>
+          <div class="brandcopy">
+            <strong>AirPulse</strong>
+            <span>Herzfrequenz live mit AirPods Pro 3</span>
           </div>
         </div>
-        <nav aria-label="Rechtliches">
-          <a class="navlink" href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">Terms of Use</a>
-          <a class="navlink" href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>
-          <a class="navlink" href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">Imprint</a>
+
+        <nav class="nav" aria-label="Rechtliches">
+          <a href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">Terms</a>
+          <a href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">Privacy</a>
+          <a href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">Imprint</a>
         </nav>
       </header>
 
       <main>
-        <section class="hero" aria-label="Beschreibung">
-          <div class="card">
-            <p class="kicker">Herzfrequenz · AirPods Pro 3 · Live</p>
-            <h2 class="headline">Miss deine Herzfrequenz in Echtzeit – direkt mit AirPods Pro 3.</h2>
-            <p class="sub">Live Activity, Verlauf und Statistiken – reduziert auf das Wesentliche, gemacht für schnelle Nutzung.</p>
-
-            <p class="copy">
-              Miss deine Herzfrequenz mit AirPods Pro 3 in Echtzeit, verfolge Werte per Live Activity und starte dein Tracking
-              automatisch im Hintergrund.
+        <section class="hero" aria-label="AirPulse Hero">
+          <article class="heroCard glass">
+            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>iPhone-native Pulse Tracking</div>
+            <h1 class="heroTitle">Dein Puls. Live auf dem iPhone.</h1>
+            <p class="heroText">
+              AirPulse macht Herzfrequenz-Tracking mit AirPods Pro 3 schnell, klar und alltagstauglich. Live Activity,
+              Verlauf, smarte Filter und eine Oberfläche, die sich wie ein natürlicher Teil von iOS anfühlt.
             </p>
 
-            <p class="copy">
-              AirPulse macht Herzfrequenz-Tracking mit AirPods Pro 3 schnell, direkt und alltagstauglich. Einfach AirPods Pro 3
-              einsetzen und der Puls wird automatisch jederzeit aufgezeichnet.
-            </p>
-
-            <p class="copy">
-              Behalte deinen Puls in Echtzeit im Blick, sieh Live-Werte direkt auf dem iPhone und nutze eine reduzierte, auf
-              schnelle Nutzung ausgelegte Oberfläche.
-            </p>
-
-            <div class="badges" aria-label="Highlights">
-              <div class="badge"><span class="dot" aria-hidden="true"></span>Live Activity (Lock Screen & Dynamic Island)</div>
-              <div class="badge"><span class="dot" aria-hidden="true"></span>Verlauf & Pulsstatistiken</div>
-              <div class="badge"><span class="dot" aria-hidden="true"></span>Standortfilter & Low Power Verhalten</div>
+            <div class="heroActions">
+              <a class="button primary" href="#preview">Vorschau ansehen</a>
+              <a class="button secondary" href="#details">Funktionen entdecken</a>
             </div>
-          </div>
 
-          <aside class="card soft" aria-label="Features">
-            <p class="featureTitle">Funktionen</p>
-            <ul class="features">
-              <li>Echtzeit-Anzeige deiner Herzfrequenz</li>
-              <li>Live Activity auf Sperrbildschirm und Dynamic Island</li>
-              <li>Verlaufsgrafik und wichtige Pulsstatistiken</li>
-              <li>Standortfilter für kontrollierte Tracking-Starts</li>
-              <li>Low-Power-Verhalten abhängig von Berechtigungen und Nutzungskontext</li>
-              <li>Geräteverwaltung für eingerichtete AirPods</li>
-              <li>Deutsche und Englische Sprache</li>
-            </ul>
+            <div class="heroMeta" aria-label="Highlights">
+              <div class="metaItem">
+                <strong>Live</strong>
+                <span>Herzfrequenz in Echtzeit auf einen Blick</span>
+              </div>
+              <div class="metaItem">
+                <strong>Smart</strong>
+                <span>Filter, Automationen und Low-Power-Logik</span>
+              </div>
+              <div class="metaItem">
+                <strong>Private</strong>
+                <span>Datenverarbeitung primär direkt auf dem Gerät</span>
+              </div>
+            </div>
+          </article>
 
-            <div class="divider" role="separator" aria-hidden="true"></div>
+          <aside class="showcaseCard" aria-label="App Vorschau">
+            <div class="showcaseGlow" aria-hidden="true"></div>
+            <div class="showcaseTop">
+              <div>
+                <p>Jetzt im Fokus</p>
+                <strong>Live Activity, Verlauf und Widgets</strong>
+              </div>
+              <div class="showcaseBadge">Optimiert für den schnellen Blick</div>
+            </div>
 
-            <p class="featureTitle">Hinweise</p>
-            <ul class="features">
-              <li>Für die Nutzung werden kompatible AirPods Pro 3 benötigt.</li>
-              <li>Für bestimmte Funktionen sind HealthKit-, Mitteilungs- und optional Standortberechtigungen erforderlich.</li>
+            <div class="showcaseCenter">
+              <div class="phoneFrame">
+                <img src="assets/appstore-1.jpeg" alt="AirPulse Screenshot auf iPhone" loading="eager" />
+              </div>
+
+              <div class="floatingStat" aria-label="Beispielwert">
+                <span>Live Herzfrequenz</span>
+                <strong>72 BPM</strong>
+              </div>
+
+              <div class="floatingPanel" aria-label="Verlaufskarte">
+                <span>Verlauf</span>
+                <strong>Sauber lesbare Trends statt Datenrauschen</strong>
+                <div class="miniBars" aria-hidden="true">
+                  <i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcaseFooter">
+              <article>
+                <strong>Dynamic Island</strong>
+                <p>Aktuelle Werte bleiben sichtbar, ohne die App offen zu halten.</p>
+              </article>
+              <article>
+                <strong>Widgets</strong>
+                <p>Wichtige Infos landen dort, wo du sie erwartest.</p>
+              </article>
+              <article>
+                <strong>Routine</strong>
+                <p>Weniger Tippen, schneller starten, natürlicher im Alltag.</p>
+              </article>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section twoColumn" id="details" aria-label="Produktdetails">
+          <article class="sectionCard glass">
+            <p class="sectionLabel">Warum AirPulse</p>
+            <h2 class="sectionTitle">Entwickelt für kurze Blicke, nicht für überladene Dashboards.</h2>
+            <p class="sectionText">
+              Die App konzentriert sich auf genau das, was im Alltag zählt: aktuelle Herzfrequenz, klare Historie und
+              Funktionen, die automatisch im Hintergrund mitdenken statt dich auszubremsen.
+            </p>
+
+            <div class="featureGrid">
+              <div class="featureBox">
+                <strong>Echtzeit ohne Umwege</strong>
+                <p>Starte dein Tracking schnell und sieh deinen Puls sofort auf iPhone, Sperrbildschirm und Dynamic Island.</p>
+              </div>
+              <div class="featureBox">
+                <strong>Verlauf mit Substanz</strong>
+                <p>Trends, letzte Werte und Statistiken bleiben verständlich, statt sich in Komplexität zu verlieren.</p>
+              </div>
+              <div class="featureBox">
+                <strong>Standortbasierte Regeln</strong>
+                <p>Nutze Filter, um Tracking nur dort zu aktivieren, wo es für dich sinnvoll ist.</p>
+              </div>
+              <div class="featureBox">
+                <strong>Mehr Kontrolle über Energie</strong>
+                <p>Low-Power-Verhalten und Berechtigungen greifen sauber ineinander, damit die App planbar bleibt.</p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="darkPanel">
+            <p class="sectionLabel">Kompatibilität</p>
+            <h2 class="sectionTitle">Klarer Funktionsumfang statt vager Versprechen.</h2>
+            <p class="sectionText">
+              AirPulse ist auf AirPods Pro 3 und moderne iPhone-Workflows zugeschnitten. Bestimmte Features setzen HealthKit,
+              Mitteilungen und optional Standortzugriff voraus.
+            </p>
+
+            <ul class="checkList">
+              <li>Live Activity auf Sperrbildschirm und in der Dynamic Island</li>
+              <li>Geräteverwaltung für unterstützte AirPods-Konfigurationen</li>
+              <li>Deutsch und Englisch direkt in der App verfügbar</li>
+              <li>Lokale Einstellungen für ein konsistentes, schnelles Nutzererlebnis</li>
             </ul>
           </aside>
         </section>
 
-        <section class="section" aria-label="App Store Vorschau">
+        <section class="section sectionCard glass" aria-label="Vorteile">
+          <p class="sectionLabel">Erlebnis</p>
+          <h2 class="sectionTitle">Modern, ruhig und sichtbar iOS-inspiriert.</h2>
+          <p class="sectionText">
+            Von Glasflächen über weiche Tiefe bis zur klaren Typografie ist alles darauf ausgelegt, vertraut zu wirken und
+            gleichzeitig eigenständig genug zu bleiben, um als Produktseite Charakter zu haben.
+          </p>
+
+          <div class="benefits">
+            <article class="benefitCard">
+              <div class="benefitIcon">01</div>
+              <strong>Fokussierte Startfläche</strong>
+              <p>Der Einstieg erklärt in Sekunden, was die App kann und warum sie auf dem iPhone Sinn ergibt.</p>
+            </article>
+            <article class="benefitCard">
+              <div class="benefitIcon">02</div>
+              <strong>Präzisere Copy</strong>
+              <p>Weniger Wiederholung, mehr Nutzenargumente und klarere Sprache für App Store, Website und Support-Kontext.</p>
+            </article>
+            <article class="benefitCard">
+              <div class="benefitIcon">03</div>
+              <strong>Vertrauen ohne Overkill</strong>
+              <p>Datenschutz, Kompatibilität und technische Hinweise bleiben sichtbar, ohne die Seite zu überfrachten.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="gallerySection" id="preview" aria-label="App Store Vorschau">
+          <div class="galleryIntro glass">
+            <div class="galleryIntroRow">
+              <div>
+                <p class="sectionLabel">Preview</p>
+                <h2 class="sectionTitle">Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt.</h2>
+                <p>
+                  Die Screenshots zeigen den Fokus von AirPulse: Live-Werte, übersichtliche Historie und schnelle Interaktion
+                  ohne visuelle Unruhe.
+                </p>
+              </div>
+              <div class="galleryHint">Vertikal scrollen, horizontal entdecken</div>
+            </div>
+          </div>
+
           <div class="hScrollStage" data-hscroll>
             <div class="hScrollSticky">
-              <div class="sectionHeader">
-                <h3>App-Store Vorschau</h3>
-              </div>
               <div class="shotsOuter" aria-label="App-Store Galerie">
                 <div class="shotsTrack" data-hscroll-track>
                   <div class="shot"><img src="assets/appstore-1.jpeg" alt="AirPulse Screenshot 1" loading="lazy" /></div>
@@ -507,40 +1029,42 @@
           </div>
         </section>
 
-        <section class="legal" aria-label="Rechtliche Links">
-          <a href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">
-            <strong>Terms of Use</strong><br />
-            <span class="sub">Nutzungsbedingungen</span>
+        <section class="section legalGrid" aria-label="Rechtliche Links">
+          <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">
+            <strong>Terms of Use</strong>
+            <p>Die wichtigsten Nutzungsbedingungen und Hinweise zum Einsatz der App.</p>
+            <span>Dokument öffnen</span>
           </a>
-          <a href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">
-            <strong>Privacy Policy</strong><br />
-            <span class="sub">Datenschutzerklärung</span>
+          <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">
+            <strong>Privacy Policy</strong>
+            <p>Welche Daten verarbeitet werden, wofür sie gebraucht werden und was lokal bleibt.</p>
+            <span>Dokument öffnen</span>
           </a>
-          <a href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">
-            <strong>Imprint</strong><br />
-            <span class="sub">Impressum</span>
+          <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">
+            <strong>Imprint</strong>
+            <p>Kontakt, Verantwortlichkeit und rechtliche Rahmeninformationen zu AirPulse.</p>
+            <span>Dokument öffnen</span>
           </a>
         </section>
 
         <footer>
-          <div>Copyright © <span id="year">2026</span> Christian Range</div>
+          <p>AirPulse ist eine Consumer-App für Herzfrequenzdarstellung und ersetzt keine medizinische Beratung oder Notfallversorgung.</p>
+          <p>Copyright © <span id="year">2026</span> Christian Range</p>
         </footer>
       </main>
     </div>
 
     <script>
-      // Minimal: only set the year.
       (function () {
-        var el = document.getElementById("year");
-        if (el) el.textContent = String(new Date().getFullYear());
+        var year = document.getElementById("year");
+        if (year) year.textContent = String(new Date().getFullYear());
       })();
 
-      // Apple-like: vertical scroll drives horizontal gallery inside the sticky section.
       (function () {
         var prefersReduced = false;
         try {
           prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        } catch (e) {
+        } catch (error) {
           prefersReduced = false;
         }
 
@@ -550,11 +1074,10 @@
         var track = stage.querySelector("[data-hscroll-track]");
         if (!track) return;
 
-        var mediaSticky = window.matchMedia ? window.matchMedia("(min-width: 721px)") : null;
+        var mediaSticky = window.matchMedia ? window.matchMedia("(min-width: 761px)") : null;
         var isStickyMode = !prefersReduced && (!mediaSticky || mediaSticky.matches);
-
-        var viewportH = 0;
-        var dist = 0;
+        var viewportHeight = 0;
+        var distance = 0;
         var start = 0;
         var end = 0;
 
@@ -563,48 +1086,40 @@
         }
 
         function getViewportHeight() {
-          // iOS Safari: the dynamic URL bar can make `innerHeight` fluctuate while scrolling.
-          // `visualViewport.height` is usually a better proxy for the *current* visible area.
           if (window.visualViewport && window.visualViewport.height) return window.visualViewport.height;
           return document.documentElement.clientHeight || window.innerHeight;
         }
 
         function getScrollableDistance() {
-          var viewportW = stage.clientWidth;
-          var contentW = track.scrollWidth;
-          return Math.max(0, contentW - viewportW);
+          return Math.max(0, track.scrollWidth - stage.clientWidth);
         }
 
         function layoutStage() {
           if (!isStickyMode) {
             stage.style.height = "";
+            track.style.transform = "translate3d(0,0,0)";
             return;
           }
 
-          // Make the stage tall enough so that scrolling through it can cover the full horizontal distance.
-          // Height = viewportHeight + horizontalDistance
-          viewportH = getViewportHeight();
-          dist = getScrollableDistance();
-          stage.style.height = String(viewportH + dist) + "px";
+          viewportHeight = getViewportHeight();
+          distance = getScrollableDistance();
+          stage.style.height = String(viewportHeight + distance) + "px";
 
-          // Cache geometry to avoid forced layout on every scroll tick.
           var rectTop = stage.getBoundingClientRect().top;
           start = (window.scrollY || window.pageYOffset || 0) + rectTop;
-          end = start + stage.offsetHeight - viewportH;
+          end = start + stage.offsetHeight - viewportHeight;
         }
 
         function update() {
-          if (!isStickyMode || dist <= 0) {
+          if (!isStickyMode || distance <= 0) {
             track.style.transform = "translate3d(0,0,0)";
             return;
           }
 
           var y = window.scrollY || window.pageYOffset || 0;
-
-          var t = end > start ? (y - start) / (end - start) : 0;
-          t = clamp(t, 0, 1);
-          var x = -dist * t;
-          track.style.transform = "translate3d(" + x + "px,0,0)";
+          var progress = end > start ? (y - start) / (end - start) : 0;
+          var offset = -distance * clamp(progress, 0, 1);
+          track.style.transform = "translate3d(" + offset + "px,0,0)";
         }
 
         var raf = 0;
@@ -622,7 +1137,6 @@
           schedule();
         }
 
-        // Initial.
         layoutStage();
         update();
 
@@ -644,7 +1158,6 @@
           else if (mediaSticky.addListener) mediaSticky.addListener(onResize);
         }
 
-        // If motion should be reduced, avoid additional smoothing effects.
         if (prefersReduced) {
           track.style.willChange = "auto";
         }
