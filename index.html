@@ -311,6 +311,7 @@
         position: sticky;
         top: 0;
         height: 100vh;
+        height: 100svh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -321,6 +322,7 @@
 
         overflow: hidden;
         border-radius: var(--radius);
+        contain: paint;
       }
 
       .shotsTrack {
@@ -525,8 +527,20 @@
         var track = stage.querySelector("[data-hscroll-track]");
         if (!track) return;
 
+        var viewportH = 0;
+        var dist = 0;
+        var start = 0;
+        var end = 0;
+
         function clamp(value, min, max) {
           return Math.min(Math.max(value, min), max);
+        }
+
+        function getViewportHeight() {
+          // iOS Safari: the dynamic URL bar can make `innerHeight` fluctuate while scrolling.
+          // `visualViewport.height` is usually a better proxy for the *current* visible area.
+          if (window.visualViewport && window.visualViewport.height) return window.visualViewport.height;
+          return document.documentElement.clientHeight || window.innerHeight;
         }
 
         function getScrollableDistance() {
@@ -538,26 +552,28 @@
         function layoutStage() {
           // Make the stage tall enough so that scrolling through it can cover the full horizontal distance.
           // Height = viewportHeight + horizontalDistance
-          var dist = getScrollableDistance();
-          stage.style.height = String(window.innerHeight + dist) + "px";
+          viewportH = getViewportHeight();
+          dist = getScrollableDistance();
+          stage.style.height = String(viewportH + dist) + "px";
+
+          // Cache geometry to avoid forced layout on every scroll tick.
+          var rectTop = stage.getBoundingClientRect().top;
+          start = (window.scrollY || window.pageYOffset || 0) + rectTop;
+          end = start + stage.offsetHeight - viewportH;
         }
 
         function update() {
-          var dist = getScrollableDistance();
           if (dist <= 0) {
             track.style.transform = "translate3d(0,0,0)";
             return;
           }
 
-          var rect = stage.getBoundingClientRect();
-          var start = window.scrollY + rect.top;
-          var end = start + stage.offsetHeight - window.innerHeight;
-          var y = window.scrollY;
+          var y = window.scrollY || window.pageYOffset || 0;
 
           var t = end > start ? (y - start) / (end - start) : 0;
           t = clamp(t, 0, 1);
           var x = -dist * t;
-          track.style.transform = "translate3d(" + x.toFixed(2) + "px,0,0)";
+          track.style.transform = "translate3d(" + x + "px,0,0)";
         }
 
         var raf = 0;
@@ -586,6 +602,10 @@
           },
           { passive: true }
         );
+
+        if (window.visualViewport && window.visualViewport.addEventListener) {
+          window.visualViewport.addEventListener("resize", onResize, { passive: true });
+        }
 
         // If motion should be reduced, avoid additional smoothing effects.
         if (prefersReduced) {
