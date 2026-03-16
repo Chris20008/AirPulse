@@ -134,6 +134,13 @@
         position: sticky;
         top: 18px;
         z-index: 20;
+        transition:
+          padding 180ms ease,
+          gap 180ms ease,
+          border-radius 180ms ease,
+          transform 180ms ease,
+          background-color 180ms ease,
+          box-shadow 180ms ease;
       }
 
       .brand {
@@ -150,6 +157,10 @@
         overflow: hidden;
         box-shadow: var(--shadow-md);
         flex: 0 0 auto;
+        transition:
+          width 180ms ease,
+          height 180ms ease,
+          border-radius 180ms ease;
       }
 
       .brandmark img {
@@ -166,11 +177,16 @@
       .brandcopy strong {
         font-size: 16px;
         letter-spacing: -0.2px;
+        transition: font-size 180ms ease;
       }
 
       .brandcopy span {
         font-size: 13px;
         color: var(--text-muted);
+        transition:
+          opacity 180ms ease,
+          max-height 180ms ease,
+          margin 180ms ease;
       }
 
       .nav {
@@ -178,6 +194,10 @@
         gap: 10px;
         flex-wrap: wrap;
         justify-content: flex-end;
+        transition:
+          opacity 180ms ease,
+          max-height 180ms ease,
+          margin 180ms ease;
       }
 
       .nav a {
@@ -240,7 +260,7 @@
       .eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 0;
         padding: 8px 12px;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.66);
@@ -254,6 +274,7 @@
       .pulseDot {
         width: 8px;
         height: 8px;
+        margin-right: 10px;
         border-radius: 50%;
         background: var(--accent-strong);
         box-shadow: 0 0 0 8px var(--accent-soft);
@@ -764,10 +785,17 @@
         }
 
         .topbar {
-          position: static;
-          top: auto;
+          position: sticky;
+          top: 10px;
           gap: 10px;
           padding: 12px 14px;
+        }
+
+        .topbar.is-compact {
+          gap: 8px;
+          padding: 9px 12px;
+          border-radius: 18px;
+          justify-content: flex-start;
         }
 
         .galleryIntroRow {
@@ -793,6 +821,23 @@
           font-size: 12px;
         }
 
+        .topbar.is-compact .brandmark {
+          width: 34px;
+          height: 34px;
+          border-radius: 11px;
+        }
+
+        .topbar.is-compact .brandcopy strong {
+          font-size: 14px;
+        }
+
+        .topbar.is-compact .brandcopy span {
+          opacity: 0;
+          max-height: 0;
+          margin: 0;
+          overflow: hidden;
+        }
+
         .nav {
           justify-content: flex-start;
           gap: 8px;
@@ -801,6 +846,14 @@
         .nav a {
           padding: 8px 12px;
           font-size: 12px;
+        }
+
+        .topbar.is-compact .nav {
+          opacity: 0;
+          max-height: 0;
+          margin: 0;
+          overflow: hidden;
+          pointer-events: none;
         }
 
         .heroCard,
@@ -881,8 +934,8 @@
       <main>
         <section class="hero" aria-label="AirPulse Hero">
           <article class="heroCard glass">
-            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>Automatischer Start mit AirPods Pro 3</div>
-            <h1 class="heroTitle">Tracking startet beim Einsetzen deiner AirPods Pro 3.</h1>
+            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>&nbsp;Herzfrequenz mit AirPods Pro 3</div>
+            <h1 class="heroTitle">Tracking startet beim Einsetzen deiner AirPods Pro 3</h1>
             <p class="heroText">
               AirPulse erkennt kompatible AirPods Pro 3 und startet das Herzfrequenz-Tracking automatisch, ohne dass du es
               manuell anstoßen musst. Live Activity, Widgets und Verlauf halten deine Werte anschließend direkt auf dem iPhone sichtbar.
@@ -958,7 +1011,7 @@
         <section class="section twoColumn" id="details" aria-label="Produktdetails">
           <article class="sectionCard glass">
             <p class="sectionLabel">Warum AirPulse</p>
-            <h2 class="sectionTitle">Entwickelt für kurze Blicke, nicht für überladene Dashboards.</h2>
+            <h2 class="sectionTitle">Entwickelt für kurze Blicke, nicht für überladene Dashboards</h2>
             <p class="sectionText">
               Die App konzentriert sich auf genau das, was im Alltag zählt: aktuelle Herzfrequenz, klare Historie und
               Funktionen, die den Tracking-Start vereinfachen und die wichtigsten Werte schnell sichtbar machen.
@@ -986,7 +1039,7 @@
 
           <aside class="darkPanel">
             <p class="sectionLabel">Kompatibilität</p>
-            <h2 class="sectionTitle">Klarer Funktionsumfang statt vager Versprechen.</h2>
+            <h2 class="sectionTitle">Klarer Funktionsumfang statt vager Versprechen</h2>
             <p class="sectionText">
               AirPulse ist auf AirPods Pro 3 und moderne iPhone-Workflows zugeschnitten. Bestimmte Features setzen HealthKit,
               Mitteilungen und optional Standortzugriff voraus.
@@ -1003,7 +1056,7 @@
 
         <section class="section sectionCard glass" aria-label="Vorteile">
           <p class="sectionLabel">Erlebnis</p>
-          <h2 class="sectionTitle">Auf die Funktionen reduziert, die im Alltag wirklich zählen.</h2>
+          <h2 class="sectionTitle">Auf die Funktionen reduziert, die im Alltag wirklich zählen</h2>
           <p class="sectionText">
             AirPulse konzentriert sich auf automatische Tracking-Starts, gut sichtbare Live-Werte und eine verständliche Historie.
             So bleibt die App schnell erfassbar und funktional statt überladen.
@@ -1033,7 +1086,7 @@
             <div class="galleryIntroRow">
               <div>
                 <p class="sectionLabel">Preview</p>
-                <h2 class="sectionTitle">Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt.</h2>
+                <h2 class="sectionTitle">Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt</h2>
                 <p>
                   Die Screenshots zeigen den Fokus von AirPulse: Live-Werte, übersichtliche Historie und schnelle Interaktion
                   ohne visuelle Unruhe.
@@ -1061,7 +1114,7 @@
 
         <section class="section sectionCard glass" aria-label="Kontakt und Weiterentwicklung">
           <p class="sectionLabel">Feedback</p>
-          <h2 class="sectionTitle">AirPulse wird kontinuierlich weiterentwickelt.</h2>
+          <h2 class="sectionTitle">AirPulse wird kontinuierlich weiterentwickelt</h2>
           <p class="sectionText">
             Du hast eine Idee für ein neues Feature oder möchtest dir eine bestimmte Funktion wünschen? Dann schreib uns an
             <a href="mailto:airpulseapp@icloud.com">airpulseapp@icloud.com</a>.
@@ -1097,6 +1150,31 @@
       (function () {
         var year = document.getElementById("year");
         if (year) year.textContent = String(new Date().getFullYear());
+      })();
+
+      (function () {
+        var header = document.querySelector(".topbar");
+        if (!header || !window.matchMedia) return;
+
+        var mobileMedia = window.matchMedia("(max-width: 760px)");
+        var compactThreshold = 20;
+
+        function updateHeaderState() {
+          if (!mobileMedia.matches) {
+            header.classList.remove("is-compact");
+            return;
+          }
+
+          var y = window.scrollY || window.pageYOffset || 0;
+          header.classList.toggle("is-compact", y > compactThreshold);
+        }
+
+        updateHeaderState();
+        window.addEventListener("scroll", updateHeaderState, { passive: true });
+        window.addEventListener("resize", updateHeaderState);
+
+        if (mobileMedia.addEventListener) mobileMedia.addEventListener("change", updateHeaderState);
+        else if (mobileMedia.addListener) mobileMedia.addListener(updateHeaderState);
       })();
 
       (function () {
