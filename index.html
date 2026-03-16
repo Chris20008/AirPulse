@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>AirPulse</title>
+    <meta
+      name="description"
+      content="AirPulse – kompakte, moderne App für Live-Puls-/Aktivitätsanzeige, Live Activities und Widgets."
+    />
+
+    <link rel="icon" href="assets/Version7.png" type="image/png" />
+    <meta name="theme-color" content="#F4B0AA" />
+
+    <meta property="og:title" content="AirPulse" />
+    <meta
+      property="og:description"
+      content="Miss deine Herzfrequenz mit AirPods Pro 3 in Echtzeit – Live Activity, Verlauf und Statistiken."
+    />
+    <meta property="og:type" content="website" />
+
+    <style>
+      :root {
+        color-scheme: light;
+
+        /* Color schema aligned to the provided App Store screenshots:
+           warm pink background + deep dark cards + red accent. */
+        --bg: #f4b0aa;
+        --bg2: rgba(244, 176, 170, 0.65);
+        --page-text: rgba(17, 17, 19, 0.88);
+        --page-muted: rgba(17, 17, 19, 0.62);
+        --card: rgba(17, 17, 19, 0.92);
+        --card-2: rgba(28, 28, 32, 0.90);
+        --card-border: rgba(255, 255, 255, 0.10);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.72);
+        --muted2: rgba(255, 255, 255, 0.58);
+        --accent: #e3453c;
+        --accent-soft: rgba(227, 69, 60, 0.22);
+        --focus: rgba(227, 69, 60, 0.55);
+        --shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+        --radius: 22px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          "Apple Color Emoji",
+          "Segoe UI Emoji";
+        line-height: 1.5;
+        color: var(--page-text);
+        background:
+          radial-gradient(900px 520px at 20% 0%, rgba(255, 255, 255, 0.18), transparent 55%),
+          radial-gradient(800px 520px at 95% 20%, rgba(227, 69, 60, 0.16), transparent 60%),
+          linear-gradient(180deg, var(--bg), var(--bg2));
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+
+      .wrap {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 34px 20px 62px;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        flex: 0 0 auto;
+      }
+
+      .logo img {
+        width: 44px;
+        height: 44px;
+        display: block;
+        border-radius: 14px;
+      }
+
+      .brand h1 {
+        font-size: 16px;
+        margin: 0;
+        letter-spacing: 0.2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .brand p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--page-muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      nav {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .navlink {
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+        background: rgba(17, 17, 19, 0.55);
+        backdrop-filter: blur(10px);
+        font-size: 13px;
+        color: var(--muted);
+        transition:
+          transform 120ms ease,
+          background-color 120ms ease,
+          border-color 120ms ease;
+      }
+
+      .navlink:hover {
+        transform: translateY(-1px);
+        background: rgba(17, 17, 19, 0.72);
+        border-color: rgba(255, 255, 255, 0.16);
+      }
+
+      main {
+        padding-top: 26px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      @media (max-width: 860px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        nav {
+          justify-content: flex-start;
+        }
+      }
+
+      .card {
+        border-radius: var(--radius);
+        padding: 22px;
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+        color: var(--text);
+      }
+
+      .card.soft {
+        background: var(--card-2);
+      }
+
+      .headline {
+        font-size: clamp(28px, 4vw, 40px);
+        line-height: 1.1;
+        margin: 0 0 10px;
+        letter-spacing: -0.5px;
+      }
+
+      .kicker {
+        margin: 0 0 10px;
+        color: var(--muted2);
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .sub {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .copy {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--card-border);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 4px var(--accent-soft);
+      }
+
+      .featureTitle {
+        margin: 0 0 10px;
+        font-size: 14px;
+        color: var(--muted2);
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      ul.features {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+      }
+
+      ul.features li {
+        margin: 10px 0;
+      }
+
+      .section {
+        margin-top: 18px;
+      }
+
+      .sectionHeader {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .sectionHeader h3 {
+        margin: 0;
+        font-size: 18px;
+        letter-spacing: -0.2px;
+        color: var(--page-text);
+      }
+
+      .sectionHeader p {
+        margin: 0;
+        color: var(--page-muted);
+        font-size: 13px;
+      }
+
+      /* Apple-like vertical scroll drives horizontal gallery */
+      .hScrollStage {
+        position: relative;
+      }
+
+      .hScrollSticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .shotsOuter {
+        --shot-w: clamp(260px, 78vw, 340px);
+
+        overflow: hidden;
+        border-radius: var(--radius);
+      }
+
+      .shotsTrack {
+        display: flex;
+        gap: 14px;
+        padding: 6px calc((100% - var(--shot-w)) / 2) 10px;
+        will-change: transform;
+        transform: translate3d(0, 0, 0);
+      }
+
+      .shot {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--card-border);
+        background: rgba(17, 17, 19, 0.80);
+        box-shadow: var(--shadow);
+        flex: 0 0 auto;
+        width: var(--shot-w);
+      }
+
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .legal {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      @media (max-width: 720px) {
+        .legal {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .legal a {
+        padding: 14px 14px;
+        border-radius: 16px;
+        border: 1px solid var(--card-border);
+        background: var(--card-2);
+        color: var(--muted);
+        transition:
+          transform 120ms ease,
+          background-color 120ms ease,
+          border-color 120ms ease;
+      }
+
+      .legal a:hover {
+        transform: translateY(-1px);
+        background: rgba(28, 28, 32, 0.96);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      footer {
+        margin-top: 26px;
+        color: var(--page-muted);
+        font-size: 12px;
+      }
+
+      .divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.10);
+        margin: 18px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="brand" aria-label="Projekt">
+          <div class="logo">
+            <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" />
+          </div>
+          <div>
+            <h1>AirPulse</h1>
+            <p>Herzfrequenz-Tracking mit AirPods Pro 3</p>
+          </div>
+        </div>
+        <nav aria-label="Rechtliches">
+          <a class="navlink" href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">Terms of Use</a>
+          <a class="navlink" href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>
+          <a class="navlink" href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">Imprint</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-label="Beschreibung">
+          <div class="card">
+            <p class="kicker">Herzfrequenz · AirPods Pro 3 · Live</p>
+            <h2 class="headline">Miss deine Herzfrequenz in Echtzeit – direkt mit AirPods Pro 3.</h2>
+            <p class="sub">Live Activity, Verlauf und Statistiken – reduziert auf das Wesentliche, gemacht für schnelle Nutzung.</p>
+
+            <p class="copy">
+              Miss deine Herzfrequenz mit AirPods Pro 3 in Echtzeit, verfolge Werte per Live Activity und starte dein Tracking
+              automatisch im Hintergrund.
+            </p>
+
+            <p class="copy">
+              AirPulse macht Herzfrequenz-Tracking mit AirPods Pro 3 schnell, direkt und alltagstauglich. Einfach AirPods Pro 3
+              einsetzen und der Puls wird automatisch jederzeit aufgezeichnet.
+            </p>
+
+            <p class="copy">
+              Behalte deinen Puls in Echtzeit im Blick, sieh Live-Werte direkt auf dem iPhone und nutze eine reduzierte, auf
+              schnelle Nutzung ausgelegte Oberfläche.
+            </p>
+
+            <div class="badges" aria-label="Highlights">
+              <div class="badge"><span class="dot" aria-hidden="true"></span>Live Activity (Lock Screen & Dynamic Island)</div>
+              <div class="badge"><span class="dot" aria-hidden="true"></span>Verlauf & Pulsstatistiken</div>
+              <div class="badge"><span class="dot" aria-hidden="true"></span>Standortfilter & Low Power Verhalten</div>
+            </div>
+          </div>
+
+          <aside class="card soft" aria-label="Features">
+            <p class="featureTitle">Funktionen</p>
+            <ul class="features">
+              <li>Echtzeit-Anzeige deiner Herzfrequenz</li>
+              <li>Live Activity auf Sperrbildschirm und Dynamic Island</li>
+              <li>Verlaufsgrafik und wichtige Pulsstatistiken</li>
+              <li>Standortfilter für kontrollierte Tracking-Starts</li>
+              <li>Low-Power-Verhalten abhängig von Berechtigungen und Nutzungskontext</li>
+              <li>Geräteverwaltung für eingerichtete AirPods</li>
+              <li>Deutsche und Englische Sprache</li>
+            </ul>
+
+            <div class="divider" role="separator" aria-hidden="true"></div>
+
+            <p class="featureTitle">Hinweise</p>
+            <ul class="features">
+              <li>Für die Nutzung werden kompatible AirPods Pro 3 benötigt.</li>
+              <li>Für bestimmte Funktionen sind HealthKit-, Mitteilungs- und optional Standortberechtigungen erforderlich.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section" aria-label="App Store Vorschau">
+          <div class="hScrollStage" data-hscroll>
+            <div class="hScrollSticky">
+              <div class="sectionHeader">
+                <h3>App-Store Vorschau</h3>
+              </div>
+              <div class="shotsOuter" aria-label="App-Store Galerie">
+                <div class="shotsTrack" data-hscroll-track>
+                  <div class="shot"><img src="assets/appstore-1.jpeg" alt="AirPulse Screenshot 1" loading="lazy" /></div>
+                  <div class="shot"><img src="assets/appstore-2.jpeg" alt="AirPulse Screenshot 2" loading="lazy" /></div>
+                  <div class="shot"><img src="assets/appstore-3.jpeg" alt="AirPulse Screenshot 3" loading="lazy" /></div>
+                  <div class="shot"><img src="assets/appstore-4.jpeg" alt="AirPulse Screenshot 4" loading="lazy" /></div>
+                  <div class="shot"><img src="assets/appstore-5.jpeg" alt="AirPulse Screenshot 5" loading="lazy" /></div>
+                  <div class="shot"><img src="assets/appstore-6.jpeg" alt="AirPulse Screenshot 6" loading="lazy" /></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="legal" aria-label="Rechtliche Links">
+          <a href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">
+            <strong>Terms of Use</strong><br />
+            <span class="sub">Nutzungsbedingungen</span>
+          </a>
+          <a href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">
+            <strong>Privacy Policy</strong><br />
+            <span class="sub">Datenschutzerklärung</span>
+          </a>
+          <a href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">
+            <strong>Imprint</strong><br />
+            <span class="sub">Impressum</span>
+          </a>
+        </section>
+
+        <footer>
+          <div>Copyright © <span id="year">2026</span> Christian Range</div>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      // Minimal: only set the year.
+      (function () {
+        var el = document.getElementById("year");
+        if (el) el.textContent = String(new Date().getFullYear());
+      })();
+
+      // Apple-like: vertical scroll drives horizontal gallery inside the sticky section.
+      (function () {
+        var prefersReduced = false;
+        try {
+          prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        } catch (e) {
+          prefersReduced = false;
+        }
+
+        var stage = document.querySelector("[data-hscroll]");
+        if (!stage) return;
+
+        var track = stage.querySelector("[data-hscroll-track]");
+        if (!track) return;
+
+        function clamp(value, min, max) {
+          return Math.min(Math.max(value, min), max);
+        }
+
+        function getScrollableDistance() {
+          var viewportW = stage.clientWidth;
+          var contentW = track.scrollWidth;
+          return Math.max(0, contentW - viewportW);
+        }
+
+        function layoutStage() {
+          // Make the stage tall enough so that scrolling through it can cover the full horizontal distance.
+          // Height = viewportHeight + horizontalDistance
+          var dist = getScrollableDistance();
+          stage.style.height = String(window.innerHeight + dist) + "px";
+        }
+
+        function update() {
+          var dist = getScrollableDistance();
+          if (dist <= 0) {
+            track.style.transform = "translate3d(0,0,0)";
+            return;
+          }
+
+          var rect = stage.getBoundingClientRect();
+          var start = window.scrollY + rect.top;
+          var end = start + stage.offsetHeight - window.innerHeight;
+          var y = window.scrollY;
+
+          var t = end > start ? (y - start) / (end - start) : 0;
+          t = clamp(t, 0, 1);
+          var x = -dist * t;
+          track.style.transform = "translate3d(" + x.toFixed(2) + "px,0,0)";
+        }
+
+        var raf = 0;
+        function schedule() {
+          if (raf) return;
+          raf = window.requestAnimationFrame(function () {
+            raf = 0;
+            update();
+          });
+        }
+
+        function onResize() {
+          layoutStage();
+          schedule();
+        }
+
+        // Initial.
+        layoutStage();
+        update();
+
+        window.addEventListener("resize", onResize);
+        window.addEventListener(
+          "scroll",
+          function () {
+            schedule();
+          },
+          { passive: true }
+        );
+
+        // If motion should be reduced, avoid additional smoothing effects.
+        if (prefersReduced) {
+          track.style.willChange = "auto";
+        }
+      })();
+    </script>
+  </body>
+</html>
