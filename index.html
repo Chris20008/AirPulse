@@ -6,6 +6,7 @@
 
     <title>AirPulse</title>
     <meta
+      id="meta-description"
       name="description"
       content="AirPulse zeigt deine Herzfrequenz mit AirPods Pro 3 in Echtzeit an, startet das Tracking automatisch beim Einsetzen und bringt Live Activity, Verlauf und Widgets auf das iPhone."
     />
@@ -15,6 +16,7 @@
 
     <meta property="og:title" content="AirPulse" />
     <meta
+      id="meta-og-description"
       property="og:description"
       content="Herzfrequenz live mit AirPods Pro 3 verfolgen. Das Tracking startet automatisch beim Einsetzen und bleibt über Live Activity, Widgets und Verlauf jederzeit im Blick."
     />
@@ -215,6 +217,41 @@
           max-height 760ms cubic-bezier(0.22, 1, 0.36, 1),
           margin 760ms cubic-bezier(0.22, 1, 0.36, 1),
           transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .topbarActions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 0 0 auto;
+        min-width: 0;
+        transition:
+          opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
+          max-width 760ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .languagePicker {
+        appearance: none;
+        -webkit-appearance: none;
+        min-height: 38px;
+        padding: 0 34px 0 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        background:
+          linear-gradient(45deg, transparent 50%, rgba(16, 23, 40, 0.52) 50%),
+          linear-gradient(135deg, rgba(16, 23, 40, 0.52) 50%, transparent 50%),
+          rgba(255, 255, 255, 0.58);
+        background-position:
+          calc(100% - 18px) 16px,
+          calc(100% - 13px) 16px,
+          0 0;
+        background-size: 5px 5px, 5px 5px, auto;
+        background-repeat: no-repeat;
+        color: var(--text-soft);
+        font: inherit;
+        font-size: 13px;
+        box-shadow: var(--shadow-md);
       }
 
       .nav a {
@@ -925,15 +962,33 @@
           gap: 8px;
         }
 
+        .topbarActions {
+          width: 100%;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+
         .nav a {
           padding: 8px 12px;
           font-size: 12px;
         }
 
-        .topbar.is-compact .nav {
+        .languagePicker {
+          min-height: 34px;
+          padding: 0 30px 0 12px;
+          font-size: 12px;
+          background-position:
+            calc(100% - 16px) 14px,
+            calc(100% - 11px) 14px,
+            0 0;
+        }
+
+        .topbar.is-compact .topbarActions {
           opacity: 0;
           max-height: 0;
           width: 0;
+          max-width: 0;
           margin: 0;
           overflow: hidden;
           pointer-events: none;
@@ -1004,56 +1059,64 @@
             <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" />
           </div>
           <div class="brandcopy">
-            <strong>AirPulse</strong>
-            <span>Herzfrequenz live mit AirPods Pro 3</span>
+            <strong data-i18n="brand.title">AirPulse</strong>
+            <span data-i18n="brand.subtitle">Herzfrequenz live mit AirPods Pro 3</span>
           </div>
         </div>
 
-        <nav class="nav" aria-label="Rechtliches">
-          <a href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">Terms</a>
-          <a href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">Privacy</a>
-          <a href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">Imprint</a>
-        </nav>
+        <div class="topbarActions">
+          <nav class="nav" aria-label="Rechtliches">
+            <a data-i18n="nav.terms" href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">Terms</a>
+            <a data-i18n="nav.privacy" href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">Privacy</a>
+            <a data-i18n="nav.imprint" href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">Imprint</a>
+          </nav>
+
+          <label for="language-picker" class="sr-only" hidden>Language</label>
+          <select id="language-picker" class="languagePicker" aria-label="Language">
+            <option value="de">DE</option>
+            <option value="en">EN</option>
+          </select>
+        </div>
       </header>
 
       <main>
         <section class="hero" aria-label="AirPulse Hero">
           <article class="heroCard glass">
-            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>&nbsp;Herzfrequenz mit AirPods Pro 3</div>
-            <h1 class="heroTitle">Tracking startet beim Einsetzen deiner AirPods Pro 3</h1>
-            <p class="heroText">
+            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>&nbsp;<span data-i18n="hero.eyebrow">Herzfrequenz mit AirPods Pro 3</span></div>
+            <h1 class="heroTitle" data-i18n="hero.title">Tracking startet beim Einsetzen deiner AirPods Pro 3</h1>
+            <p class="heroText" data-i18n="hero.text">
               AirPulse erkennt kompatible AirPods Pro 3 und startet das Herzfrequenz-Tracking automatisch, ohne dass du es
               manuell anstoßen musst. Live Activity, Widgets und Verlauf halten deine Werte anschließend direkt auf dem iPhone sichtbar.
             </p>
 
             <div class="heroFocus" aria-label="Fokus der App">
-              <div class="focusChip strong">Nur Puls</div>
-              <div class="focusChip">Keine Kalorien</div>
-              <div class="focusChip">Keine Workouts</div>
-              <div class="focusChip">Kein unnötiger Overhead</div>
+              <div class="focusChip strong" data-i18n="hero.focus1">Nur Puls</div>
+              <div class="focusChip" data-i18n="hero.focus2">Keine Kalorien</div>
+              <div class="focusChip" data-i18n="hero.focus3">Keine Workouts</div>
+              <div class="focusChip" data-i18n="hero.focus4">Kein unnötiger Overhead</div>
             </div>
 
-            <p class="heroFocusText">
+            <p class="heroFocusText" data-i18n="hero.focusText">
               AirPulse ist bewusst auf Herzfrequenz reduziert und startet kein klassisches Workout mit zusätzlichem Kalorien- oder Aktivitätstracking.
             </p>
 
             <div class="heroActions">
-              <a class="button primary" href="#preview">Vorschau ansehen</a>
-              <a class="button secondary" href="#details">Funktionen entdecken</a>
+              <a class="button primary" data-i18n="hero.ctaPrimary" href="#preview">Vorschau ansehen</a>
+              <a class="button secondary" data-i18n="hero.ctaSecondary" href="#details">Funktionen entdecken</a>
             </div>
 
             <div class="heroMeta" aria-label="Highlights">
               <div class="metaItem">
-                <strong>Live</strong>
-                <span>Herzfrequenz in Echtzeit auf einen Blick</span>
+                <strong data-i18n="meta.liveTitle">Live</strong>
+                <span data-i18n="meta.liveText">Herzfrequenz in Echtzeit auf einen Blick</span>
               </div>
               <div class="metaItem">
-                <strong>Smart</strong>
-                <span>Automatischer Start, Standortfilter und Geräteauswahl</span>
+                <strong data-i18n="meta.smartTitle">Smart</strong>
+                <span data-i18n="meta.smartText">Automatischer Start, Standortfilter und Geräteauswahl</span>
               </div>
               <div class="metaItem">
-                <strong>Private</strong>
-                <span>Datenverarbeitung primär direkt auf dem Gerät</span>
+                <strong data-i18n="meta.privateTitle">Private</strong>
+                <span data-i18n="meta.privateText">Datenverarbeitung primär direkt auf dem Gerät</span>
               </div>
             </div>
           </article>
@@ -1062,10 +1125,10 @@
             <div class="showcaseGlow" aria-hidden="true"></div>
             <div class="showcaseTop">
               <div>
-                <p>Jetzt im Fokus</p>
-                <strong>Live Activity, Verlauf und Widgets</strong>
+                <p data-i18n="showcase.kicker">Jetzt im Fokus</p>
+                <strong data-i18n="showcase.title">Live Activity, Verlauf und Widgets</strong>
               </div>
-              <div class="showcaseBadge">Optimiert für den schnellen Blick</div>
+              <div class="showcaseBadge" data-i18n="showcase.badge">Optimiert für den schnellen Blick</div>
             </div>
 
             <div class="showcaseCenter">
@@ -1074,13 +1137,13 @@
               </div>
 
               <div class="floatingStat" aria-label="Beispielwert">
-                <span>Live Herzfrequenz</span>
+                <span data-i18n="showcase.liveLabel">Live Herzfrequenz</span>
                 <strong>72 BPM</strong>
               </div>
 
               <div class="floatingPanel" aria-label="Verlaufskarte">
-                <span>Verlauf</span>
-                <strong>Sauber lesbare Trends statt Datenrauschen</strong>
+                <span data-i18n="showcase.historyLabel">Verlauf</span>
+                <strong data-i18n="showcase.historyTitle">Sauber lesbare Trends statt Datenrauschen</strong>
                 <div class="miniBars" aria-hidden="true">
                   <i></i><i></i><i></i><i></i><i></i><i></i>
                 </div>
@@ -1089,16 +1152,16 @@
 
             <div class="showcaseFooter">
               <article>
-                <strong>Dynamic Island</strong>
-                <p>Aktuelle Werte bleiben sichtbar, ohne die App offen zu halten.</p>
+                <strong data-i18n="showcase.card1Title">Dynamic Island</strong>
+                <p data-i18n="showcase.card1Text">Aktuelle Werte bleiben sichtbar, ohne die App offen zu halten.</p>
               </article>
               <article>
-                <strong>Widgets</strong>
-                <p>Wichtige Infos landen dort, wo du sie erwartest.</p>
+                <strong data-i18n="showcase.card2Title">Widgets</strong>
+                <p data-i18n="showcase.card2Text">Wichtige Infos landen dort, wo du sie erwartest.</p>
               </article>
               <article>
-                <strong>Automatischer Start</strong>
-                <p>Beim Einsetzen unterstützter AirPods Pro 3 beginnt das Tracking ohne manuellen Start.</p>
+                <strong data-i18n="showcase.card3Title">Automatischer Start</strong>
+                <p data-i18n="showcase.card3Text">Beim Einsetzen unterstützter AirPods Pro 3 beginnt das Tracking ohne manuellen Start.</p>
               </article>
             </div>
           </aside>
@@ -1106,54 +1169,54 @@
 
         <section class="section twoColumn" id="details" aria-label="Produktdetails">
           <article class="sectionCard glass">
-            <p class="sectionLabel">Warum AirPulse</p>
-            <h2 class="sectionTitle">Entwickelt für kurze Blicke, nicht für überladene Dashboards</h2>
-            <p class="sectionText">
+            <p class="sectionLabel" data-i18n="details.label">Warum AirPulse</p>
+            <h2 class="sectionTitle" data-i18n="details.title">Entwickelt für kurze Blicke, nicht für überladene Dashboards</h2>
+            <p class="sectionText" data-i18n="details.text">
               Die App konzentriert sich auf genau das, was im Alltag zählt: aktuelle Herzfrequenz, klare Historie und
               Funktionen, die den Tracking-Start vereinfachen und die wichtigsten Werte schnell sichtbar machen.
             </p>
 
             <div class="featureGrid">
               <div class="featureBox">
-                <strong>Echtzeit ohne Umwege</strong>
-                <p>Sieh deine Herzfrequenz sofort auf dem iPhone sowie auf Sperrbildschirm und Dynamic Island.</p>
+                <strong data-i18n="features.f1Title">Echtzeit ohne Umwege</strong>
+                <p data-i18n="features.f1Text">Sieh deine Herzfrequenz sofort auf dem iPhone sowie auf Sperrbildschirm und Dynamic Island.</p>
               </div>
               <div class="featureBox">
-                <strong>Verlauf mit Substanz</strong>
-                <p>Trends, letzte Werte und Statistiken bleiben verständlich, statt sich in Komplexität zu verlieren.</p>
+                <strong data-i18n="features.f2Title">Verlauf mit Substanz</strong>
+                <p data-i18n="features.f2Text">Trends, letzte Werte und Statistiken bleiben verständlich, statt sich in Komplexität zu verlieren.</p>
               </div>
               <div class="featureBox">
-                <strong>Standortbasierte Regeln</strong>
-                <p>Nutze Filter, um Tracking nur dort zu aktivieren, wo es für dich sinnvoll ist.</p>
+                <strong data-i18n="features.f3Title">Standortbasierte Regeln</strong>
+                <p data-i18n="features.f3Text">Nutze Filter, um Tracking nur dort zu aktivieren, wo es für dich sinnvoll ist.</p>
               </div>
               <div class="featureBox">
-                <strong>Klare Systemintegration</strong>
-                <p>HealthKit, Mitteilungen und optionale Standortfreigabe bilden die Grundlage für die verfügbaren Funktionen.</p>
+                <strong data-i18n="features.f4Title">Klare Systemintegration</strong>
+                <p data-i18n="features.f4Text">HealthKit, Mitteilungen und optionale Standortfreigabe bilden die Grundlage für die verfügbaren Funktionen.</p>
               </div>
             </div>
           </article>
 
           <aside class="darkPanel">
-            <p class="sectionLabel">Kompatibilität</p>
-            <h2 class="sectionTitle">Klarer Funktionsumfang statt vager Versprechen</h2>
-            <p class="sectionText">
+            <p class="sectionLabel" data-i18n="compat.label">Kompatibilität</p>
+            <h2 class="sectionTitle" data-i18n="compat.title">Klarer Funktionsumfang statt vager Versprechen</h2>
+            <p class="sectionText" data-i18n="compat.text">
               AirPulse ist auf AirPods Pro 3 und moderne iPhone-Workflows zugeschnitten. Bestimmte Features setzen HealthKit,
               Mitteilungen und optional Standortzugriff voraus.
             </p>
 
             <ul class="checkList">
-              <li>Live Activity auf Sperrbildschirm und in der Dynamic Island</li>
-              <li>Geräteverwaltung für unterstützte AirPods-Konfigurationen</li>
-              <li>Deutsch und Englisch direkt in der App verfügbar</li>
-              <li>Lokale Einstellungen für ein konsistentes, schnelles Nutzererlebnis</li>
+              <li data-i18n="compat.item1">Live Activity auf Sperrbildschirm und in der Dynamic Island</li>
+              <li data-i18n="compat.item2">Geräteverwaltung für unterstützte AirPods-Konfigurationen</li>
+              <li data-i18n="compat.item3">Deutsch und Englisch direkt in der App verfügbar</li>
+              <li data-i18n="compat.item4">Lokale Einstellungen für ein konsistentes, schnelles Nutzererlebnis</li>
             </ul>
           </aside>
         </section>
 
         <section class="section sectionCard glass" aria-label="Vorteile">
-          <p class="sectionLabel">Erlebnis</p>
-          <h2 class="sectionTitle">Auf die Funktionen reduziert, die im Alltag wirklich zählen</h2>
-          <p class="sectionText">
+          <p class="sectionLabel" data-i18n="benefits.label">Erlebnis</p>
+          <h2 class="sectionTitle" data-i18n="benefits.title">Auf die Funktionen reduziert, die im Alltag wirklich zählen</h2>
+          <p class="sectionText" data-i18n="benefits.text">
             AirPulse konzentriert sich auf automatische Tracking-Starts, gut sichtbare Live-Werte und eine verständliche Historie.
             So bleibt die App schnell erfassbar und funktional statt überladen.
           </p>
@@ -1161,18 +1224,18 @@
           <div class="benefits">
             <article class="benefitCard">
               <div class="benefitIcon">01</div>
-              <strong>Automatisch im richtigen Moment</strong>
-              <p>Das Tracking startet beim Einsetzen kompatibler AirPods Pro 3, statt erst manuell ausgelöst werden zu müssen.</p>
+              <strong data-i18n="benefits.b1Title">Automatisch im richtigen Moment</strong>
+              <p data-i18n="benefits.b1Text">Das Tracking startet beim Einsetzen kompatibler AirPods Pro 3, statt erst manuell ausgelöst werden zu müssen.</p>
             </article>
             <article class="benefitCard">
               <div class="benefitIcon">02</div>
-              <strong>Werte schnell im Blick</strong>
-              <p>Live Activity, Widgets und Verlauf helfen dir dabei, aktuelle und letzte Werte ohne Umwege zu sehen.</p>
+              <strong data-i18n="benefits.b2Title">Werte schnell im Blick</strong>
+              <p data-i18n="benefits.b2Text">Live Activity, Widgets und Verlauf helfen dir dabei, aktuelle und letzte Werte ohne Umwege zu sehen.</p>
             </article>
             <article class="benefitCard">
               <div class="benefitIcon">03</div>
-              <strong>Kontrolle über den Einsatz</strong>
-              <p>Geräteauswahl, Standortfilter und lokale Einstellungen helfen dabei, das Tracking an deinen Ablauf anzupassen.</p>
+              <strong data-i18n="benefits.b3Title">Kontrolle über den Einsatz</strong>
+              <p data-i18n="benefits.b3Text">Geräteauswahl, Standortfilter und lokale Einstellungen helfen dabei, das Tracking an deinen Ablauf anzupassen.</p>
             </article>
           </div>
         </section>
@@ -1181,14 +1244,14 @@
           <div class="galleryIntro glass">
             <div class="galleryIntroRow">
               <div>
-                <p class="sectionLabel">Preview</p>
-                <h2 class="sectionTitle">Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt</h2>
-                <p>
+                <p class="sectionLabel" data-i18n="preview.label">Preview</p>
+                <h2 class="sectionTitle" data-i18n="preview.title">Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt</h2>
+                <p data-i18n="preview.text">
                   Die Screenshots zeigen den Fokus von AirPulse: Live-Werte, übersichtliche Historie und schnelle Interaktion
                   ohne visuelle Unruhe.
                 </p>
               </div>
-              <div class="galleryHint">Vertikal scrollen, horizontal entdecken</div>
+              <div class="galleryHint" data-i18n="preview.hint">Vertikal scrollen, horizontal entdecken</div>
             </div>
           </div>
 
@@ -1209,9 +1272,9 @@
         </section>
 
         <section class="section sectionCard glass" aria-label="Kontakt und Weiterentwicklung">
-          <p class="sectionLabel">Feedback</p>
-          <h2 class="sectionTitle">AirPulse wird kontinuierlich weiterentwickelt</h2>
-          <p class="sectionText">
+          <p class="sectionLabel" data-i18n="feedback.label">Feedback</p>
+          <h2 class="sectionTitle" data-i18n="feedback.title">AirPulse wird kontinuierlich weiterentwickelt</h2>
+          <p class="sectionText" data-i18n-html="feedback.text">
             Du hast eine Idee für ein neues Feature oder möchtest dir eine bestimmte Funktion wünschen? Dann schreib uns an
             <a href="mailto:airpulseapp@icloud.com">airpulseapp@icloud.com</a>.
           </p>
@@ -1219,24 +1282,24 @@
 
         <section class="section legalGrid" aria-label="Rechtliche Links">
           <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">
-            <strong>Terms of Use</strong>
-            <p>Die wichtigsten Nutzungsbedingungen und Hinweise zum Einsatz der App.</p>
-            <span>Dokument öffnen</span>
+            <strong data-i18n="legal.termsTitle">Terms of Use</strong>
+            <p data-i18n="legal.termsText">Die wichtigsten Nutzungsbedingungen und Hinweise zum Einsatz der App.</p>
+            <span data-i18n="legal.open">Dokument öffnen</span>
           </a>
           <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">
-            <strong>Privacy Policy</strong>
-            <p>Welche Daten verarbeitet werden, wofür sie gebraucht werden und was lokal bleibt.</p>
-            <span>Dokument öffnen</span>
+            <strong data-i18n="legal.privacyTitle">Privacy Policy</strong>
+            <p data-i18n="legal.privacyText">Welche Daten verarbeitet werden, wofür sie gebraucht werden und was lokal bleibt.</p>
+            <span data-i18n="legal.open">Dokument öffnen</span>
           </a>
           <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">
-            <strong>Imprint</strong>
-            <p>Kontakt, Verantwortlichkeit und rechtliche Rahmeninformationen zu AirPulse.</p>
-            <span>Dokument öffnen</span>
+            <strong data-i18n="legal.imprintTitle">Imprint</strong>
+            <p data-i18n="legal.imprintText">Kontakt, Verantwortlichkeit und rechtliche Rahmeninformationen zu AirPulse.</p>
+            <span data-i18n="legal.open">Dokument öffnen</span>
           </a>
         </section>
 
         <footer>
-          <p>AirPulse ist eine Consumer-App für Herzfrequenzdarstellung und ersetzt keine medizinische Beratung oder Notfallversorgung.</p>
+          <p data-i18n="footer.disclaimer">AirPulse ist eine Consumer-App für Herzfrequenzdarstellung und ersetzt keine medizinische Beratung oder Notfallversorgung.</p>
           <p>Copyright © <span id="year">2026</span> Christian Range</p>
         </footer>
       </main>
@@ -1246,6 +1309,216 @@
       (function () {
         var year = document.getElementById("year");
         if (year) year.textContent = String(new Date().getFullYear());
+      })();
+
+      (function () {
+        var picker = document.getElementById("language-picker");
+        if (!picker) return;
+
+        var storageKey = "airpulse-language";
+        var titleNode = document.querySelector("title");
+        var metaDescription = document.getElementById("meta-description");
+        var metaOgDescription = document.getElementById("meta-og-description");
+        var translations = {
+          de: {
+            pageTitle: "AirPulse",
+            metaDescription: "AirPulse zeigt deine Herzfrequenz mit AirPods Pro 3 in Echtzeit an, startet das Tracking automatisch beim Einsetzen und bringt Live Activity, Verlauf und Widgets auf das iPhone.",
+            metaOgDescription: "Herzfrequenz live mit AirPods Pro 3 verfolgen. Das Tracking startet automatisch beim Einsetzen und bleibt über Live Activity, Widgets und Verlauf jederzeit im Blick.",
+            "brand.title": "AirPulse",
+            "brand.subtitle": "Herzfrequenz live mit AirPods Pro 3",
+            "nav.terms": "Terms",
+            "nav.privacy": "Privacy",
+            "nav.imprint": "Imprint",
+            "hero.eyebrow": "Herzfrequenz mit AirPods Pro 3",
+            "hero.title": "Tracking startet beim Einsetzen deiner AirPods Pro 3",
+            "hero.text": "AirPulse erkennt kompatible AirPods Pro 3 und startet das Herzfrequenz-Tracking automatisch, ohne dass du es manuell anstoßen musst. Live Activity, Widgets und Verlauf halten deine Werte anschließend direkt auf dem iPhone sichtbar.",
+            "hero.focus1": "Nur Puls",
+            "hero.focus2": "Keine Kalorien",
+            "hero.focus3": "Keine Workouts",
+            "hero.focus4": "Kein unnötiger Overhead",
+            "hero.focusText": "AirPulse ist bewusst auf Herzfrequenz reduziert und startet kein klassisches Workout mit zusätzlichem Kalorien- oder Aktivitätstracking.",
+            "hero.ctaPrimary": "Vorschau ansehen",
+            "hero.ctaSecondary": "Funktionen entdecken",
+            "meta.liveTitle": "Live",
+            "meta.liveText": "Herzfrequenz in Echtzeit auf einen Blick",
+            "meta.smartTitle": "Smart",
+            "meta.smartText": "Automatischer Start, Standortfilter und Geräteauswahl",
+            "meta.privateTitle": "Private",
+            "meta.privateText": "Datenverarbeitung primär direkt auf dem Gerät",
+            "showcase.kicker": "Jetzt im Fokus",
+            "showcase.title": "Live Activity, Verlauf und Widgets",
+            "showcase.badge": "Optimiert für den schnellen Blick",
+            "showcase.liveLabel": "Live Herzfrequenz",
+            "showcase.historyLabel": "Verlauf",
+            "showcase.historyTitle": "Sauber lesbare Trends statt Datenrauschen",
+            "showcase.card1Title": "Dynamic Island",
+            "showcase.card1Text": "Aktuelle Werte bleiben sichtbar, ohne die App offen zu halten.",
+            "showcase.card2Title": "Widgets",
+            "showcase.card2Text": "Wichtige Infos landen dort, wo du sie erwartest.",
+            "showcase.card3Title": "Automatischer Start",
+            "showcase.card3Text": "Beim Einsetzen unterstützter AirPods Pro 3 beginnt das Tracking ohne manuellen Start.",
+            "details.label": "Warum AirPulse",
+            "details.title": "Entwickelt für kurze Blicke, nicht für überladene Dashboards",
+            "details.text": "Die App konzentriert sich auf genau das, was im Alltag zählt: aktuelle Herzfrequenz, klare Historie und Funktionen, die den Tracking-Start vereinfachen und die wichtigsten Werte schnell sichtbar machen.",
+            "features.f1Title": "Echtzeit ohne Umwege",
+            "features.f1Text": "Sieh deine Herzfrequenz sofort auf dem iPhone sowie auf Sperrbildschirm und Dynamic Island.",
+            "features.f2Title": "Verlauf mit Substanz",
+            "features.f2Text": "Trends, letzte Werte und Statistiken bleiben verständlich, statt sich in Komplexität zu verlieren.",
+            "features.f3Title": "Standortbasierte Regeln",
+            "features.f3Text": "Nutze Filter, um Tracking nur dort zu aktivieren, wo es für dich sinnvoll ist.",
+            "features.f4Title": "Klare Systemintegration",
+            "features.f4Text": "HealthKit, Mitteilungen und optionale Standortfreigabe bilden die Grundlage für die verfügbaren Funktionen.",
+            "compat.label": "Kompatibilität",
+            "compat.title": "Klarer Funktionsumfang statt vager Versprechen",
+            "compat.text": "AirPulse ist auf AirPods Pro 3 und moderne iPhone-Workflows zugeschnitten. Bestimmte Features setzen HealthKit, Mitteilungen und optional Standortzugriff voraus.",
+            "compat.item1": "Live Activity auf Sperrbildschirm und in der Dynamic Island",
+            "compat.item2": "Geräteverwaltung für unterstützte AirPods-Konfigurationen",
+            "compat.item3": "Deutsch und Englisch direkt in der App verfügbar",
+            "compat.item4": "Lokale Einstellungen für ein konsistentes, schnelles Nutzererlebnis",
+            "benefits.label": "Erlebnis",
+            "benefits.title": "Auf die Funktionen reduziert, die im Alltag wirklich zählen",
+            "benefits.text": "AirPulse konzentriert sich auf automatische Tracking-Starts, gut sichtbare Live-Werte und eine verständliche Historie. So bleibt die App schnell erfassbar und funktional statt überladen.",
+            "benefits.b1Title": "Automatisch im richtigen Moment",
+            "benefits.b1Text": "Das Tracking startet beim Einsetzen kompatibler AirPods Pro 3, statt erst manuell ausgelöst werden zu müssen.",
+            "benefits.b2Title": "Werte schnell im Blick",
+            "benefits.b2Text": "Live Activity, Widgets und Verlauf helfen dir dabei, aktuelle und letzte Werte ohne Umwege zu sehen.",
+            "benefits.b3Title": "Kontrolle über den Einsatz",
+            "benefits.b3Text": "Geräteauswahl, Standortfilter und lokale Einstellungen helfen dabei, das Tracking an deinen Ablauf anzupassen.",
+            "preview.label": "Preview",
+            "preview.title": "Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt",
+            "preview.text": "Die Screenshots zeigen den Fokus von AirPulse: Live-Werte, übersichtliche Historie und schnelle Interaktion ohne visuelle Unruhe.",
+            "preview.hint": "Vertikal scrollen, horizontal entdecken",
+            "feedback.label": "Feedback",
+            "feedback.title": "AirPulse wird kontinuierlich weiterentwickelt",
+            "feedback.text": "Du hast eine Idee für ein neues Feature oder möchtest dir eine bestimmte Funktion wünschen? Dann schreib uns an <a href=\"mailto:airpulseapp@icloud.com\">airpulseapp@icloud.com</a>.",
+            "legal.termsTitle": "Terms of Use",
+            "legal.termsText": "Die wichtigsten Nutzungsbedingungen und Hinweise zum Einsatz der App.",
+            "legal.privacyTitle": "Privacy Policy",
+            "legal.privacyText": "Welche Daten verarbeitet werden, wofür sie gebraucht werden und was lokal bleibt.",
+            "legal.imprintTitle": "Imprint",
+            "legal.imprintText": "Kontakt, Verantwortlichkeit und rechtliche Rahmeninformationen zu AirPulse.",
+            "legal.open": "Dokument öffnen",
+            "footer.disclaimer": "AirPulse ist eine Consumer-App für Herzfrequenzdarstellung und ersetzt keine medizinische Beratung oder Notfallversorgung."
+          },
+          en: {
+            pageTitle: "AirPulse",
+            metaDescription: "AirPulse shows your heart rate from AirPods Pro 3 in real time, starts tracking automatically when you put them in, and brings Live Activity, history, and widgets to iPhone.",
+            metaOgDescription: "Follow your heart rate live with AirPods Pro 3. Tracking starts automatically when you put them in and stays visible through Live Activity, widgets, and history.",
+            "brand.title": "AirPulse",
+            "brand.subtitle": "Live heart rate with AirPods Pro 3",
+            "nav.terms": "Terms",
+            "nav.privacy": "Privacy",
+            "nav.imprint": "Imprint",
+            "hero.eyebrow": "Heart rate with AirPods Pro 3",
+            "hero.title": "Tracking starts when you put in your AirPods Pro 3",
+            "hero.text": "AirPulse detects compatible AirPods Pro 3 and starts heart rate tracking automatically, without any manual start. Live Activity, widgets, and history keep your values visible on iPhone right away.",
+            "hero.focus1": "Heart rate only",
+            "hero.focus2": "No calories",
+            "hero.focus3": "No workouts",
+            "hero.focus4": "No unnecessary overhead",
+            "hero.focusText": "AirPulse is intentionally reduced to heart rate and does not start a classic workout with additional calorie or activity tracking.",
+            "hero.ctaPrimary": "See preview",
+            "hero.ctaSecondary": "Explore features",
+            "meta.liveTitle": "Live",
+            "meta.liveText": "Your heart rate in real time at a glance",
+            "meta.smartTitle": "Smart",
+            "meta.smartText": "Automatic start, location filters, and device selection",
+            "meta.privateTitle": "Private",
+            "meta.privateText": "Data is processed primarily on the device",
+            "showcase.kicker": "Now in focus",
+            "showcase.title": "Live Activity, history, and widgets",
+            "showcase.badge": "Built for quick glances",
+            "showcase.liveLabel": "Live heart rate",
+            "showcase.historyLabel": "History",
+            "showcase.historyTitle": "Readable trends instead of noisy data",
+            "showcase.card1Title": "Dynamic Island",
+            "showcase.card1Text": "Current values stay visible without keeping the app open.",
+            "showcase.card2Title": "Widgets",
+            "showcase.card2Text": "Key information appears exactly where you expect it.",
+            "showcase.card3Title": "Automatic start",
+            "showcase.card3Text": "Tracking begins without a manual start when supported AirPods Pro 3 are inserted.",
+            "details.label": "Why AirPulse",
+            "details.title": "Built for quick glances, not overloaded dashboards",
+            "details.text": "The app focuses on what matters in everyday use: current heart rate, clear history, and features that simplify the tracking start while keeping important values easy to see.",
+            "features.f1Title": "Real time without detours",
+            "features.f1Text": "See your heart rate immediately on iPhone, the Lock Screen, and the Dynamic Island.",
+            "features.f2Title": "History with substance",
+            "features.f2Text": "Trends, recent values, and statistics stay understandable instead of getting lost in complexity.",
+            "features.f3Title": "Location-based rules",
+            "features.f3Text": "Use filters to activate tracking only where it makes sense for you.",
+            "features.f4Title": "Clear system integration",
+            "features.f4Text": "HealthKit, notifications, and optional location access form the basis for the available features.",
+            "compat.label": "Compatibility",
+            "compat.title": "Clear scope instead of vague promises",
+            "compat.text": "AirPulse is tailored to AirPods Pro 3 and modern iPhone workflows. Some features require HealthKit, notifications, and optional location access.",
+            "compat.item1": "Live Activity on the Lock Screen and in the Dynamic Island",
+            "compat.item2": "Device management for supported AirPods configurations",
+            "compat.item3": "German and English available directly in the app",
+            "compat.item4": "Local settings for a consistent, fast user experience",
+            "benefits.label": "Experience",
+            "benefits.title": "Reduced to the features that really matter every day",
+            "benefits.text": "AirPulse focuses on automatic tracking starts, clearly visible live values, and an understandable history. That keeps the app quick to grasp and functional instead of overloaded.",
+            "benefits.b1Title": "Automatic at the right moment",
+            "benefits.b1Text": "Tracking starts when compatible AirPods Pro 3 are inserted instead of requiring a manual trigger first.",
+            "benefits.b2Title": "Values in view quickly",
+            "benefits.b2Text": "Live Activity, widgets, and history help you see current and recent values without extra steps.",
+            "benefits.b3Title": "Control over usage",
+            "benefits.b3Text": "Device selection, location filters, and local settings help adapt tracking to your routine.",
+            "preview.label": "Preview",
+            "preview.title": "An interface that feels instantly familiar on iPhone",
+            "preview.text": "The screenshots show AirPulse at its core: live values, readable history, and quick interaction without visual noise.",
+            "preview.hint": "Scroll vertically, discover horizontally",
+            "feedback.label": "Feedback",
+            "feedback.title": "AirPulse is continuously evolving",
+            "feedback.text": "Do you have an idea for a new feature or want to request a specific capability? Write to us at <a href=\"mailto:airpulseapp@icloud.com\">airpulseapp@icloud.com</a>.",
+            "legal.termsTitle": "Terms of Use",
+            "legal.termsText": "The key terms and usage notes for the app.",
+            "legal.privacyTitle": "Privacy Policy",
+            "legal.privacyText": "What data is processed, what it is used for, and what remains local.",
+            "legal.imprintTitle": "Imprint",
+            "legal.imprintText": "Contact, responsibility, and legal information about AirPulse.",
+            "legal.open": "Open document",
+            "footer.disclaimer": "AirPulse is a consumer app for heart rate display and does not replace medical advice or emergency care."
+          }
+        };
+
+        function applyLanguage(language) {
+          var locale = translations[language] ? language : "de";
+          var dict = translations[locale];
+
+          document.documentElement.lang = locale;
+          picker.value = locale;
+          if (titleNode) titleNode.textContent = dict.pageTitle;
+          if (metaDescription) metaDescription.setAttribute("content", dict.metaDescription);
+          if (metaOgDescription) metaOgDescription.setAttribute("content", dict.metaOgDescription);
+
+          document.querySelectorAll("[data-i18n]").forEach(function (node) {
+            var key = node.getAttribute("data-i18n");
+            if (dict[key]) node.textContent = dict[key];
+          });
+
+          document.querySelectorAll("[data-i18n-html]").forEach(function (node) {
+            var key = node.getAttribute("data-i18n-html");
+            if (dict[key]) node.innerHTML = dict[key];
+          });
+
+          try {
+            window.localStorage.setItem(storageKey, locale);
+          } catch (error) {
+          }
+        }
+
+        var initialLanguage = "de";
+        try {
+          initialLanguage = window.localStorage.getItem(storageKey) || initialLanguage;
+        } catch (error) {
+          initialLanguage = "de";
+        }
+
+        applyLanguage(initialLanguage);
+        picker.addEventListener("change", function (event) {
+          applyLanguage(event.target.value);
+        });
       })();
 
       (function () {
