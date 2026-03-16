@@ -349,6 +349,29 @@
         height: auto;
       }
 
+      /* Mobile: fallback to native horizontal scroll to keep momentum buttery on iOS Safari. */
+      @media (max-width: 720px) {
+        .hScrollSticky {
+          position: static;
+          height: auto;
+        }
+
+        .shotsOuter {
+          overflow-x: auto;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .shotsTrack {
+          padding: 14px 12px;
+          scroll-snap-type: x mandatory;
+        }
+
+        .shot {
+          scroll-snap-align: center;
+        }
+      }
+
       .legal {
         margin-top: 18px;
         display: grid;
@@ -527,6 +550,9 @@
         var track = stage.querySelector("[data-hscroll-track]");
         if (!track) return;
 
+        var mediaSticky = window.matchMedia ? window.matchMedia("(min-width: 721px)") : null;
+        var isStickyMode = !prefersReduced && (!mediaSticky || mediaSticky.matches);
+
         var viewportH = 0;
         var dist = 0;
         var start = 0;
@@ -550,6 +576,11 @@
         }
 
         function layoutStage() {
+          if (!isStickyMode) {
+            stage.style.height = "";
+            return;
+          }
+
           // Make the stage tall enough so that scrolling through it can cover the full horizontal distance.
           // Height = viewportHeight + horizontalDistance
           viewportH = getViewportHeight();
@@ -563,7 +594,7 @@
         }
 
         function update() {
-          if (dist <= 0) {
+          if (!isStickyMode || dist <= 0) {
             track.style.transform = "translate3d(0,0,0)";
             return;
           }
@@ -586,6 +617,7 @@
         }
 
         function onResize() {
+          isStickyMode = !prefersReduced && (!mediaSticky || mediaSticky.matches);
           layoutStage();
           schedule();
         }
@@ -605,6 +637,11 @@
 
         if (window.visualViewport && window.visualViewport.addEventListener) {
           window.visualViewport.addEventListener("resize", onResize, { passive: true });
+        }
+
+        if (mediaSticky) {
+          if (mediaSticky.addEventListener) mediaSticky.addEventListener("change", onResize);
+          else if (mediaSticky.addListener) mediaSticky.addListener(onResize);
         }
 
         // If motion should be reduced, avoid additional smoothing effects.
