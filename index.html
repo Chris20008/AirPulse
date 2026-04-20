@@ -4,27 +4,48 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>AirPulse</title>
+    <title>AirPulse | Herzfrequenz automatisch tracken mit AirPods Pro 3</title>
     <meta
       id="meta-description"
       name="description"
-      content="AirPulse zeigt deine Herzfrequenz mit AirPods Pro 3 in Echtzeit an, startet das Tracking automatisch beim Einsetzen und bringt Live Activity, Verlauf und Widgets auf das iPhone."
+      content="AirPulse zeigt deine Herzfrequenz von AirPods Pro 3 live auf iPhone, Sperrbildschirm und Dynamic Island. Sessions, Tags und optionaler Autostart halten das Tracking alltagstauglich."
     />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="apple-mobile-web-app-title" content="AirPulse" />
+    <link rel="canonical" href="https://chris20008.github.io/AirPulse/" />
 
-    <link rel="icon" href="assets/Version7.png" type="image/png" />
-    <meta name="theme-color" content="#f7f7fb" />
+    <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="assets/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="shortcut icon" href="assets/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preload" as="image" href="assets/carousel_images/de/screen-1.jpeg" />
+    <meta id="meta-theme-color" name="theme-color" content="#f7f7fb" />
 
-    <meta property="og:title" content="AirPulse" />
+    <meta id="meta-og-title" property="og:title" content="AirPulse | Herzfrequenz automatisch tracken mit AirPods Pro 3" />
     <meta
       id="meta-og-description"
       property="og:description"
-      content="Herzfrequenz live mit AirPods Pro 3 verfolgen. Das Tracking startet automatisch beim Einsetzen und bleibt über Live Activity, Widgets und Verlauf jederzeit im Blick."
+      content="Live-Herzfrequenz mit AirPods Pro 3 auf dem iPhone. AirPulse verbindet Live Activity, Sessions, Tags und optionalen Autostart in einer fokussierten Oberfläche."
     />
+    <meta id="meta-og-locale" property="og:locale" content="de_DE" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chris20008.github.io/AirPulse/" />
+    <meta property="og:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta id="meta-twitter-title" name="twitter:title" content="AirPulse | Herzfrequenz automatisch tracken mit AirPods Pro 3" />
+    <meta
+      id="meta-twitter-description"
+      name="twitter:description"
+      content="AirPulse zeigt deine Herzfrequenz von AirPods Pro 3 live auf iPhone, Sperrbildschirm und Dynamic Island. Sessions, Tags und optionaler Autostart halten das Tracking alltagstauglich."
+    />
+    <meta name="twitter:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
 
     <style>
       :root {
-        color-scheme: light;
+        color-scheme: light dark;
         --bg: #f5f6fb;
         --surface: rgba(255, 255, 255, 0.74);
         --surface-strong: rgba(255, 255, 255, 0.9);
@@ -37,6 +58,18 @@
         --accent-strong: #ff3b30;
         --accent-soft: rgba(255, 95, 87, 0.14);
         --blue-soft: rgba(87, 132, 255, 0.18);
+        --border-soft: rgba(255, 255, 255, 0.65);
+        --border-strong: rgba(255, 255, 255, 0.74);
+        --card-bg: rgba(255, 255, 255, 0.58);
+        --card-bg-strong: rgba(255, 255, 255, 0.72);
+        --panel-outline: rgba(16, 23, 40, 0.08);
+        --select-arrow: rgba(16, 23, 40, 0.52);
+        --page-gradient: linear-gradient(180deg, #fbfbfe 0%, var(--bg) 48%, #eef2fb 100%);
+        --orb-accent: rgba(255, 95, 87, 0.16);
+        --orb-blue: rgba(87, 132, 255, 0.14);
+        --carousel-scrollbar-track: rgba(16, 23, 40, 0.12);
+        --carousel-scrollbar-thumb: rgba(16, 23, 40, 0.34);
+        --carousel-scrollbar-thumb-border: rgba(255, 255, 255, 0.62);
         --shadow-xl: 0 36px 90px rgba(15, 23, 40, 0.14);
         --shadow-lg: 0 20px 54px rgba(15, 23, 40, 0.1);
         --shadow-md: 0 12px 28px rgba(15, 23, 40, 0.08);
@@ -44,6 +77,32 @@
         --radius-lg: 26px;
         --radius-md: 20px;
         --wrap: 1180px;
+      }
+
+      :root[data-theme="dark"] {
+        --bg: #07111d;
+        --surface: rgba(10, 18, 32, 0.82);
+        --surface-strong: rgba(14, 24, 41, 0.96);
+        --text: #eef4ff;
+        --text-soft: rgba(238, 244, 255, 0.78);
+        --text-muted: rgba(238, 244, 255, 0.56);
+        --accent-soft: rgba(255, 95, 87, 0.2);
+        --blue-soft: rgba(87, 132, 255, 0.22);
+        --border-soft: rgba(148, 163, 184, 0.16);
+        --border-strong: rgba(148, 163, 184, 0.24);
+        --card-bg: rgba(12, 22, 38, 0.72);
+        --card-bg-strong: rgba(16, 27, 45, 0.88);
+        --panel-outline: rgba(148, 163, 184, 0.16);
+        --select-arrow: rgba(238, 244, 255, 0.68);
+        --page-gradient: linear-gradient(180deg, #06101d 0%, var(--bg) 46%, #091422 100%);
+        --orb-accent: rgba(255, 95, 87, 0.12);
+        --orb-blue: rgba(87, 132, 255, 0.16);
+        --carousel-scrollbar-track: rgba(148, 163, 184, 0.24);
+        --carousel-scrollbar-thumb: rgba(238, 244, 255, 0.56);
+        --carousel-scrollbar-thumb-border: rgba(7, 17, 29, 0.72);
+        --shadow-xl: 0 40px 110px rgba(0, 0, 0, 0.46);
+        --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.38);
+        --shadow-md: 0 16px 34px rgba(0, 0, 0, 0.28);
       }
 
       * {
@@ -61,9 +120,9 @@
         line-height: 1.45;
         color: var(--text);
         background:
-          radial-gradient(circle at top left, rgba(255, 95, 87, 0.2), transparent 28%),
-          radial-gradient(circle at 85% 18%, rgba(87, 132, 255, 0.18), transparent 32%),
-          linear-gradient(180deg, #fbfbfe 0%, var(--bg) 48%, #eef2fb 100%);
+          radial-gradient(circle at top left, var(--accent-soft), transparent 28%),
+          radial-gradient(circle at 85% 18%, var(--blue-soft), transparent 32%),
+          var(--page-gradient);
         overflow-x: hidden;
       }
 
@@ -82,7 +141,7 @@
         width: 420px;
         height: 420px;
         border-radius: 50%;
-        background: rgba(255, 95, 87, 0.16);
+        background: var(--orb-accent);
       }
 
       body::after {
@@ -91,7 +150,7 @@
         width: 380px;
         height: 380px;
         border-radius: 50%;
-        background: rgba(87, 132, 255, 0.14);
+        background: var(--orb-blue);
       }
 
       a {
@@ -106,8 +165,39 @@
         border-radius: 14px;
       }
 
+      .skipLink {
+        position: absolute;
+        left: 20px;
+        top: -72px;
+        z-index: 40;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: rgba(16, 23, 40, 0.96);
+        color: var(--text-on-dark);
+        box-shadow: var(--shadow-lg);
+        transition: top 180ms ease;
+      }
+
+      .skipLink:focus-visible {
+        top: 18px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       img {
+        display: block;
         max-width: 100%;
+        height: auto;
       }
 
       .page {
@@ -120,10 +210,23 @@
 
       .glass {
         background: var(--surface);
-        border: 1px solid rgba(255, 255, 255, 0.65);
+        border: 1px solid var(--border-soft);
         box-shadow: var(--shadow-lg);
         backdrop-filter: blur(24px) saturate(160%);
         -webkit-backdrop-filter: blur(24px) saturate(160%);
+      }
+
+      main [id] {
+        scroll-margin-top: 112px;
+      }
+
+      @supports (content-visibility: auto) {
+        .section,
+        .gallerySection,
+        footer {
+          content-visibility: auto;
+          contain-intrinsic-size: 1px 760px;
+        }
       }
 
       .topbar {
@@ -133,9 +236,8 @@
         gap: 18px;
         padding: 14px 16px;
         border-radius: 24px;
-        position: sticky;
-        top: 18px;
-        z-index: 20;
+        position: relative;
+        z-index: 1;
         transition:
           padding 760ms cubic-bezier(0.22, 1, 0.36, 1),
           gap 760ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -143,6 +245,19 @@
           transform 760ms cubic-bezier(0.22, 1, 0.36, 1),
           background-color 760ms cubic-bezier(0.22, 1, 0.36, 1),
           box-shadow 760ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .topbarShell {
+        position: sticky;
+        top: 18px;
+        z-index: 20;
+        transition: height 1040ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .topbar.is-measuring,
+      .topbar.is-measuring *,
+      .topbarShell.is-measuring {
+        transition: none !important;
       }
 
       .brand {
@@ -210,11 +325,15 @@
       .nav {
         display: flex;
         gap: 10px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow: hidden;
+        white-space: nowrap;
         transition:
           opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
           max-height 760ms cubic-bezier(0.22, 1, 0.36, 1),
+          max-width 760ms cubic-bezier(0.22, 1, 0.36, 1),
           margin 760ms cubic-bezier(0.22, 1, 0.36, 1),
           transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
       }
@@ -222,8 +341,10 @@
       .topbarActions {
         display: flex;
         align-items: center;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
         gap: 12px;
-        flex: 0 0 auto;
+        flex: 0 1 auto;
         min-width: 0;
         transition:
           opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -237,11 +358,11 @@
         min-height: 38px;
         padding: 0 34px 0 14px;
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.75);
+        border: 1px solid var(--border-strong);
         background:
-          linear-gradient(45deg, transparent 50%, rgba(16, 23, 40, 0.52) 50%),
-          linear-gradient(135deg, rgba(16, 23, 40, 0.52) 50%, transparent 50%),
-          rgba(255, 255, 255, 0.58);
+          linear-gradient(45deg, transparent 50%, var(--select-arrow) 50%),
+          linear-gradient(135deg, var(--select-arrow) 50%, transparent 50%),
+          var(--card-bg);
         background-position:
           calc(100% - 18px) 16px,
           calc(100% - 13px) 16px,
@@ -254,11 +375,60 @@
         box-shadow: var(--shadow-md);
       }
 
+      .themeToggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 40px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border-strong);
+        background: var(--card-bg);
+        color: var(--text);
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        box-shadow: var(--shadow-md);
+        cursor: pointer;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .themeToggle:hover {
+        transform: translateY(-1px);
+        background: var(--surface-strong);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .themeToggleIcon {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #0f172a, #334155);
+        box-shadow: inset -4px -4px 0 rgba(248, 250, 252, 0.82);
+        flex: 0 0 auto;
+      }
+
+      :root[data-theme="dark"] .themeToggleIcon {
+        background: radial-gradient(circle at 35% 35%, #fde68a, #f59e0b 70%);
+        box-shadow: 0 0 18px rgba(245, 158, 11, 0.28);
+      }
+
+      .themeToggleLabel {
+        line-height: 1;
+      }
+
       .nav a {
         padding: 10px 14px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.58);
-        border: 1px solid rgba(255, 255, 255, 0.75);
+        background: var(--card-bg);
+        border: 1px solid var(--border-strong);
         color: var(--text-soft);
         font-size: 13px;
         transition:
@@ -270,9 +440,38 @@
 
       .nav a:hover {
         transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.9);
+        background: var(--surface-strong);
         color: var(--text);
         box-shadow: var(--shadow-md);
+      }
+
+      .topbarDownload {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #2f85ff, #0a66ff);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.28),
+          0 14px 26px rgba(10, 102, 255, 0.22);
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          filter 180ms ease;
+      }
+
+      .topbarDownload:hover {
+        transform: translateY(-1px);
+        filter: saturate(1.06);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.3),
+          0 18px 30px rgba(10, 102, 255, 0.28);
       }
 
       main {
@@ -317,8 +516,8 @@
         gap: 0;
         padding: 8px 12px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.66);
-        border: 1px solid rgba(255, 255, 255, 0.72);
+        background: var(--card-bg-strong);
+        border: 1px solid var(--border-strong);
         font-size: 12px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -364,8 +563,8 @@
         min-height: 42px;
         padding: 0 14px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        background: var(--card-bg-strong);
+        border: 1px solid var(--panel-outline);
         color: var(--text-soft);
         font-size: 14px;
         line-height: 1;
@@ -421,8 +620,8 @@
       }
 
       .button.secondary {
-        background: rgba(255, 255, 255, 0.7);
-        border-color: rgba(148, 163, 184, 0.18);
+        background: var(--card-bg-strong);
+        border-color: var(--panel-outline);
         color: var(--text);
       }
 
@@ -436,8 +635,8 @@
       .metaItem {
         padding: 16px 18px;
         border-radius: 22px;
-        background: rgba(255, 255, 255, 0.56);
-        border: 1px solid rgba(255, 255, 255, 0.68);
+        background: var(--card-bg);
+        border: 1px solid var(--border-soft);
       }
 
       .metaItem strong {
@@ -667,8 +866,8 @@
       .featureBox {
         padding: 20px;
         border-radius: 24px;
-        background: rgba(255, 255, 255, 0.56);
-        border: 1px solid rgba(255, 255, 255, 0.68);
+        background: var(--card-bg);
+        border: 1px solid var(--border-soft);
       }
 
       .featureBox strong,
@@ -698,8 +897,42 @@
       .benefitCard {
         padding: 22px;
         border-radius: 26px;
-        background: rgba(255, 255, 255, 0.62);
-        border: 1px solid rgba(255, 255, 255, 0.74);
+        background: var(--card-bg-strong);
+        border: 1px solid var(--border-strong);
+      }
+
+      .featureBox.is-soon,
+      .benefitCard.is-soon,
+      .showcaseFooter article.is-soon {
+        border-color: rgba(255, 95, 87, 0.28);
+        background:
+          linear-gradient(180deg, rgba(255, 95, 87, 0.12), rgba(255, 255, 255, 0.92));
+      }
+
+      :root[data-theme="dark"] .featureBox.is-soon,
+      :root[data-theme="dark"] .benefitCard.is-soon,
+      :root[data-theme="dark"] .showcaseFooter article.is-soon {
+        border-color: rgba(255, 95, 87, 0.34);
+        background:
+          linear-gradient(180deg, rgba(255, 95, 87, 0.16), rgba(12, 22, 38, 0.96));
+      }
+
+      .featureBox.is-soon strong,
+      .benefitCard.is-soon strong,
+      .showcaseFooter article.is-soon strong {
+        color: var(--accent-strong);
+      }
+
+      .featureBox.is-soon p,
+      .benefitCard.is-soon p,
+      .showcaseFooter article.is-soon p {
+        color: rgba(16, 23, 40, 0.84);
+      }
+
+      :root[data-theme="dark"] .featureBox.is-soon p,
+      :root[data-theme="dark"] .benefitCard.is-soon p,
+      :root[data-theme="dark"] .showcaseFooter article.is-soon p {
+        color: rgba(238, 244, 255, 0.82);
       }
 
       .benefitIcon {
@@ -766,8 +999,8 @@
         flex: 0 0 auto;
         padding: 10px 14px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.58);
-        border: 1px solid rgba(255, 255, 255, 0.72);
+        background: var(--card-bg-strong);
+        border: 1px solid var(--border-strong);
         color: var(--text-muted);
         font-size: 13px;
       }
@@ -777,44 +1010,140 @@
       }
 
       .hScrollSticky {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        height: 100svh;
-        display: flex;
-        align-items: center;
+        position: static;
+        height: auto;
       }
 
       .shotsOuter {
         width: 100%;
-        --shot-w: clamp(280px, 32vw, 360px);
-        overflow: hidden;
+        --shot-w: clamp(240px, 25vw, 320px);
+        --track-edge: max(40px, calc((100% - var(--shot-w)) / 2) + 22px);
+        overflow-x: auto;
+        overflow-y: hidden;
         border-radius: var(--radius-xl);
         contain: paint;
+        scroll-behavior: auto;
+        scroll-snap-type: x proximity;
+        scroll-padding-inline: var(--track-edge);
+        scrollbar-gutter: stable both-edges;
+        scrollbar-width: thin;
+        scrollbar-color: var(--carousel-scrollbar-thumb) var(--carousel-scrollbar-track);
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        cursor: grab;
+      }
+
+      .shotsOuter::-webkit-scrollbar {
+        height: 9px;
+      }
+
+      .shotsOuter::-webkit-scrollbar-track {
+        background: var(--carousel-scrollbar-track);
+        border-radius: 999px;
+      }
+
+      .shotsOuter::-webkit-scrollbar-thumb {
+        background: var(--carousel-scrollbar-thumb);
+        border-radius: 999px;
+        border: 1px solid var(--carousel-scrollbar-thumb-border);
+      }
+
+      .shotsOuter.is-dragging {
+        cursor: grabbing;
+      }
+
+      .shotsOuter.is-dragging,
+      .shotsOuter.is-scroll-gesture {
+        scroll-snap-type: none;
       }
 
       .shotsTrack {
         display: flex;
-        gap: 16px;
-        padding: 8px calc((100% - var(--shot-w)) / 2) 10px;
-        will-change: transform;
-        transform: translate3d(0, 0, 0);
+        gap: 18px;
+        padding: 14px var(--track-edge) 18px;
+        min-width: max-content;
       }
 
       .shot {
         width: var(--shot-w);
         flex: 0 0 auto;
+        scroll-snap-align: center;
         border-radius: 34px;
         overflow: hidden;
-        background: rgba(255, 255, 255, 0.4);
-        border: 1px solid rgba(255, 255, 255, 0.72);
+        background: var(--card-bg);
+        border: 1px solid var(--border-strong);
         box-shadow: var(--shadow-xl);
+        transform: scale(0.9);
+        transform-origin: center center;
+        opacity: 0.72;
+        filter: saturate(0.82);
+        will-change: transform, opacity, filter;
+        transition:
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+          filter 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .shot.is-active {
+        transform: scale(1);
+        opacity: 1;
+        filter: saturate(1);
       }
 
       .shot img {
         display: block;
         width: 100%;
         height: auto;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      .carouselFrame {
+        position: relative;
+      }
+
+      .carouselArrow {
+        position: absolute;
+        top: calc(50% - 18px);
+        z-index: 3;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--card-bg-strong);
+        color: var(--text);
+        box-shadow: var(--shadow-md);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        font: inherit;
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+        user-select: none;
+        transition:
+          transform 180ms ease,
+          opacity 180ms ease,
+          background-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .carouselArrow:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background: var(--surface-strong);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .carouselArrow:disabled {
+        opacity: 0.36;
+        cursor: default;
+      }
+
+      .carouselArrow.prev {
+        left: 12px;
+      }
+
+      .carouselArrow.next {
+        right: 12px;
       }
 
       .legalGrid {
@@ -855,6 +1184,20 @@
         color: var(--text-muted);
       }
 
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
       @media (max-width: 1080px) {
         .hero,
         .twoColumn,
@@ -875,21 +1218,23 @@
         }
 
         .topbar {
-          position: sticky;
-          top: 10px;
           flex-direction: column;
           align-items: stretch;
-          gap: 12px;
+          gap: 10px;
           padding: 12px 14px;
+        }
+
+        .topbarShell {
+          top: 10px;
+          height: var(--topbar-shell-height, auto);
         }
 
         .topbar.is-compact {
           flex-direction: row;
           align-items: center;
-          gap: 8px;
-          padding: 9px 12px;
+          gap: 10px;
+          padding: 10px 12px;
           border-radius: 18px;
-          justify-content: flex-start;
         }
 
         .galleryIntroRow {
@@ -900,10 +1245,12 @@
         .brand {
           gap: 10px;
           width: 100%;
+          transition: gap 760ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .brandcopy {
           min-width: 0;
+          transition: none;
         }
 
         .brandmark {
@@ -922,88 +1269,147 @@
         }
 
         .topbar.is-compact .brand {
-          width: 100%;
-          gap: 10px;
+          width: auto;
+          flex: 1 1 auto;
+          gap: 9px;
+          align-items: center;
         }
 
         .topbar.is-compact .brandmark {
-          width: 34px;
-          height: 34px;
-          border-radius: 11px;
-          transform: translateZ(0);
+          width: 36px;
+          height: 36px;
+          border-radius: 12px;
         }
 
         .topbar.is-compact .brandcopy {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 10px;
+          width: auto;
           min-width: 0;
         }
 
         .topbar.is-compact .brandcopy strong {
           font-size: 14px;
+          line-height: 1.05;
           white-space: nowrap;
-          flex: 0 0 auto;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .topbar.is-compact .brandcopy span {
-          opacity: 1;
-          max-height: 32px;
-          margin: 0;
-          overflow: hidden;
+          opacity: 0.84;
+          max-height: none;
           font-size: 11px;
+          line-height: 1.2;
+          transform: none;
           white-space: nowrap;
+          overflow: hidden;
           text-overflow: ellipsis;
-          text-align: right;
-          margin-left: auto;
-          min-width: 0;
-          flex: 1 1 auto;
-          transform: translateX(0);
         }
 
         .nav {
           justify-content: flex-start;
           gap: 8px;
-          flex: 1 1 auto;
+          flex: 0 0 auto;
           min-width: 0;
+          max-width: 100%;
         }
 
         .topbarActions {
           width: 100%;
-          align-items: center;
-          justify-content: space-between;
-          gap: 10px;
+          display: flex;
           flex-wrap: nowrap;
+          align-items: center;
+          gap: 8px;
+          justify-content: flex-start;
+          overflow-x: auto;
+          overflow-y: hidden;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .topbarActions::-webkit-scrollbar {
+          display: none;
         }
 
         .nav a {
-          padding: 8px 12px;
+          padding: 7px 11px;
+          font-size: 11px;
+        }
+
+        .topbarDownload {
+          position: static;
+          flex: 0 0 auto;
+          min-height: 36px;
+          padding: 0 13px;
           font-size: 12px;
+          transform: none;
+          white-space: nowrap;
+        }
+
+        .topbarDownload:hover {
+          transform: translateY(-1px);
         }
 
         .languagePicker {
-          min-height: 34px;
-          padding: 0 30px 0 12px;
-          font-size: 12px;
           flex: 0 0 auto;
+          min-height: 34px;
+          padding: 0 28px 0 11px;
+          font-size: 11px;
           background-position:
-            calc(100% - 16px) 14px,
-            calc(100% - 11px) 14px,
+            calc(100% - 15px) 14px,
+            calc(100% - 10px) 14px,
             0 0;
         }
 
+        .themeToggle {
+          flex: 0 0 auto;
+          min-height: 34px;
+          padding: 0 11px;
+        }
+
+        .themeToggleLabel {
+          display: none;
+        }
+
         .topbar.is-compact .topbarActions {
+          width: auto;
+          flex: 0 0 auto;
+          justify-content: flex-end;
+          gap: 6px;
+          overflow: hidden;
+        }
+
+        .topbar.is-compact .nav {
           opacity: 0;
-          max-height: 0;
-          width: 0;
+          flex: 0 0 0;
           max-width: 0;
           margin: 0;
-          overflow: hidden;
           pointer-events: none;
-          flex: 0 0 0;
-          transform: translateY(-6px);
+          transform: translateX(-8px);
+          transition:
+            opacity 160ms ease,
+            transform 160ms ease,
+            max-width 0s linear,
+            margin 0s linear;
+        }
+
+        .topbar.is-compact .topbarDownload {
+          min-height: 32px;
+          padding: 0 12px;
+          font-size: 11px;
+        }
+
+        .topbar.is-compact .languagePicker {
+          min-height: 32px;
+          padding: 0 26px 0 10px;
+          font-size: 10px;
+          background-position:
+            calc(100% - 14px) 13px,
+            calc(100% - 9px) 13px,
+            0 0;
+        }
+
+        .topbar.is-compact .themeToggle {
+          min-height: 32px;
         }
 
         .heroCard,
@@ -1037,77 +1443,94 @@
           width: 168px;
         }
 
-        .hScrollSticky {
-          position: static;
-          height: auto;
-        }
-
         .shotsOuter {
-          overflow-x: auto;
-          overflow-y: hidden;
-          -webkit-overflow-scrolling: touch;
+          --shot-w: min(78vw, 320px);
+          --track-edge: max(20px, calc((100% - var(--shot-w)) / 2) + 18px);
         }
 
         .shotsTrack {
-          padding: 8px 12px 10px;
-          scroll-snap-type: x mandatory;
+          gap: 14px;
+          padding: 10px var(--track-edge) 14px;
         }
 
         .shot {
-          width: min(82vw, 320px);
-          scroll-snap-align: center;
+          width: var(--shot-w);
+        }
+
+        .carouselArrow {
+          top: auto;
+          bottom: 52px;
+          width: 38px;
+          height: 38px;
+          font-size: 20px;
         }
       }
     </style>
   </head>
 
   <body>
+    <a class="skipLink" href="#content" data-i18n="skip.link">Zum Inhalt springen</a>
     <div class="page">
-      <header class="topbar glass">
-        <div class="brand" aria-label="AirPulse">
-          <div class="brandmark">
-            <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" />
+      <div class="topbarShell">
+        <header class="topbar glass">
+          <div class="brand" aria-label="AirPulse">
+            <div class="brandmark">
+              <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" decoding="async" fetchpriority="high" width="980" height="980" data-brand-icon />
+            </div>
+            <div class="brandcopy">
+              <strong data-i18n="brand.title">AirPulse</strong>
+              <span data-i18n="brand.subtitle">Herzfrequenz live mit AirPods Pro 3</span>
+            </div>
           </div>
-          <div class="brandcopy">
-            <strong data-i18n="brand.title">AirPulse</strong>
-            <span data-i18n="brand.subtitle">Herzfrequenz live mit AirPods Pro 3</span>
+
+          <div class="topbarActions">
+            <a
+              class="topbarDownload"
+              data-app-store-link
+              data-i18n="nav.download"
+              href="https://apps.apple.com/us/app/airpulse/id6760625679"
+            >Download</a>
+
+            <nav class="nav" aria-label="Seitenbereiche">
+              <a data-i18n="nav.details" href="#details">Details</a>
+              <a data-i18n="nav.preview" href="#preview">Vorschau</a>
+              <a data-i18n="nav.legal" href="#legal">Rechtliches</a>
+            </nav>
+
+            <button class="themeToggle" type="button" data-theme-toggle aria-label="Zum dunklen Modus wechseln" aria-pressed="false">
+              <span class="themeToggleIcon" aria-hidden="true"></span>
+              <span class="themeToggleLabel" data-theme-toggle-label>Dunkler Modus</span>
+            </button>
+
+            <label for="language-picker" class="sr-only" data-i18n="language.label">Sprache wählen</label>
+            <select id="language-picker" class="languagePicker" aria-label="Sprache wählen">
+              <option value="de">DE</option>
+              <option value="en">EN</option>
+            </select>
           </div>
-        </div>
+        </header>
+      </div>
 
-        <div class="topbarActions">
-          <nav class="nav" aria-label="Rechtliches">
-            <a data-i18n="nav.terms" href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">Terms</a>
-            <a data-i18n="nav.privacy" href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">Privacy</a>
-            <a data-i18n="nav.imprint" href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">Imprint</a>
-          </nav>
-
-          <label for="language-picker" class="sr-only" hidden>Language</label>
-          <select id="language-picker" class="languagePicker" aria-label="Language">
-            <option value="de">DE</option>
-            <option value="en">EN</option>
-          </select>
-        </div>
-      </header>
-
-      <main>
+      <main id="content">
         <section class="hero" aria-label="AirPulse Hero">
           <article class="heroCard glass">
-            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>&nbsp;<span data-i18n="hero.eyebrow">Herzfrequenz mit AirPods Pro 3</span></div>
-            <h1 class="heroTitle" data-i18n="hero.title">Tracking startet beim Einsetzen deiner AirPods Pro 3</h1>
+            <div class="eyebrow"><span class="pulseDot" aria-hidden="true"></span>&nbsp;<span data-i18n="hero.eyebrow">Für AirPods Pro 3 auf dem iPhone</span></div>
+            <h1 class="heroTitle" data-i18n="hero.title">Automatisch tracken, ohne zum iPhone zu greifen</h1>
             <p class="heroText" data-i18n="hero.text">
-              AirPulse erkennt kompatible AirPods Pro 3 und startet das Herzfrequenz-Tracking automatisch, ohne dass du es
-              manuell anstoßen musst. Live Activity, Widgets und Verlauf halten deine Werte anschließend direkt auf dem iPhone sichtbar.
+              AirPulse zeigt deine Herzfrequenz von AirPods Pro 3 live auf iPhone, Sperrbildschirm und Dynamic Island. Wenn du eine
+              Kurzbefehle-Automation eingerichtet hast, kann Tracking automatisch starten, ohne dass du jedes Mal erst zum iPhone greifen
+              musst. Sessions und Tags halten den Verlauf dabei lesbar.
             </p>
 
             <div class="heroFocus" aria-label="Fokus der App">
-              <div class="focusChip strong" data-i18n="hero.focus1">Nur Puls</div>
-              <div class="focusChip" data-i18n="hero.focus2">Keine Kalorien</div>
-              <div class="focusChip" data-i18n="hero.focus3">Keine Workouts</div>
-              <div class="focusChip" data-i18n="hero.focus4">Kein unnötiger Overhead</div>
+              <div class="focusChip strong" data-i18n="hero.focus1">Live Activity</div>
+              <div class="focusChip" data-i18n="hero.focus2">Sessions</div>
+              <div class="focusChip" data-i18n="hero.focus3">Optionaler Autostart</div>
+              <div class="focusChip" data-i18n="hero.focus4">Auf dem Gerät</div>
             </div>
 
             <p class="heroFocusText" data-i18n="hero.focusText">
-              AirPulse ist bewusst auf Herzfrequenz reduziert und startet kein klassisches Workout mit zusätzlichem Kalorien- oder Aktivitätstracking.
+              Live sehen, Sessions sichern und auf Wunsch automatisch starten.
             </p>
 
             <div class="heroActions">
@@ -1118,15 +1541,15 @@
             <div class="heroMeta" aria-label="Highlights">
               <div class="metaItem">
                 <strong data-i18n="meta.liveTitle">Live</strong>
-                <span data-i18n="meta.liveText">Herzfrequenz in Echtzeit auf einen Blick</span>
+                <span data-i18n="meta.liveText">Live-Werte auf iPhone, Sperrbildschirm und Dynamic Island</span>
               </div>
               <div class="metaItem">
-                <strong data-i18n="meta.smartTitle">Smart</strong>
-                <span data-i18n="meta.smartText">Automatischer Start, Standortfilter und Geräteauswahl</span>
+                <strong data-i18n="meta.smartTitle">Autostart</strong>
+                <span data-i18n="meta.smartText">Optional per Kurzbefehle automatisch starten</span>
               </div>
               <div class="metaItem">
-                <strong data-i18n="meta.privateTitle">Private</strong>
-                <span data-i18n="meta.privateText">Datenverarbeitung primär direkt auf dem Gerät</span>
+                <strong data-i18n="meta.privateTitle">Kontrolle</strong>
+                <span data-i18n="meta.privateText">Geräteauswahl, Standortfilter und lokale Einstellungen</span>
               </div>
             </div>
           </article>
@@ -1135,25 +1558,34 @@
             <div class="showcaseGlow" aria-hidden="true"></div>
             <div class="showcaseTop">
               <div>
-                <p data-i18n="showcase.kicker">Jetzt im Fokus</p>
-                <strong data-i18n="showcase.title">Live Activity, Verlauf und Widgets</strong>
+                <p data-i18n="showcase.kicker">Was heute schon drin ist</p>
+                <strong data-i18n="showcase.title">Live Tracking jetzt, Insights folgen</strong>
               </div>
-              <div class="showcaseBadge" data-i18n="showcase.badge">Optimiert für den schnellen Blick</div>
+              <div class="showcaseBadge" data-i18n="showcase.badge">Für schnelle Blicke optimiert</div>
             </div>
 
             <div class="showcaseCenter">
               <div class="phoneFrame">
-                <img src="assets/appstore-1.jpeg" alt="AirPulse Screenshot auf iPhone" loading="eager" />
+                <img
+                  src="assets/carousel_images/de/screen-1.jpeg"
+                  alt="AirPulse Screenshot auf iPhone"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                  width="1290"
+                  height="2796"
+                  data-showcase-image
+                />
               </div>
 
               <div class="floatingStat" aria-label="Beispielwert">
-                <span data-i18n="showcase.liveLabel">Live Herzfrequenz</span>
+                <span data-i18n="showcase.liveLabel">Aktuelle Herzfrequenz</span>
                 <strong>72 BPM</strong>
               </div>
 
               <div class="floatingPanel" aria-label="Verlaufskarte">
-                <span data-i18n="showcase.historyLabel">Verlauf</span>
-                <strong data-i18n="showcase.historyTitle">Sauber lesbare Trends statt Datenrauschen</strong>
+                <span data-i18n="showcase.historyLabel">In Arbeit</span>
+                <strong data-i18n="showcase.historyTitle">Insights sind in Arbeit und kommen schrittweise dazu</strong>
                 <div class="miniBars" aria-hidden="true">
                   <i></i><i></i><i></i><i></i><i></i><i></i>
                 </div>
@@ -1163,15 +1595,15 @@
             <div class="showcaseFooter">
               <article>
                 <strong data-i18n="showcase.card1Title">Dynamic Island</strong>
-                <p data-i18n="showcase.card1Text">Aktuelle Werte bleiben sichtbar, ohne die App offen zu halten.</p>
+                <p data-i18n="showcase.card1Text">Aktuelle Werte bleiben sichtbar, auch wenn du die App nicht offen hast.</p>
               </article>
               <article>
-                <strong data-i18n="showcase.card2Title">Widgets</strong>
-                <p data-i18n="showcase.card2Text">Wichtige Infos landen dort, wo du sie erwartest.</p>
+                <strong data-i18n="showcase.card2Title">Sessions & Tags</strong>
+                <p data-i18n="showcase.card2Text">Verläufe lassen sich markieren, organisieren und später sauber lesen.</p>
               </article>
-              <article>
-                <strong data-i18n="showcase.card3Title">Automatischer Start</strong>
-                <p data-i18n="showcase.card3Text">Beim Einsetzen unterstützter AirPods Pro 3 beginnt das Tracking ohne manuellen Start.</p>
+              <article class="is-soon">
+                <strong data-i18n="showcase.card3Title">Insights bald verfügbar</strong>
+                <p data-i18n="showcase.card3Text">An Trends, Wochenansichten, Streaks und Rekorden wird gerade gearbeitet.</p>
               </article>
             </div>
           </aside>
@@ -1179,73 +1611,73 @@
 
         <section class="section twoColumn" id="details" aria-label="Produktdetails">
           <article class="sectionCard glass">
-            <p class="sectionLabel" data-i18n="details.label">Warum AirPulse</p>
-            <h2 class="sectionTitle" data-i18n="details.title">Entwickelt für kurze Blicke, nicht für überladene Dashboards</h2>
+            <p class="sectionLabel" data-i18n="details.label">Was drinsteckt</p>
+            <h2 class="sectionTitle" data-i18n="details.title">Klar im Fokus statt künstlich aufgebläht</h2>
             <p class="sectionText" data-i18n="details.text">
-              Die App konzentriert sich auf genau das, was im Alltag zählt: aktuelle Herzfrequenz, klare Historie und
-              Funktionen, die den Tracking-Start vereinfachen und die wichtigsten Werte schnell sichtbar machen.
+              AirPulse konzentriert sich auf Live-Herzfrequenz, Sessions und saubere Organisation. Insights sind in Arbeit und kommen
+              dazu, ohne die App in ein überladenes Fitness-Dashboard zu verwandeln.
             </p>
 
             <div class="featureGrid">
               <div class="featureBox">
-                <strong data-i18n="features.f1Title">Echtzeit ohne Umwege</strong>
-                <p data-i18n="features.f1Text">Sieh deine Herzfrequenz sofort auf dem iPhone sowie auf Sperrbildschirm und Dynamic Island.</p>
+                <strong data-i18n="features.f1Title">Live auf dem iPhone</strong>
+                <p data-i18n="features.f1Text">Aktuelle BPM direkt in der App, auf dem Sperrbildschirm und in der Dynamic Island.</p>
               </div>
               <div class="featureBox">
-                <strong data-i18n="features.f2Title">Verlauf mit Substanz</strong>
-                <p data-i18n="features.f2Text">Trends, letzte Werte und Statistiken bleiben verständlich, statt sich in Komplexität zu verlieren.</p>
+                <strong data-i18n="features.f2Title">Sessions mit Kontext</strong>
+                <p data-i18n="features.f2Text">Aufzeichnungen bleiben als Sessions mit Verlauf, Kurve, Statistiken und Pausen erhalten.</p>
               </div>
               <div class="featureBox">
-                <strong data-i18n="features.f3Title">Standortbasierte Regeln</strong>
-                <p data-i18n="features.f3Text">Nutze Filter, um Tracking nur dort zu aktivieren, wo es für dich sinnvoll ist.</p>
+                <strong data-i18n="features.f3Title">Tags statt Chaos</strong>
+                <p data-i18n="features.f3Text">System-Tags und eigene Tags helfen dir, Sessions nach Alltag, Fokus, Erholung oder Training zu ordnen.</p>
               </div>
-              <div class="featureBox">
-                <strong data-i18n="features.f4Title">Klare Systemintegration</strong>
-                <p data-i18n="features.f4Text">HealthKit, Mitteilungen und optionale Standortfreigabe bilden die Grundlage für die verfügbaren Funktionen.</p>
+              <div class="featureBox is-soon">
+                <strong data-i18n="features.f4Title">Insights sind in Arbeit</strong>
+                <p data-i18n="features.f4Text">Trends, Wochenansichten, Streaks und Rekorde kommen schrittweise dazu und sollen bewusst kompakt bleiben.</p>
               </div>
             </div>
           </article>
 
           <aside class="darkPanel">
-            <p class="sectionLabel" data-i18n="compat.label">Kompatibilität</p>
-            <h2 class="sectionTitle" data-i18n="compat.title">Klarer Funktionsumfang statt vager Versprechen</h2>
+            <p class="sectionLabel" data-i18n="compat.label">Voraussetzungen</p>
+            <h2 class="sectionTitle" data-i18n="compat.title">Was du brauchst und worauf es ankommt</h2>
             <p class="sectionText" data-i18n="compat.text">
-              AirPulse ist auf AirPods Pro 3 und moderne iPhone-Workflows zugeschnitten. Bestimmte Features setzen HealthKit,
-              Mitteilungen und optional Standortzugriff voraus.
+              AirPulse ist für AirPods Pro 3 auf dem iPhone konzipiert und nutzt HealthKit. Je nach Setup brauchst du zusätzlich Mitteilungen,
+              Standortzugriff oder eine Kurzbefehle-Automation für den optionalen Autostart.
             </p>
 
             <ul class="checkList">
               <li data-i18n="compat.item1">Live Activity auf Sperrbildschirm und in der Dynamic Island</li>
-              <li data-i18n="compat.item2">Geräteverwaltung für unterstützte AirPods-Konfigurationen</li>
-              <li data-i18n="compat.item3">Deutsch und Englisch direkt in der App verfügbar</li>
-              <li data-i18n="compat.item4">Lokale Einstellungen für ein konsistentes, schnelles Nutzererlebnis</li>
+              <li data-i18n="compat.item2">Geräteauswahl und Standortfilter, damit Tracking kontrollierbar bleibt</li>
+              <li data-i18n="compat.item3">Verfügbar auf Deutsch, Englisch, Spanisch, Französisch, Hindi, Italienisch, Niederländisch, Polnisch und Russisch</li>
+              <li data-i18n="compat.item4">Optionaler Autostart per Kurzbefehle-Automation, damit du nicht jedes Mal zum iPhone greifen musst</li>
             </ul>
           </aside>
         </section>
 
         <section class="section sectionCard glass" aria-label="Vorteile">
-          <p class="sectionLabel" data-i18n="benefits.label">Erlebnis</p>
-          <h2 class="sectionTitle" data-i18n="benefits.title">Auf die Funktionen reduziert, die im Alltag wirklich zählen</h2>
+          <p class="sectionLabel" data-i18n="benefits.label">Bereiche</p>
+          <h2 class="sectionTitle" data-i18n="benefits.title">Drei klare Bereiche</h2>
           <p class="sectionText" data-i18n="benefits.text">
-            AirPulse konzentriert sich auf automatische Tracking-Starts, gut sichtbare Live-Werte und eine verständliche Historie.
-            So bleibt die App schnell erfassbar und funktional statt überladen.
+            Live, Sessions und bald Insights haben jeweils eine klare Aufgabe. So findest du schneller, was du brauchst, statt dich durch
+            eine überladene Oberfläche zu scrollen.
           </p>
 
           <div class="benefits">
             <article class="benefitCard">
               <div class="benefitIcon">01</div>
-              <strong data-i18n="benefits.b1Title">Automatisch im richtigen Moment</strong>
-              <p data-i18n="benefits.b1Text">Das Tracking startet beim Einsetzen kompatibler AirPods Pro 3, statt erst manuell ausgelöst werden zu müssen.</p>
+              <strong data-i18n="benefits.b1Title">Live</strong>
+              <p data-i18n="benefits.b1Text">Aktuelle BPM, kurze Zeitfenster und der Status deiner Verbindung an einem Ort.</p>
             </article>
             <article class="benefitCard">
               <div class="benefitIcon">02</div>
-              <strong data-i18n="benefits.b2Title">Werte schnell im Blick</strong>
-              <p data-i18n="benefits.b2Text">Live Activity, Widgets und Verlauf helfen dir dabei, aktuelle und letzte Werte ohne Umwege zu sehen.</p>
+              <strong data-i18n="benefits.b2Title">Sessions</strong>
+              <p data-i18n="benefits.b2Text">Gespeicherte Sessions lassen sich prüfen, taggen, stoppen oder verwalten, statt im Rohdatenstrom zu verschwinden.</p>
             </article>
-            <article class="benefitCard">
+            <article class="benefitCard is-soon">
               <div class="benefitIcon">03</div>
-              <strong data-i18n="benefits.b3Title">Kontrolle über den Einsatz</strong>
-              <p data-i18n="benefits.b3Text">Geräteauswahl, Standortfilter und lokale Einstellungen helfen dabei, das Tracking an deinen Ablauf anzupassen.</p>
+              <strong data-i18n="benefits.b3Title">Insights bald verfügbar</strong>
+              <p data-i18n="benefits.b3Text">Trends, Wochenansichten, Streaks und Rekorde sind in Arbeit und werden schrittweise ergänzt.</p>
             </article>
           </div>
         </section>
@@ -1255,27 +1687,32 @@
             <div class="galleryIntroRow">
               <div>
                 <p class="sectionLabel" data-i18n="preview.label">Preview</p>
-                <h2 class="sectionTitle" data-i18n="preview.title">Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt</h2>
+                <h2 class="sectionTitle" data-i18n="preview.title">Die Oberfläche bleibt auch mit mehr Funktionen übersichtlich</h2>
                 <p data-i18n="preview.text">
-                  Die Screenshots zeigen den Fokus von AirPulse: Live-Werte, übersichtliche Historie und schnelle Interaktion
-                  ohne visuelle Unruhe.
+                  Die Screenshots zeigen Live-Ansicht, Session-Verwaltung und das aktuelle Interface. Alles bleibt iPhone-nah statt wie ein
+                  generisches Dashboard zu wirken.
                 </p>
               </div>
-              <div class="galleryHint" data-i18n="preview.hint">Vertikal scrollen, horizontal entdecken</div>
+              <div class="galleryHint" data-i18n="preview.hint">Horizontal ziehen, wischen oder scrollen</div>
             </div>
           </div>
 
-          <div class="hScrollStage" data-hscroll>
+          <div class="hScrollStage">
             <div class="hScrollSticky">
-              <div class="shotsOuter" aria-label="App-Store Galerie">
-                <div class="shotsTrack" data-hscroll-track>
-                  <div class="shot"><img src="assets/appstore-1.jpeg" alt="AirPulse Screenshot 1" loading="lazy" /></div>
-                  <div class="shot"><img src="assets/appstore-2.jpeg" alt="AirPulse Screenshot 2" loading="lazy" /></div>
-                  <div class="shot"><img src="assets/appstore-3.jpeg" alt="AirPulse Screenshot 3" loading="lazy" /></div>
-                  <div class="shot"><img src="assets/appstore-4.jpeg" alt="AirPulse Screenshot 4" loading="lazy" /></div>
-                  <div class="shot"><img src="assets/appstore-5.jpeg" alt="AirPulse Screenshot 5" loading="lazy" /></div>
-                  <div class="shot"><img src="assets/appstore-6.jpeg" alt="AirPulse Screenshot 6" loading="lazy" /></div>
+              <div class="carouselFrame">
+                <button class="carouselArrow prev" type="button" aria-label="Vorheriger Screenshot" data-carousel-prev>‹</button>
+                <div class="shotsOuter" aria-label="App-Store Galerie" data-carousel>
+                  <div class="shotsTrack">
+                    <div class="shot is-active"><img src="assets/carousel_images/de/screen-1.jpeg" alt="AirPulse Screenshot 1" loading="lazy" decoding="async" width="1290" height="2796" data-gallery-image /></div>
+                    <div class="shot"><img src="assets/carousel_images/de/screen-2.jpeg" alt="AirPulse Screenshot 2" loading="lazy" decoding="async" width="1290" height="2796" data-gallery-image /></div>
+                    <div class="shot"><img src="assets/carousel_images/de/screen-3.jpeg" alt="AirPulse Screenshot 3" loading="lazy" decoding="async" width="1290" height="2796" data-gallery-image /></div>
+                    <div class="shot"><img src="assets/carousel_images/de/screen-4.jpeg" alt="AirPulse Screenshot 4" loading="lazy" decoding="async" width="1290" height="2796" data-gallery-image /></div>
+                    <div class="shot"><img src="assets/carousel_images/de/screen-5.jpeg" alt="AirPulse Screenshot 5" loading="lazy" decoding="async" width="1290" height="2796" data-gallery-image /></div>
+                    <div class="shot"><img src="assets/carousel_images/de/screen-6.jpeg" alt="AirPulse Screenshot 6" loading="lazy" decoding="async" width="1290" height="2796" data-gallery-image /></div>
+                    <div class="shot"><img src="assets/carousel_images/de/screen-7.jpeg" alt="AirPulse Screenshot 7" loading="lazy" decoding="async" width="1290" height="2796" data-gallery-image /></div>
+                  </div>
                 </div>
+                <button class="carouselArrow next" type="button" aria-label="Nächster Screenshot" data-carousel-next>›</button>
               </div>
             </div>
           </div>
@@ -1283,25 +1720,25 @@
 
         <section class="section sectionCard glass" aria-label="Kontakt und Weiterentwicklung">
           <p class="sectionLabel" data-i18n="feedback.label">Feedback</p>
-          <h2 class="sectionTitle" data-i18n="feedback.title">AirPulse wird kontinuierlich weiterentwickelt</h2>
+          <h2 class="sectionTitle" data-i18n="feedback.title">Echtes Feedback macht AirPulse besser</h2>
           <p class="sectionText" data-i18n-html="feedback.text">
-            Du hast eine Idee für ein neues Feature oder möchtest dir eine bestimmte Funktion wünschen? Dann schreib uns an
+            Wenn dir an Texten, Features oder einem bestimmten Flow etwas auffällt, schreib uns einfach an
             <a href="mailto:airpulseapp@icloud.com">airpulseapp@icloud.com</a>.
           </p>
         </section>
 
-        <section class="section legalGrid" aria-label="Rechtliche Links">
-          <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/terms-of-use" target="_blank" rel="noreferrer">
+        <section class="section legalGrid" id="legal" aria-label="Rechtliche Links">
+          <a class="legalCard glass" href="terms-of-use.html">
             <strong data-i18n="legal.termsTitle">Terms of Use</strong>
             <p data-i18n="legal.termsText">Die wichtigsten Nutzungsbedingungen und Hinweise zum Einsatz der App.</p>
             <span data-i18n="legal.open">Dokument öffnen</span>
           </a>
-          <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/privacy-policy" target="_blank" rel="noreferrer">
+          <a class="legalCard glass" href="privacy-policy.html">
             <strong data-i18n="legal.privacyTitle">Privacy Policy</strong>
             <p data-i18n="legal.privacyText">Welche Daten verarbeitet werden, wofür sie gebraucht werden und was lokal bleibt.</p>
             <span data-i18n="legal.open">Dokument öffnen</span>
           </a>
-          <a class="legalCard glass" href="https://chris20008.github.io/AirPulse/imprint" target="_blank" rel="noreferrer">
+          <a class="legalCard glass" href="imprint.html">
             <strong data-i18n="legal.imprintTitle">Imprint</strong>
             <p data-i18n="legal.imprintText">Kontakt, Verantwortlichkeit und rechtliche Rahmeninformationen zu AirPulse.</p>
             <span data-i18n="legal.open">Dokument öffnen</span>
@@ -1325,82 +1762,135 @@
         var picker = document.getElementById("language-picker");
         if (!picker) return;
 
+        var appStoreId = "6760625679";
+        var appStoreWebUrl = "https://apps.apple.com/us/app/airpulse/id" + appStoreId;
+        var appStoreDirectUrl = "itms-apps://itunes.apple.com/app/id" + appStoreId;
         var storageKey = "airpulse-language";
         var titleNode = document.querySelector("title");
         var metaDescription = document.getElementById("meta-description");
+        var metaThemeColor = document.getElementById("meta-theme-color");
+        var metaOgTitle = document.getElementById("meta-og-title");
         var metaOgDescription = document.getElementById("meta-og-description");
+        var metaOgLocale = document.getElementById("meta-og-locale");
+        var metaTwitterTitle = document.getElementById("meta-twitter-title");
+        var metaTwitterDescription = document.getElementById("meta-twitter-description");
+        var appStoreLinks = Array.prototype.slice.call(document.querySelectorAll("[data-app-store-link]"));
+        var themeButtons = Array.prototype.slice.call(document.querySelectorAll("[data-theme-toggle]"));
+        var brandIcons = Array.prototype.slice.call(document.querySelectorAll("[data-brand-icon]"));
+        var carouselPrevButton = document.querySelector("[data-carousel-prev]");
+        var carouselNextButton = document.querySelector("[data-carousel-next]");
+        var showcaseImage = document.querySelector("[data-showcase-image]");
+        var galleryImages = Array.prototype.slice.call(document.querySelectorAll("[data-gallery-image]"));
+        var themeStorageKey = "airpulse-theme";
+        var darkMedia = null;
+        var activeLocale = "de";
+
+        try {
+          darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
+        } catch (error) {
+          darkMedia = null;
+        }
+        var previewImages = {
+          de: [
+            "assets/carousel_images/de/screen-1.jpeg",
+            "assets/carousel_images/de/screen-2.jpeg",
+            "assets/carousel_images/de/screen-3.jpeg",
+            "assets/carousel_images/de/screen-4.jpeg",
+            "assets/carousel_images/de/screen-5.jpeg",
+            "assets/carousel_images/de/screen-6.jpeg",
+            "assets/carousel_images/de/screen-7.jpeg"
+          ],
+          en: [
+            "assets/carousel_images/en/screen-1.jpeg",
+            "assets/carousel_images/en/screen-2.jpeg",
+            "assets/carousel_images/en/screen-3.jpeg",
+            "assets/carousel_images/en/screen-4.jpeg",
+            "assets/carousel_images/en/screen-5.jpeg",
+            "assets/carousel_images/en/screen-6.jpeg",
+            "assets/carousel_images/en/screen-7.jpeg"
+          ]
+        };
         var translations = {
           de: {
-            pageTitle: "AirPulse",
-            metaDescription: "AirPulse zeigt deine Herzfrequenz mit AirPods Pro 3 in Echtzeit an, startet das Tracking automatisch beim Einsetzen und bringt Live Activity, Verlauf und Widgets auf das iPhone.",
-            metaOgDescription: "Herzfrequenz live mit AirPods Pro 3 verfolgen. Das Tracking startet automatisch beim Einsetzen und bleibt über Live Activity, Widgets und Verlauf jederzeit im Blick.",
+            pageTitle: "AirPulse | Herzfrequenz automatisch tracken mit AirPods Pro 3",
+            metaDescription: "AirPulse zeigt deine Herzfrequenz von AirPods Pro 3 live auf iPhone, Sperrbildschirm und Dynamic Island. Sessions, Tags und optionaler Autostart halten das Tracking alltagstauglich.",
+            metaOgTitle: "AirPulse | Herzfrequenz automatisch tracken mit AirPods Pro 3",
+            metaOgDescription: "Live-Herzfrequenz mit AirPods Pro 3 auf dem iPhone. AirPulse verbindet Live Activity, Sessions, Tags und optionalen Autostart in einer fokussierten Oberfläche.",
+            metaOgLocale: "de_DE",
             "brand.title": "AirPulse",
             "brand.subtitle": "Herzfrequenz live mit AirPods Pro 3",
-            "nav.terms": "Terms",
-            "nav.privacy": "Privacy",
-            "nav.imprint": "Imprint",
-            "hero.eyebrow": "Herzfrequenz mit AirPods Pro 3",
-            "hero.title": "Tracking startet beim Einsetzen deiner AirPods Pro 3",
-            "hero.text": "AirPulse erkennt kompatible AirPods Pro 3 und startet das Herzfrequenz-Tracking automatisch, ohne dass du es manuell anstoßen musst. Live Activity, Widgets und Verlauf halten deine Werte anschließend direkt auf dem iPhone sichtbar.",
-            "hero.focus1": "Nur Puls",
-            "hero.focus2": "Keine Kalorien",
-            "hero.focus3": "Keine Workouts",
-            "hero.focus4": "Kein unnötiger Overhead",
-            "hero.focusText": "AirPulse ist bewusst auf Herzfrequenz reduziert und startet kein klassisches Workout mit zusätzlichem Kalorien- oder Aktivitätstracking.",
+            "skip.link": "Zum Inhalt springen",
+            "nav.details": "Details",
+            "nav.preview": "Vorschau",
+            "nav.legal": "Rechtliches",
+            "nav.download": "Download",
+            "language.label": "Sprache wählen",
+            "theme.switchToDark": "Dunkler Modus",
+            "theme.switchToLight": "Heller Modus",
+            "carousel.prevLabel": "Vorheriger Screenshot",
+            "carousel.nextLabel": "Nächster Screenshot",
+            "hero.eyebrow": "Für AirPods Pro 3 auf dem iPhone",
+            "hero.title": "Automatisch tracken, ohne zum iPhone zu greifen",
+            "hero.text": "AirPulse zeigt deine Herzfrequenz von AirPods Pro 3 live auf iPhone, Sperrbildschirm und Dynamic Island. Wenn du eine Kurzbefehle-Automation eingerichtet hast, kann Tracking automatisch starten, ohne dass du jedes Mal erst zum iPhone greifen musst. Sessions und Tags halten den Verlauf dabei lesbar.",
+            "hero.focus1": "Live Activity",
+            "hero.focus2": "Sessions",
+            "hero.focus3": "Optionaler Autostart",
+            "hero.focus4": "Auf dem Gerät",
+            "hero.focusText": "Live sehen, Sessions sichern und auf Wunsch automatisch starten.",
             "hero.ctaPrimary": "Vorschau ansehen",
             "hero.ctaSecondary": "Funktionen entdecken",
             "meta.liveTitle": "Live",
-            "meta.liveText": "Herzfrequenz in Echtzeit auf einen Blick",
-            "meta.smartTitle": "Smart",
-            "meta.smartText": "Automatischer Start, Standortfilter und Geräteauswahl",
-            "meta.privateTitle": "Private",
-            "meta.privateText": "Datenverarbeitung primär direkt auf dem Gerät",
-            "showcase.kicker": "Jetzt im Fokus",
-            "showcase.title": "Live Activity, Verlauf und Widgets",
-            "showcase.badge": "Optimiert für den schnellen Blick",
-            "showcase.liveLabel": "Live Herzfrequenz",
-            "showcase.historyLabel": "Verlauf",
-            "showcase.historyTitle": "Sauber lesbare Trends statt Datenrauschen",
+            "meta.liveText": "Live-Werte auf iPhone, Sperrbildschirm und Dynamic Island",
+            "meta.smartTitle": "Autostart",
+            "meta.smartText": "Optional per Kurzbefehle automatisch starten",
+            "meta.privateTitle": "Kontrolle",
+            "meta.privateText": "Geräteauswahl, Standortfilter und lokale Einstellungen",
+            "showcase.kicker": "Was heute schon drin ist",
+            "showcase.title": "Live Tracking jetzt, Insights folgen",
+            "showcase.badge": "Für schnelle Blicke optimiert",
+            "showcase.liveLabel": "Aktuelle Herzfrequenz",
+            "showcase.historyLabel": "In Arbeit",
+            "showcase.historyTitle": "Insights sind in Arbeit und kommen schrittweise dazu",
             "showcase.card1Title": "Dynamic Island",
-            "showcase.card1Text": "Aktuelle Werte bleiben sichtbar, ohne die App offen zu halten.",
-            "showcase.card2Title": "Widgets",
-            "showcase.card2Text": "Wichtige Infos landen dort, wo du sie erwartest.",
-            "showcase.card3Title": "Automatischer Start",
-            "showcase.card3Text": "Beim Einsetzen unterstützter AirPods Pro 3 beginnt das Tracking ohne manuellen Start.",
-            "details.label": "Warum AirPulse",
-            "details.title": "Entwickelt für kurze Blicke, nicht für überladene Dashboards",
-            "details.text": "Die App konzentriert sich auf genau das, was im Alltag zählt: aktuelle Herzfrequenz, klare Historie und Funktionen, die den Tracking-Start vereinfachen und die wichtigsten Werte schnell sichtbar machen.",
-            "features.f1Title": "Echtzeit ohne Umwege",
-            "features.f1Text": "Sieh deine Herzfrequenz sofort auf dem iPhone sowie auf Sperrbildschirm und Dynamic Island.",
-            "features.f2Title": "Verlauf mit Substanz",
-            "features.f2Text": "Trends, letzte Werte und Statistiken bleiben verständlich, statt sich in Komplexität zu verlieren.",
-            "features.f3Title": "Standortbasierte Regeln",
-            "features.f3Text": "Nutze Filter, um Tracking nur dort zu aktivieren, wo es für dich sinnvoll ist.",
-            "features.f4Title": "Klare Systemintegration",
-            "features.f4Text": "HealthKit, Mitteilungen und optionale Standortfreigabe bilden die Grundlage für die verfügbaren Funktionen.",
-            "compat.label": "Kompatibilität",
-            "compat.title": "Klarer Funktionsumfang statt vager Versprechen",
-            "compat.text": "AirPulse ist auf AirPods Pro 3 und moderne iPhone-Workflows zugeschnitten. Bestimmte Features setzen HealthKit, Mitteilungen und optional Standortzugriff voraus.",
+            "showcase.card1Text": "Aktuelle Werte bleiben sichtbar, auch wenn du die App nicht offen hast.",
+            "showcase.card2Title": "Sessions & Tags",
+            "showcase.card2Text": "Verläufe lassen sich markieren, organisieren und später sauber lesen.",
+            "showcase.card3Title": "Insights bald verfügbar",
+            "showcase.card3Text": "An Trends, Wochenansichten, Streaks und Rekorden wird gerade gearbeitet.",
+            "details.label": "Was drinsteckt",
+            "details.title": "Klar im Fokus statt künstlich aufgebläht",
+            "details.text": "AirPulse konzentriert sich auf Live-Herzfrequenz, Sessions und saubere Organisation. Insights sind in Arbeit und kommen dazu, ohne die App in ein überladenes Fitness-Dashboard zu verwandeln.",
+            "features.f1Title": "Live auf dem iPhone",
+            "features.f1Text": "Aktuelle BPM direkt in der App, auf dem Sperrbildschirm und in der Dynamic Island.",
+            "features.f2Title": "Sessions mit Kontext",
+            "features.f2Text": "Aufzeichnungen bleiben als Sessions mit Verlauf, Kurve, Statistiken und Pausen erhalten.",
+            "features.f3Title": "Tags statt Chaos",
+            "features.f3Text": "System-Tags und eigene Tags helfen dir, Sessions nach Alltag, Fokus, Erholung oder Training zu ordnen.",
+            "features.f4Title": "Insights sind in Arbeit",
+            "features.f4Text": "Trends, Wochenansichten, Streaks und Rekorde kommen schrittweise dazu und sollen bewusst kompakt bleiben.",
+            "compat.label": "Voraussetzungen",
+            "compat.title": "Was du brauchst und worauf es ankommt",
+            "compat.text": "AirPulse ist für AirPods Pro 3 auf dem iPhone konzipiert und nutzt HealthKit. Je nach Setup brauchst du zusätzlich Mitteilungen, Standortzugriff oder eine Kurzbefehle-Automation für den optionalen Autostart.",
             "compat.item1": "Live Activity auf Sperrbildschirm und in der Dynamic Island",
-            "compat.item2": "Geräteverwaltung für unterstützte AirPods-Konfigurationen",
-            "compat.item3": "Deutsch und Englisch direkt in der App verfügbar",
-            "compat.item4": "Lokale Einstellungen für ein konsistentes, schnelles Nutzererlebnis",
-            "benefits.label": "Erlebnis",
-            "benefits.title": "Auf die Funktionen reduziert, die im Alltag wirklich zählen",
-            "benefits.text": "AirPulse konzentriert sich auf automatische Tracking-Starts, gut sichtbare Live-Werte und eine verständliche Historie. So bleibt die App schnell erfassbar und funktional statt überladen.",
-            "benefits.b1Title": "Automatisch im richtigen Moment",
-            "benefits.b1Text": "Das Tracking startet beim Einsetzen kompatibler AirPods Pro 3, statt erst manuell ausgelöst werden zu müssen.",
-            "benefits.b2Title": "Werte schnell im Blick",
-            "benefits.b2Text": "Live Activity, Widgets und Verlauf helfen dir dabei, aktuelle und letzte Werte ohne Umwege zu sehen.",
-            "benefits.b3Title": "Kontrolle über den Einsatz",
-            "benefits.b3Text": "Geräteauswahl, Standortfilter und lokale Einstellungen helfen dabei, das Tracking an deinen Ablauf anzupassen.",
+            "compat.item2": "Geräteauswahl und Standortfilter, damit Tracking kontrollierbar bleibt",
+            "compat.item3": "Verfügbar auf Deutsch, Englisch, Spanisch, Französisch, Hindi, Italienisch, Niederländisch, Polnisch und Russisch",
+            "compat.item4": "Optionaler Autostart per Kurzbefehle-Automation, damit du nicht jedes Mal zum iPhone greifen musst",
+            "benefits.label": "Bereiche",
+            "benefits.title": "Drei klare Bereiche",
+            "benefits.text": "Live, Sessions und bald Insights haben jeweils eine klare Aufgabe. So findest du schneller, was du brauchst, statt dich durch eine überladene Oberfläche zu scrollen.",
+            "benefits.b1Title": "Live",
+            "benefits.b1Text": "Aktuelle BPM, kurze Zeitfenster und der Status deiner Verbindung an einem Ort.",
+            "benefits.b2Title": "Sessions",
+            "benefits.b2Text": "Gespeicherte Sessions lassen sich prüfen, taggen, stoppen oder verwalten, statt im Rohdatenstrom zu verschwinden.",
+            "benefits.b3Title": "Insights bald verfügbar",
+            "benefits.b3Text": "Trends, Wochenansichten, Streaks und Rekorde sind in Arbeit und werden schrittweise ergänzt.",
             "preview.label": "Preview",
-            "preview.title": "Eine Oberfläche, die auf dem iPhone sofort vertraut wirkt",
-            "preview.text": "Die Screenshots zeigen den Fokus von AirPulse: Live-Werte, übersichtliche Historie und schnelle Interaktion ohne visuelle Unruhe.",
-            "preview.hint": "Vertikal scrollen, horizontal entdecken",
+            "preview.title": "Die Oberfläche bleibt auch mit mehr Funktionen übersichtlich",
+            "preview.text": "Die Screenshots zeigen Live-Ansicht, Session-Verwaltung und das aktuelle Interface. Alles bleibt iPhone-nah statt wie ein generisches Dashboard zu wirken.",
+            "preview.hint": "Horizontal ziehen, wischen oder scrollen",
             "feedback.label": "Feedback",
-            "feedback.title": "AirPulse wird kontinuierlich weiterentwickelt",
-            "feedback.text": "Du hast eine Idee für ein neues Feature oder möchtest dir eine bestimmte Funktion wünschen? Dann schreib uns an <a href=\"mailto:airpulseapp@icloud.com\">airpulseapp@icloud.com</a>.",
+            "feedback.title": "Echtes Feedback macht AirPulse besser",
+            "feedback.text": "Wenn dir an Texten, Features oder einem bestimmten Flow etwas auffällt, schreib uns einfach an <a href=\"mailto:airpulseapp@icloud.com\">airpulseapp@icloud.com</a>.",
             "legal.termsTitle": "Terms of Use",
             "legal.termsText": "Die wichtigsten Nutzungsbedingungen und Hinweise zum Einsatz der App.",
             "legal.privacyTitle": "Privacy Policy",
@@ -1411,76 +1901,85 @@
             "footer.disclaimer": "AirPulse ist eine Consumer-App für Herzfrequenzdarstellung und ersetzt keine medizinische Beratung oder Notfallversorgung."
           },
           en: {
-            pageTitle: "AirPulse",
-            metaDescription: "AirPulse shows your heart rate from AirPods Pro 3 in real time, starts tracking automatically when you put them in, and brings Live Activity, history, and widgets to iPhone.",
-            metaOgDescription: "Follow your heart rate live with AirPods Pro 3. Tracking starts automatically when you put them in and stays visible through Live Activity, widgets, and history.",
+            pageTitle: "AirPulse | Automatic heart rate tracking with AirPods Pro 3",
+            metaDescription: "AirPulse shows live heart rate from AirPods Pro 3 on iPhone, the Lock Screen, and the Dynamic Island. Sessions, tags, and optional auto start keep tracking practical.",
+            metaOgTitle: "AirPulse | Automatic heart rate tracking with AirPods Pro 3",
+            metaOgDescription: "Live heart rate from AirPods Pro 3 on iPhone. AirPulse combines Live Activity, sessions, tags, and optional auto start in one focused experience.",
+            metaOgLocale: "en_US",
             "brand.title": "AirPulse",
             "brand.subtitle": "Live heart rate with AirPods Pro 3",
-            "nav.terms": "Terms",
-            "nav.privacy": "Privacy",
-            "nav.imprint": "Imprint",
-            "hero.eyebrow": "Heart rate with AirPods Pro 3",
-            "hero.title": "Tracking starts when you put in your AirPods Pro 3",
-            "hero.text": "AirPulse detects compatible AirPods Pro 3 and starts heart rate tracking automatically, without any manual start. Live Activity, widgets, and history keep your values visible on iPhone right away.",
-            "hero.focus1": "Heart rate only",
-            "hero.focus2": "No calories",
-            "hero.focus3": "No workouts",
-            "hero.focus4": "No unnecessary overhead",
-            "hero.focusText": "AirPulse is intentionally reduced to heart rate and does not start a classic workout with additional calorie or activity tracking.",
+            "skip.link": "Skip to content",
+            "nav.details": "Details",
+            "nav.preview": "Preview",
+            "nav.legal": "Legal",
+            "nav.download": "Download",
+            "language.label": "Choose language",
+            "theme.switchToDark": "Dark mode",
+            "theme.switchToLight": "Light mode",
+            "carousel.prevLabel": "Previous screenshot",
+            "carousel.nextLabel": "Next screenshot",
+            "hero.eyebrow": "For AirPods Pro 3 on iPhone",
+            "hero.title": "Track automatically without reaching for your iPhone",
+            "hero.text": "AirPulse shows your heart rate from AirPods Pro 3 live on iPhone, the Lock Screen, and the Dynamic Island. If you have a Shortcuts automation set up, tracking can start automatically so you do not have to reach for your iPhone every time. Sessions and tags keep the history readable.",
+            "hero.focus1": "Live Activity",
+            "hero.focus2": "Sessions",
+            "hero.focus3": "Optional auto start",
+            "hero.focus4": "On device",
+            "hero.focusText": "See it live, save sessions, and start automatically if you want.",
             "hero.ctaPrimary": "See preview",
             "hero.ctaSecondary": "Explore features",
             "meta.liveTitle": "Live",
-            "meta.liveText": "Your heart rate in real time at a glance",
-            "meta.smartTitle": "Smart",
-            "meta.smartText": "Automatic start, location filters, and device selection",
-            "meta.privateTitle": "Private",
-            "meta.privateText": "Data is processed primarily on the device",
-            "showcase.kicker": "Now in focus",
-            "showcase.title": "Live Activity, history, and widgets",
+            "meta.liveText": "Live values on iPhone, the Lock Screen, and the Dynamic Island",
+            "meta.smartTitle": "Auto start",
+            "meta.smartText": "Optional Shortcuts based auto start",
+            "meta.privateTitle": "Control",
+            "meta.privateText": "Device selection, location filters, and local settings",
+            "showcase.kicker": "What ships today",
+            "showcase.title": "Live tracking now, insights next",
             "showcase.badge": "Built for quick glances",
-            "showcase.liveLabel": "Live heart rate",
-            "showcase.historyLabel": "History",
-            "showcase.historyTitle": "Readable trends instead of noisy data",
+            "showcase.liveLabel": "Current heart rate",
+            "showcase.historyLabel": "In progress",
+            "showcase.historyTitle": "Insights are in progress and will roll out step by step",
             "showcase.card1Title": "Dynamic Island",
-            "showcase.card1Text": "Current values stay visible without keeping the app open.",
-            "showcase.card2Title": "Widgets",
-            "showcase.card2Text": "Key information appears exactly where you expect it.",
-            "showcase.card3Title": "Automatic start",
-            "showcase.card3Text": "Tracking begins without a manual start when supported AirPods Pro 3 are inserted.",
-            "details.label": "Why AirPulse",
-            "details.title": "Built for quick glances, not overloaded dashboards",
-            "details.text": "The app focuses on what matters in everyday use: current heart rate, clear history, and features that simplify the tracking start while keeping important values easy to see.",
-            "features.f1Title": "Real time without detours",
-            "features.f1Text": "See your heart rate immediately on iPhone, the Lock Screen, and the Dynamic Island.",
-            "features.f2Title": "History with substance",
-            "features.f2Text": "Trends, recent values, and statistics stay understandable instead of getting lost in complexity.",
-            "features.f3Title": "Location-based rules",
-            "features.f3Text": "Use filters to activate tracking only where it makes sense for you.",
-            "features.f4Title": "Clear system integration",
-            "features.f4Text": "HealthKit, notifications, and optional location access form the basis for the available features.",
-            "compat.label": "Compatibility",
-            "compat.title": "Clear scope instead of vague promises",
-            "compat.text": "AirPulse is tailored to AirPods Pro 3 and modern iPhone workflows. Some features require HealthKit, notifications, and optional location access.",
+            "showcase.card1Text": "Current values stay visible even when the app is no longer open.",
+            "showcase.card2Title": "Sessions & tags",
+            "showcase.card2Text": "History can be marked, organized, and revisited without turning into noise.",
+            "showcase.card3Title": "Coming soon",
+            "showcase.card3Text": "Trends, weekly views, streaks, and records are actively being worked on.",
+            "details.label": "What's inside",
+            "details.title": "Focused instead of padded out",
+            "details.text": "AirPulse focuses on live heart rate, sessions, and clean organization. Insights are in progress and will be added without turning the app into a bloated fitness dashboard.",
+            "features.f1Title": "Live on iPhone",
+            "features.f1Text": "Current BPM directly in the app, on the Lock Screen, and in the Dynamic Island.",
+            "features.f2Title": "Sessions with context",
+            "features.f2Text": "Recordings remain available as sessions with history, charts, stats, and pauses.",
+            "features.f3Title": "Tags instead of clutter",
+            "features.f3Text": "System tags and custom tags help organize sessions around daily life, focus, recovery, or training.",
+            "features.f4Title": "Insights are in progress",
+            "features.f4Text": "Trends, weekly views, streaks, and records will roll out step by step and stay intentionally compact.",
+            "compat.label": "Requirements",
+            "compat.title": "What you need and what to expect",
+            "compat.text": "AirPulse is built for AirPods Pro 3 on iPhone and uses HealthKit. Depending on your setup, you may also need notifications, location access, or a Shortcuts automation for optional auto start.",
             "compat.item1": "Live Activity on the Lock Screen and in the Dynamic Island",
-            "compat.item2": "Device management for supported AirPods configurations",
-            "compat.item3": "German and English available directly in the app",
-            "compat.item4": "Local settings for a consistent, fast user experience",
-            "benefits.label": "Experience",
-            "benefits.title": "Reduced to the features that really matter every day",
-            "benefits.text": "AirPulse focuses on automatic tracking starts, clearly visible live values, and an understandable history. That keeps the app quick to grasp and functional instead of overloaded.",
-            "benefits.b1Title": "Automatic at the right moment",
-            "benefits.b1Text": "Tracking starts when compatible AirPods Pro 3 are inserted instead of requiring a manual trigger first.",
-            "benefits.b2Title": "Values in view quickly",
-            "benefits.b2Text": "Live Activity, widgets, and history help you see current and recent values without extra steps.",
-            "benefits.b3Title": "Control over usage",
-            "benefits.b3Text": "Device selection, location filters, and local settings help adapt tracking to your routine.",
+            "compat.item2": "Device selection and location filters so tracking stays under your control",
+            "compat.item3": "Available in German, English, Spanish, French, Hindi, Italian, Dutch, Polish, and Russian",
+            "compat.item4": "Optional auto start via Shortcuts if you want tracking without reaching for your iPhone",
+            "benefits.label": "Areas",
+            "benefits.title": "Three clear areas",
+            "benefits.text": "Live, sessions, and soon insights each have a clear job. That makes it faster to find what you need instead of digging through an overloaded interface.",
+            "benefits.b1Title": "Live",
+            "benefits.b1Text": "Current BPM, short time windows, and connection status in one place.",
+            "benefits.b2Title": "Sessions",
+            "benefits.b2Text": "Saved sessions can be reviewed, tagged, stopped, or managed instead of disappearing into a raw data stream.",
+            "benefits.b3Title": "Coming soon",
+            "benefits.b3Text": "Trends, weekly views, streaks, and records are in progress and will be added step by step.",
             "preview.label": "Preview",
-            "preview.title": "An interface that feels instantly familiar on iPhone",
-            "preview.text": "The screenshots show AirPulse at its core: live values, readable history, and quick interaction without visual noise.",
-            "preview.hint": "Scroll vertically, discover horizontally",
+            "preview.title": "The interface stays clear even as features grow",
+            "preview.text": "The screenshots show live view, session management, and the current interface. Everything stays close to iPhone conventions instead of feeling like a generic dashboard.",
+            "preview.hint": "Drag, swipe, or scroll horizontally",
             "feedback.label": "Feedback",
-            "feedback.title": "AirPulse is continuously evolving",
-            "feedback.text": "Do you have an idea for a new feature or want to request a specific capability? Write to us at <a href=\"mailto:airpulseapp@icloud.com\">airpulseapp@icloud.com</a>.",
+            "feedback.title": "Real feedback makes AirPulse better",
+            "feedback.text": "If something about the copy, features, or a specific flow feels off, just write to <a href=\"mailto:airpulseapp@icloud.com\">airpulseapp@icloud.com</a>.",
             "legal.termsTitle": "Terms of Use",
             "legal.termsText": "The key terms and usage notes for the app.",
             "legal.privacyTitle": "Privacy Policy",
@@ -1492,15 +1991,83 @@
           }
         };
 
+        function readStoredTheme() {
+          try {
+            var value = window.localStorage.getItem(themeStorageKey) || "";
+            return value === "light" || value === "dark" ? value : "";
+          } catch (error) {
+            return "";
+          }
+        }
+
+        var storedTheme = readStoredTheme();
+
+        function getActiveTheme() {
+          if (storedTheme) return storedTheme;
+          return darkMedia && darkMedia.matches ? "dark" : "light";
+        }
+
+        function syncThemeUI() {
+          var activeTheme = getActiveTheme();
+          var dict = translations[activeLocale] ? translations[activeLocale] : translations.de;
+          var nextLabel = activeTheme === "dark"
+            ? dict["theme.switchToLight"]
+            : dict["theme.switchToDark"];
+
+          document.documentElement.setAttribute("data-theme", activeTheme);
+          document.documentElement.style.colorScheme = activeTheme;
+
+          if (metaThemeColor) {
+            metaThemeColor.setAttribute(
+              "content",
+              activeTheme === "dark" ? "#07111d" : "#f7f7fb"
+            );
+          }
+
+          brandIcons.forEach(function (node) {
+            node.setAttribute(
+              "src",
+              activeTheme === "dark"
+                ? "assets/Version7_old.png"
+                : "assets/Version7.png"
+            );
+          });
+
+          themeButtons.forEach(function (button) {
+            button.setAttribute("aria-label", nextLabel);
+            button.setAttribute("title", nextLabel);
+            button.setAttribute("aria-pressed", activeTheme === "dark" ? "true" : "false");
+
+            var labelNode = button.querySelector("[data-theme-toggle-label]");
+            if (labelNode) labelNode.textContent = nextLabel;
+          });
+        }
+
         function applyLanguage(language) {
           var locale = translations[language] ? language : "de";
           var dict = translations[locale];
+          var localizedPreviewImages = previewImages[locale] ? previewImages[locale] : previewImages.de;
 
+          activeLocale = locale;
           document.documentElement.lang = locale;
           picker.value = locale;
           if (titleNode) titleNode.textContent = dict.pageTitle;
           if (metaDescription) metaDescription.setAttribute("content", dict.metaDescription);
+          if (metaOgTitle) metaOgTitle.setAttribute("content", dict.metaOgTitle);
           if (metaOgDescription) metaOgDescription.setAttribute("content", dict.metaOgDescription);
+          if (metaOgLocale) metaOgLocale.setAttribute("content", dict.metaOgLocale);
+          if (metaTwitterTitle) metaTwitterTitle.setAttribute("content", dict.metaOgTitle);
+          if (metaTwitterDescription) metaTwitterDescription.setAttribute("content", dict.metaDescription);
+          picker.setAttribute("aria-label", dict["language.label"]);
+          appStoreLinks.forEach(function (node) {
+            node.setAttribute("href", appStoreWebUrl);
+          });
+          if (carouselPrevButton) carouselPrevButton.setAttribute("aria-label", dict["carousel.prevLabel"]);
+          if (carouselNextButton) carouselNextButton.setAttribute("aria-label", dict["carousel.nextLabel"]);
+          if (showcaseImage && localizedPreviewImages[0]) showcaseImage.setAttribute("src", localizedPreviewImages[0]);
+          galleryImages.forEach(function (node, index) {
+            if (localizedPreviewImages[index]) node.setAttribute("src", localizedPreviewImages[index]);
+          });
 
           document.querySelectorAll("[data-i18n]").forEach(function (node) {
             var key = node.getAttribute("data-i18n");
@@ -1516,106 +2083,231 @@
             window.localStorage.setItem(storageKey, locale);
           } catch (error) {
           }
+
+          syncThemeUI();
         }
 
-        var initialLanguage = "de";
+        var storedLanguage = "";
         try {
-          initialLanguage = window.localStorage.getItem(storageKey) || initialLanguage;
+          storedLanguage = window.localStorage.getItem(storageKey) || "";
         } catch (error) {
-          initialLanguage = "de";
+          storedLanguage = "";
+        }
+
+        var initialLanguage = translations[storedLanguage] ? storedLanguage : "";
+
+        if (!translations[initialLanguage]) {
+          var browserLanguage = "";
+          try {
+            browserLanguage = window.navigator.language || window.navigator.userLanguage || "";
+          } catch (error) {
+            browserLanguage = "";
+          }
+
+          if (browserLanguage && browserLanguage.toLowerCase().indexOf("de") === 0) initialLanguage = "de";
+          else initialLanguage = "en";
         }
 
         applyLanguage(initialLanguage);
         picker.addEventListener("change", function (event) {
           applyLanguage(event.target.value);
         });
+
+        themeButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            storedTheme = getActiveTheme() === "dark" ? "light" : "dark";
+            try {
+              window.localStorage.setItem(themeStorageKey, storedTheme);
+            } catch (error) {
+            }
+            syncThemeUI();
+          });
+        });
+
+        if (darkMedia && darkMedia.addEventListener) {
+          darkMedia.addEventListener("change", function () {
+            if (storedTheme) return;
+            syncThemeUI();
+          });
+        } else if (darkMedia && darkMedia.addListener) {
+          darkMedia.addListener(function () {
+            if (storedTheme) return;
+            syncThemeUI();
+          });
+        }
+
+        appStoreLinks.forEach(function (node) {
+          node.addEventListener("click", function (event) {
+            var userAgent = "";
+            try {
+              userAgent = window.navigator.userAgent || "";
+            } catch (error) {
+              userAgent = "";
+            }
+
+            var isIOS = /iPad|iPhone|iPod/.test(userAgent) || (/Mac/.test(userAgent) && "ontouchend" in document);
+            if (!isIOS) return;
+
+            event.preventDefault();
+            window.location.href = appStoreDirectUrl;
+            window.setTimeout(function () {
+              window.location.href = appStoreWebUrl;
+            }, 1200);
+          });
+        });
       })();
 
       (function () {
         var header = document.querySelector(".topbar");
+        var headerShell = document.querySelector(".topbarShell");
         if (!header || !window.matchMedia) return;
 
         var mobileMedia = window.matchMedia("(max-width: 760px)");
         var compactThreshold = 20;
+        var expandedHeight = 0;
+        var compactHeight = 0;
+
+        function measureHeaderHeights() {
+          if (!headerShell) return;
+          if (!mobileMedia.matches) {
+            headerShell.style.removeProperty("--topbar-shell-height");
+            return;
+          }
+
+          var wasCompact = header.classList.contains("is-compact");
+          header.classList.add("is-measuring");
+          headerShell.classList.add("is-measuring");
+
+          header.classList.remove("is-compact");
+          expandedHeight = header.offsetHeight;
+
+          header.classList.add("is-compact");
+          compactHeight = header.offsetHeight;
+
+          header.classList.toggle("is-compact", wasCompact);
+          header.classList.remove("is-measuring");
+          headerShell.classList.remove("is-measuring");
+        }
+
+        function syncHeaderShellHeight(forceCompact) {
+          if (!headerShell) return;
+          if (!mobileMedia.matches) {
+            headerShell.style.removeProperty("--topbar-shell-height");
+            return;
+          }
+
+          var compact = typeof forceCompact === "boolean" ? forceCompact : header.classList.contains("is-compact");
+          var targetHeight = compact ? compactHeight : expandedHeight;
+          if (!targetHeight) return;
+          headerShell.style.setProperty("--topbar-shell-height", targetHeight + "px");
+        }
 
         function updateHeaderState() {
           if (!mobileMedia.matches) {
             header.classList.remove("is-compact");
+            syncHeaderShellHeight(false);
             return;
           }
 
           var y = window.scrollY || window.pageYOffset || 0;
-          header.classList.toggle("is-compact", y > compactThreshold);
+          var shouldCompact = y > compactThreshold;
+          header.classList.toggle("is-compact", shouldCompact);
+          syncHeaderShellHeight(shouldCompact);
         }
 
+        measureHeaderHeights();
+        syncHeaderShellHeight();
         updateHeaderState();
         window.addEventListener("scroll", updateHeaderState, { passive: true });
-        window.addEventListener("resize", updateHeaderState);
+        window.addEventListener("resize", function () {
+          measureHeaderHeights();
+          syncHeaderShellHeight();
+          updateHeaderState();
+        });
 
-        if (mobileMedia.addEventListener) mobileMedia.addEventListener("change", updateHeaderState);
-        else if (mobileMedia.addListener) mobileMedia.addListener(updateHeaderState);
+        if (mobileMedia.addEventListener) {
+          mobileMedia.addEventListener("change", function () {
+            measureHeaderHeights();
+            syncHeaderShellHeight();
+            updateHeaderState();
+          });
+        } else if (mobileMedia.addListener) {
+          mobileMedia.addListener(function () {
+            measureHeaderHeights();
+            syncHeaderShellHeight();
+            updateHeaderState();
+          });
+        }
       })();
 
       (function () {
+        var carousel = document.querySelector("[data-carousel]");
+        if (!carousel) return;
+
+        var shots = Array.prototype.slice.call(carousel.querySelectorAll(".shot"));
+        if (!shots.length) return;
+        var prevButton = document.querySelector("[data-carousel-prev]");
+        var nextButton = document.querySelector("[data-carousel-next]");
         var prefersReduced = false;
         try {
           prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         } catch (error) {
           prefersReduced = false;
         }
+        var activeIndex = 0;
 
-        var stage = document.querySelector("[data-hscroll]");
-        if (!stage) return;
-
-        var track = stage.querySelector("[data-hscroll-track]");
-        if (!track) return;
-
-        var mediaSticky = window.matchMedia ? window.matchMedia("(min-width: 761px)") : null;
-        var isStickyMode = !prefersReduced && (!mediaSticky || mediaSticky.matches);
-        var viewportHeight = 0;
-        var distance = 0;
-        var start = 0;
-        var end = 0;
-
-        function clamp(value, min, max) {
-          return Math.min(Math.max(value, min), max);
+        function clampScroll(value) {
+          return Math.max(0, Math.min(value, carousel.scrollWidth - carousel.clientWidth));
         }
 
-        function getViewportHeight() {
-          if (window.visualViewport && window.visualViewport.height) return window.visualViewport.height;
-          return document.documentElement.clientHeight || window.innerHeight;
+        function setArrowState() {
+          if (prevButton) prevButton.disabled = activeIndex <= 0;
+          if (nextButton) nextButton.disabled = activeIndex >= shots.length - 1;
         }
 
-        function getScrollableDistance() {
-          return Math.max(0, track.scrollWidth - stage.clientWidth);
+        function getCenteredScrollLeft(shot) {
+          return clampScroll(shot.offsetLeft - (carousel.clientWidth - shot.offsetWidth) / 2);
         }
 
-        function layoutStage() {
-          if (!isStickyMode) {
-            stage.style.height = "";
-            track.style.transform = "translate3d(0,0,0)";
-            return;
-          }
-
-          viewportHeight = getViewportHeight();
-          distance = getScrollableDistance();
-          stage.style.height = String(viewportHeight + distance) + "px";
-
-          var rectTop = stage.getBoundingClientRect().top;
-          start = (window.scrollY || window.pageYOffset || 0) + rectTop;
-          end = start + stage.offsetHeight - viewportHeight;
+        function scrollToPosition(left) {
+          carousel.scrollTo({
+            left: clampScroll(left),
+            behavior: prefersReduced ? "auto" : "smooth"
+          });
         }
 
-        function update() {
-          if (!isStickyMode || distance <= 0) {
-            track.style.transform = "translate3d(0,0,0)";
-            return;
-          }
+        function updateActiveShot() {
+          var targetCenter = carousel.scrollLeft + carousel.clientWidth / 2;
+          var bestShot = shots[0];
+          var bestIndex = 0;
+          var bestDistance = Number.POSITIVE_INFINITY;
 
-          var y = window.scrollY || window.pageYOffset || 0;
-          var progress = end > start ? (y - start) / (end - start) : 0;
-          var offset = -distance * clamp(progress, 0, 1);
-          track.style.transform = "translate3d(" + offset + "px,0,0)";
+          shots.forEach(function (shot, index) {
+            var shotCenter = shot.offsetLeft + shot.offsetWidth / 2;
+            var distance = Math.abs(targetCenter - shotCenter);
+            if (distance < bestDistance) {
+              bestDistance = distance;
+              bestShot = shot;
+              bestIndex = index;
+            }
+          });
+
+          activeIndex = bestIndex;
+          shots.forEach(function (shot) {
+            shot.classList.toggle("is-active", shot === bestShot);
+          });
+          setArrowState();
+        }
+
+        function scrollToIndex(index) {
+          var safeIndex = Math.max(0, Math.min(index, shots.length - 1));
+          activeIndex = safeIndex;
+          setArrowState();
+          scrollToPosition(getCenteredScrollLeft(shots[safeIndex]));
+        }
+
+        function nudgeBy(delta) {
+          scrollToPosition(carousel.scrollLeft + delta);
         }
 
         var raf = 0;
@@ -1623,39 +2315,131 @@
           if (raf) return;
           raf = window.requestAnimationFrame(function () {
             raf = 0;
-            update();
+            updateActiveShot();
           });
         }
 
-        function onResize() {
-          isStickyMode = !prefersReduced && (!mediaSticky || mediaSticky.matches);
-          layoutStage();
+        updateActiveShot();
+        setArrowState();
+        carousel.addEventListener("scroll", function () {
           schedule();
-        }
-
-        layoutStage();
-        update();
-
-        window.addEventListener("resize", onResize);
-        window.addEventListener(
-          "scroll",
-          function () {
-            schedule();
-          },
-          { passive: true }
-        );
+        }, { passive: true });
+        window.addEventListener("resize", schedule);
+        window.addEventListener("load", schedule);
 
         if (window.visualViewport && window.visualViewport.addEventListener) {
-          window.visualViewport.addEventListener("resize", onResize, { passive: true });
+          window.visualViewport.addEventListener("resize", schedule, { passive: true });
         }
 
-        if (mediaSticky) {
-          if (mediaSticky.addEventListener) mediaSticky.addEventListener("change", onResize);
-          else if (mediaSticky.addListener) mediaSticky.addListener(onResize);
+        Array.prototype.slice.call(carousel.querySelectorAll("img")).forEach(function (image) {
+          image.addEventListener("dragstart", function (event) {
+            event.preventDefault();
+          });
+        });
+
+        var isDragging = false;
+        var dragStartX = 0;
+        var dragStartScroll = 0;
+        var scrollGestureTimer = 0;
+
+        function clearScrollGestureTimer() {
+          if (!scrollGestureTimer) return;
+          window.clearTimeout(scrollGestureTimer);
+          scrollGestureTimer = 0;
         }
 
-        if (prefersReduced) {
-          track.style.willChange = "auto";
+        function beginScrollGesture() {
+          clearScrollGestureTimer();
+          carousel.classList.add("is-scroll-gesture");
+        }
+
+        function settleActiveShot() {
+          updateActiveShot();
+          scrollToPosition(getCenteredScrollLeft(shots[activeIndex]));
+        }
+
+        function finishScrollGesture() {
+          clearScrollGestureTimer();
+          if (!carousel.classList.contains("is-scroll-gesture")) return;
+          carousel.classList.remove("is-scroll-gesture");
+          settleActiveShot();
+        }
+
+        function queueScrollGestureFinish() {
+          clearScrollGestureTimer();
+          scrollGestureTimer = window.setTimeout(function () {
+            finishScrollGesture();
+          }, 150);
+        }
+
+        carousel.addEventListener("pointerdown", function (event) {
+          if (event.pointerType !== "mouse" || event.button !== 0) return;
+          finishScrollGesture();
+          isDragging = true;
+          dragStartX = event.clientX;
+          dragStartScroll = carousel.scrollLeft;
+          carousel.classList.add("is-dragging");
+          if (carousel.setPointerCapture) {
+            try {
+              carousel.setPointerCapture(event.pointerId);
+            } catch (error) {
+            }
+          }
+        });
+
+        carousel.addEventListener("pointermove", function (event) {
+          if (!isDragging) return;
+          carousel.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+        });
+
+        function stopDragging(event) {
+          if (!isDragging) return;
+          isDragging = false;
+          carousel.classList.remove("is-dragging");
+          if (event && carousel.releasePointerCapture) {
+            try {
+              carousel.releasePointerCapture(event.pointerId);
+            } catch (error) {
+            }
+          }
+          settleActiveShot();
+        }
+
+        carousel.addEventListener("pointerup", stopDragging);
+        carousel.addEventListener("pointercancel", stopDragging);
+        carousel.addEventListener("pointerleave", function (event) {
+          if (event.pointerType === "mouse") stopDragging(event);
+        });
+
+        carousel.addEventListener("wheel", function (event) {
+          if (carousel.scrollWidth <= carousel.clientWidth) return;
+          var usesShiftAxis = event.shiftKey && Math.abs(event.deltaY) > 0.5 && Math.abs(event.deltaX) < 0.5;
+          var isHorizontalGesture = Math.abs(event.deltaX) > 0.5 || usesShiftAxis;
+          if (!isHorizontalGesture) return;
+
+          beginScrollGesture();
+
+          if (usesShiftAxis) {
+            event.preventDefault();
+            carousel.scrollLeft = clampScroll(carousel.scrollLeft + event.deltaY);
+          }
+
+          schedule();
+          queueScrollGestureFinish();
+        }, { passive: false });
+
+        if (prevButton) {
+          prevButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            scrollToIndex(activeIndex - 1);
+          });
+        }
+
+        if (nextButton) {
+          nextButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            scrollToIndex(activeIndex + 1);
+          });
         }
       })();
     </script>

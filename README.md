@@ -1,6 +1,8 @@
 
-[Terms of Use](https://chris20008.github.io/AirPulse/terms-of-use)
+# AirPulse Website
 
-[Pricacy Policy](https://chris20008.github.io/AirPulse/privacy-policy)
-
-[Imprint](https://chris20008.github.io/AirPulse/imprint)
+- Landing page: `index.html`
+- Terms of Use: `terms-of-use.html`
+- Privacy Policy: `privacy-policy.html`
+- Imprint: `imprint.html`
+- Shared legal styles: `legal.css`
