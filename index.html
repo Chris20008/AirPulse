@@ -1475,7 +1475,7 @@
         <header class="topbar glass">
           <div class="brand" aria-label="AirPulse">
             <div class="brandmark">
-              <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" decoding="async" fetchpriority="high" width="980" height="980" data-brand-icon />
+              <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" decoding="async" fetchpriority="high" width="1024" height="1024" data-brand-icon />
             </div>
             <div class="brandcopy">
               <strong data-i18n="brand.title">AirPulse</strong>
@@ -2025,12 +2025,7 @@
           }
 
           brandIcons.forEach(function (node) {
-            node.setAttribute(
-              "src",
-              activeTheme === "dark"
-                ? "assets/Version7_old.png"
-                : "assets/Version7.png"
-            );
+            node.setAttribute("src", "assets/Version7.png");
           });
 
           themeButtons.forEach(function (button) {

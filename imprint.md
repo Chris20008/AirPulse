@@ -1,28 +1,41 @@
-## Imprint
+# AirPulse Imprint
 
-Responsible for the content of AirPulse (“the App”) according to § 5 TMG:
+Information according to § 5 DDG.
 
-Christian Range
+## Provider and Responsible Party
 
-### Disclaimer
+Christian Range<br>
+Paulusstraße 19<br>
+53227 Bonn<br>
+Germany
 
-I make reasonable efforts to keep the information about the App accurate and up to date. However, I cannot guarantee that all content is always complete, accurate, or current.
+Phone: +49 15780403050<br>
+Email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
 
-### Data Privacy
+Responsible for the content of AirPulse and the related app website: Christian Range.
 
-AirPulse processes app-related data primarily on the device itself. Depending on the features you use, the App may access health data, notification settings, device-related information, and optional location data in order to provide its functionality.
-AirPulse does not require a user account.
-If Apple services such as HealthKit, iCloud, Siri, Shortcuts, or Live Activities are used, their use is also subject to Apple’s applicable terms and privacy policies.
+## Disclaimer
+
+Reasonable efforts are made to keep the information about AirPulse accurate and up to date. However, no guarantee is given that all content is always complete, accurate, or current.
+
+## Data Privacy
+
+AirPulse processes app-related data primarily on the device itself. Depending on the features you use, the app may access health data, notification settings, device-related information, optional location data, StoreKit purchase state, iCloud backup state, feedback flows, and website preference data in order to provide its functionality.
+
+AirPulse does not require a user account and does not include a developer-operated backend service in the current implementation.
+
+If Apple services such as HealthKit, iCloud, Apple Maps, Siri, Shortcuts, StoreKit, widgets, or Live Activities are used, their use is also subject to Apple's applicable terms and privacy policies.
 
 More details are available in the [Privacy Policy](privacy-policy.html).
 
-### Contact
+## External Links
 
-If you have any questions or suggestions regarding the App, please contact:
+This imprint applies to AirPulse and the related app website. It does not apply to external websites or third-party services linked from within the app or website.
 
+## Dispute Resolution
 
-[airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
+The provider is not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
 
-Please note that this imprint applies only to the App and not to external websites or third-party services.
+## Terms
 
-By using the App, you agree to the [Terms of Use](terms-of-use.html).
+By using AirPulse, you also agree to the [Terms of Use](terms-of-use.html).

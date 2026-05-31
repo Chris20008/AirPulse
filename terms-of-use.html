@@ -6,7 +6,7 @@
     <title>AirPulse Terms of Use</title>
     <meta
       name="description"
-      content="Read the terms that apply to using AirPulse, including health disclaimers, permissions, platform dependencies, and liability notes."
+      content="Read the terms that apply to using AirPulse, including health disclaimers, purchases, backups, permissions, platform dependencies, and liability notes."
     />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta name="theme-color" content="#f7f7fb" />
@@ -26,7 +26,7 @@
         <header class="topbar glass">
           <a class="brandLink" href="./index.html" aria-label="Back to AirPulse home">
             <div class="brandmark">
-              <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" decoding="async" width="980" height="980" data-brand-icon />
+              <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" decoding="async" width="1024" height="1024" data-brand-icon />
             </div>
             <div class="brandcopy">
               <strong>AirPulse</strong>
@@ -61,7 +61,7 @@
           <div class="metaList">
             <div class="metaItem">
               <strong>Effective date</strong>
-              <span>16 April 2026</span>
+              <span>31 May 2026</span>
             </div>
             <div class="metaItem">
               <strong>Provider</strong>
@@ -99,15 +99,17 @@
               <li><a href="#license">License</a></li>
               <li><a href="#health">Health and Safety Notice</a></li>
               <li><a href="#permissions">Permissions and Platform Dependencies</a></li>
+              <li><a href="#purchases">Purchases, Subscriptions, and Support Purchases</a></li>
               <li><a href="#responsibilities">User Responsibilities</a></li>
               <li><a href="#prohibited">Prohibited Use</a></li>
               <li><a href="#availability">Availability and Technical Limitations</a></li>
-              <li><a href="#notifications">Notifications, Live Activities, and Shortcut Features</a></li>
+              <li><a href="#notifications">Notifications, Live Activities, Widgets, Shortcuts, and Audio Feedback</a></li>
+              <li><a href="#backups">Backups, Export, Import, and Data Loss</a></li>
               <li><a href="#third-party">Third-Party Services</a></li>
               <li><a href="#privacy">Privacy</a></li>
               <li><a href="#warranties">Disclaimer of Warranties</a></li>
               <li><a href="#liability">Limitation of Liability</a></li>
-              <li><a href="#termination">Suspension, Changes, and Termination</a></li>
+              <li><a href="#termination">Changes, Suspension, and Termination</a></li>
               <li><a href="#contact">Contact</a></li>
             </ol>
           </nav>
@@ -117,6 +119,8 @@
             <p>AirPulse is provided by:</p>
             <ul>
               <li>Legal name: Christian Range</li>
+              <li>Address: Paulusstraße 19, 53227 Bonn, Germany</li>
+              <li>Phone: +49 15780403050</li>
               <li>Contact email: <a class="inlineLink" href="mailto:airpulseapp@icloud.com">airpulseapp@icloud.com</a></li>
             </ul>
           </section>
@@ -131,12 +135,14 @@
             <h2>3. Description of the App</h2>
             <p>
               AirPulse is an iOS application designed to display heart rate information using Apple HealthKit and Apple's workout-related
-              frameworks. The app also includes features for Live Activities, location-based tracking filters, device selection,
-              local notifications, local settings storage, and optional Pro features.
+              frameworks. The app includes features for Live Activities, widget-related iOS surfaces, location-based tracking filters,
+              optional session location histories, device selection, tags, insights, audio feedback, local notifications, iCloud backup and
+              restore, local settings storage, shortcuts, and optional Pro features.
             </p>
             <p>
-              Depending on the current app version and App Store configuration, AirPulse may also offer App Store based purchase or restore
-              flows for optional Pro access. AirPulse does not include user accounts or a developer-operated backend service.
+              Depending on the current app version and App Store configuration, AirPulse may offer App Store based purchase or restore flows
+              for optional Pro access and voluntary support purchases. AirPulse does not include user accounts or a developer-operated backend
+              service in the current implementation.
             </p>
           </section>
 
@@ -153,12 +159,16 @@
           <section id="health">
             <h2>5. Health and Safety Notice</h2>
             <p>
-              AirPulse is a consumer software application for displaying pulse-related information. It is not medical advice, not a substitute
-              for professional healthcare, and not an emergency service.
+              AirPulse is a consumer software application for displaying pulse-related information. It is not medical advice, not a medical
+              device, not a substitute for professional healthcare, and not an emergency service.
             </p>
             <p>
-              You must not rely on AirPulse for diagnosis, treatment, or emergency decision-making. If you believe you may have a medical
-              emergency, contact emergency services or a qualified medical professional immediately.
+              You must not rely on AirPulse for diagnosis, treatment, medical monitoring, or emergency decision-making. If you believe you may
+              have a medical emergency, contact emergency services or a qualified medical professional immediately.
+            </p>
+            <p>
+              Heart rate values, insights, zones, audio cues, and maps may be delayed, incomplete, inaccurate, unavailable, or affected by
+              Apple frameworks, device state, sensor behavior, permissions, connectivity, or your environment.
             </p>
           </section>
 
@@ -166,8 +176,8 @@
             <h2>6. Permissions and Platform Dependencies</h2>
             <p>
               Important app functions depend on Apple permissions, platform features, and system behavior, including HealthKit, workout
-              sessions, location access, notifications, Bluetooth audio routing, Live Activities, shortcuts, and Apple Maps related
-              services.
+              sessions, location access, notifications, Bluetooth audio routing, Live Activities, widgets, App Intents, Siri, shortcuts,
+              iCloud, StoreKit, and Apple Maps related services.
             </p>
             <p>
               If you deny, restrict, or revoke permissions, or if Apple platform behavior changes, some app functions may be limited or
@@ -175,31 +185,54 @@
             </p>
           </section>
 
+          <section id="purchases">
+            <h2>7. Purchases, Subscriptions, and Support Purchases</h2>
+            <p>
+              Optional Pro features may be offered through Apple App Store in-app purchases, subscriptions, lifetime purchases, restore flows,
+              or other StoreKit-supported product types.
+            </p>
+            <p>
+              Subscriptions, if offered, are managed through your Apple ID and may renew according to Apple's App Store terms and the product
+              information shown at purchase time. You can manage or cancel subscriptions through Apple.
+            </p>
+            <p>
+              Voluntary support purchases, if offered, are intended to support continued development and may not unlock additional features
+              unless expressly stated in the purchase screen.
+            </p>
+            <p>
+              Prices, availability, trials, taxes, refunds, cancellation options, and billing are handled by Apple and may vary by country or
+              region.
+            </p>
+          </section>
+
           <section id="responsibilities">
-            <h2>7. User Responsibilities</h2>
+            <h2>8. User Responsibilities</h2>
             <p>You are responsible for:</p>
             <ul>
               <li>using AirPulse only in compliance with applicable law;</li>
-              <li>reviewing and managing your Health, location, and notification permissions;</li>
-              <li>deciding whether to enable Live Activities, shortcuts, and notifications;</li>
-              <li>understanding that pulse-related information may appear on your device screen when certain features are enabled; and</li>
-              <li>verifying that the app and your connected devices are suitable for your own intended use.</li>
+              <li>reviewing and managing your Health, location, iCloud, StoreKit, and notification permissions;</li>
+              <li>deciding whether to enable Live Activities, widgets, shortcuts, audio feedback, location history, and notifications, and managing your iCloud account, storage, and backup availability;</li>
+              <li>understanding that pulse-related or operational information may appear on your device screen or in audio output when certain features are enabled;</li>
+              <li>verifying that the app and your connected devices are suitable for your own intended use;</li>
+              <li>keeping your own backups if you rely on session history or exported data.</li>
             </ul>
           </section>
 
           <section id="prohibited">
-            <h2>8. Prohibited Use</h2>
+            <h2>9. Prohibited Use</h2>
             <p>You must not:</p>
             <ul>
               <li>use AirPulse in violation of law or third-party rights;</li>
+              <li>use AirPulse for medical diagnosis, emergency response, or safety-critical monitoring;</li>
               <li>interfere with, disrupt, or misuse the app or its technical operation;</li>
-              <li>reverse engineer, decompile, or modify the app except where mandatory law permits it; or</li>
+              <li>reverse engineer, decompile, or modify the app except where mandatory law permits it;</li>
+              <li>misuse purchases, entitlements, restore flows, feedback forms, or support contact channels;</li>
               <li>use the app in a misleading, unsafe, or abusive manner.</li>
             </ul>
           </section>
 
           <section id="availability">
-            <h2>9. Availability and Technical Limitations</h2>
+            <h2>10. Availability and Technical Limitations</h2>
             <p>
               AirPulse depends on Apple frameworks and runtime conditions that are outside the provider's control. This includes, among other
               things:
@@ -209,68 +242,98 @@
               <li>workout-session behavior;</li>
               <li>Bluetooth route availability;</li>
               <li>Live Activity authorization and display behavior;</li>
-              <li>App Store purchase availability and transaction behavior, when optional Pro features are used;</li>
-              <li>shortcut execution behavior;</li>
-              <li>location availability; and</li>
+              <li>StoreKit purchase availability and transaction behavior;</li>
+              <li>iCloud availability, quota, sync timing, and backup state;</li>
+              <li>widget, App Intent, Siri, and shortcut execution behavior;</li>
+              <li>notification delivery behavior;</li>
+              <li>location availability and background execution rules;</li>
               <li>Apple Maps related services.</li>
             </ul>
             <p>
               For that reason, AirPulse may not always be available without interruption, and certain features may not work in every situation
-              or on every device state.
+              on every device, or in every device state.
             </p>
           </section>
 
           <section id="notifications">
-            <h2>10. Notifications, Live Activities, and Shortcut Features</h2>
+            <h2>11. Notifications, Live Activities, Widgets, Shortcuts, and Audio Feedback</h2>
             <p>
-              AirPulse may offer optional local notifications and may display information through Live Activities and shortcut-related
-              integrations.
+              AirPulse may offer optional local notifications and may display information through Live Activities, widgets, shortcuts,
+              Siri/App Intent surfaces, and related integrations.
             </p>
             <p>
               If you enable these features, you understand that pulse-related or operational information may be shown on Apple-controlled system
-              surfaces such as the Lock Screen, Dynamic Island, or other system interfaces.
+              surfaces such as the Lock Screen, Dynamic Island, widget areas, or other system interfaces.
+            </p>
+            <p>
+              If you enable audio feedback, you understand that heart rate zone or limit information may be played through your selected audio
+              route and may be audible according to your device and audio settings.
+            </p>
+          </section>
+
+          <section id="backups">
+            <h2>12. Backups, Export, Import, and Data Loss</h2>
+            <p>AirPulse stores session-related data locally and supports iCloud backup/restore, export, import, or share functions for session-related data.</p>
+            <p>
+              If iCloud is available for your Apple Account, session-related backup data may be stored through Apple's iCloud infrastructure.
+              That iCloud storage is governed by Apple's applicable iCloud terms, Apple's Privacy Policy, and Apple's iCloud data security
+              practices.
+            </p>
+            <p>
+              These features depend on device storage, iCloud availability, Apple frameworks, file access, and user actions. You are responsible
+              for checking that backups, exports, and imports meet your needs before relying on them.
+            </p>
+            <p>
+              No guarantee is given that any backup, export, import, sync, or restore operation will always be available, complete, current, or
+              error-free.
             </p>
           </section>
 
           <section id="third-party">
-            <h2>11. Third-Party Services</h2>
+            <h2>13. Third-Party Services</h2>
             <p>
               AirPulse uses Apple-provided frameworks and services for certain app functions. If you use Apple Health, Apple Maps related
-              features, Live Activities, shortcuts, iOS notification services, or App Store / StoreKit purchase flows, your use of those
-              services is also subject to Apple's applicable terms and privacy policies.
+              features, iCloud, StoreKit, Live Activities, widgets, Siri, shortcuts, iOS notification services, App Store review flows, or App
+              Store purchase flows, your use of those services is also subject to Apple's applicable terms and privacy policies.
             </p>
-            <p>If you open legal documents from inside the app, AirPulse may open an external website URL.</p>
+            <p>
+              If you open legal documents, App Store pages, email links, or feedback forms from inside the app or website, AirPulse may open an
+              external website, mail client, App Store surface, or third-party form.
+            </p>
           </section>
 
           <section id="privacy">
-            <h2>12. Privacy</h2>
+            <h2>14. Privacy</h2>
             <p>
               Your use of AirPulse is also subject to the <a class="inlineLink" href="./privacy-policy.html">AirPulse Privacy Policy</a>.
             </p>
           </section>
 
           <section id="warranties">
-            <h2>13. Disclaimer of Warranties</h2>
+            <h2>15. Disclaimer of Warranties</h2>
             <p>To the maximum extent permitted by applicable law, AirPulse is provided on an as is and as available basis.</p>
             <p>
               No warranty is given that the app will always be available, uninterrupted, error-free, accurate for any particular purpose, or
-              suitable for any medical, professional, or emergency use.
+              suitable for any medical, professional, athletic, safety-critical, or emergency use.
             </p>
             <p>Any warranties that cannot legally be excluded remain unaffected.</p>
           </section>
 
           <section id="liability">
-            <h2>14. Limitation of Liability</h2>
+            <h2>16. Limitation of Liability</h2>
             <p>
               To the maximum extent permitted by applicable law, the provider will not be liable for indirect, incidental, special,
               consequential, exemplary, or punitive damages, or for loss of data, loss of profits, loss of goodwill, business interruption,
-              or decisions made in reliance on app output.
+              loss of backup data, failed sync, failed purchases, or decisions made in reliance on app output.
             </p>
-            <p>Nothing in these Terms excludes or limits liability where exclusion or limitation is prohibited by applicable law.</p>
+            <p>
+              Nothing in these Terms excludes or limits liability where exclusion or limitation is prohibited by applicable law, including
+              liability for intent, gross negligence, injury to life, body, or health, or mandatory consumer protection rights.
+            </p>
           </section>
 
           <section id="termination">
-            <h2>15. Suspension, Changes, and Termination</h2>
+            <h2>17. Changes, Suspension, and Termination</h2>
             <p>
               The provider may modify, update, suspend, or discontinue AirPulse or any of its features at any time, subject to applicable law.
             </p>
@@ -281,10 +344,12 @@
           </section>
 
           <section id="contact">
-            <h2>16. Contact</h2>
+            <h2>18. Contact</h2>
             <p>For legal or support-related questions, please contact:</p>
             <ul>
               <li>Legal name: Christian Range</li>
+              <li>Address: Paulusstraße 19, 53227 Bonn, Germany</li>
+              <li>Phone: +49 15780403050</li>
               <li>Contact email: <a class="inlineLink" href="mailto:airpulseapp@icloud.com">airpulseapp@icloud.com</a></li>
             </ul>
             <p class="notice">

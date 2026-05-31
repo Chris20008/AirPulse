@@ -52,12 +52,7 @@
     }
 
     brandIcons.forEach(function (node) {
-      node.setAttribute(
-        "src",
-        activeTheme === "dark"
-          ? "assets/Version7_old.png"
-          : "assets/Version7.png"
-      );
+      node.setAttribute("src", "assets/Version7.png");
     });
 
     themeButtons.forEach(function (button) {
