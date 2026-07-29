@@ -6,6 +6,7 @@
 (function () {
   var storageKey = "airpulse-theme";
   var root = document.documentElement;
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
   var themeButtons = Array.prototype.slice.call(
     document.querySelectorAll("[data-theme-toggle]")
   );
@@ -57,6 +58,13 @@
 
     root.setAttribute("data-theme", activeTheme);
     root.style.colorScheme = activeTheme;
+
+    if (themeMeta) {
+      themeMeta.setAttribute(
+        "content",
+        activeTheme === "dark" ? "#100f11" : "#f7f4ef"
+      );
+    }
 
     brandIcons.forEach(function (node) {
       node.setAttribute("src", "assets/Version7.png");
