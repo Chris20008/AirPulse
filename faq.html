@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title data-i18n="faq.pageTitle">Häufige Fragen | AirPulse</title>
+    <meta
+      name="description"
+      content="Antworten zu Autostart, Berechtigungen, Live Activity, Session-Tags, Pulszonen, Standort, Speicherung und Kompatibilität in AirPulse."
+      data-i18n-content="faq.metaDescription"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="apple-mobile-web-app-title" content="AirPulse" />
+    <meta name="theme-color" content="#f7f4ef" />
+    <link rel="canonical" href="https://chris20008.github.io/AirPulse/faq.html" />
+
+    <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="assets/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="styles.css?v=20260725-9" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chris20008.github.io/AirPulse/faq.html" />
+    <meta property="og:title" content="Häufige Fragen | AirPulse" data-i18n-content="faq.pageTitle" />
+    <meta
+      property="og:description"
+      content="Antworten zu Autostart, Berechtigungen, Live Activity, Session-Tags, Pulszonen, Standort, Speicherung und Kompatibilität in AirPulse."
+      data-i18n-content="faq.metaDescription"
+    />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Häufige Fragen | AirPulse" data-i18n-content="faq.pageTitle" />
+    <meta
+      name="twitter:description"
+      content="Antworten zu Autostart, Berechtigungen, Live Activity, Session-Tags, Pulszonen, Standort, Speicherung und Kompatibilität in AirPulse."
+      data-i18n-content="faq.metaDescription"
+    />
+    <meta name="twitter:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
+
+    <script>
+      (function () {
+        var savedTheme = "";
+        try {
+          savedTheme = window.localStorage.getItem("airpulse-theme") || "";
+        } catch (error) {
+        }
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", savedTheme === "dark" || (!savedTheme && dark) ? "dark" : "light");
+      })();
+    </script>
+  </head>
+
+  <body class="faq-page" data-page="faq">
+    <a class="skip-link" href="#content" data-i18n="skip.link">Zum Inhalt springen</a>
+
+    <div class="site-header-shell">
+      <header class="site-header container">
+        <a class="brand" href="index.html" aria-label="AirPulse Startseite" data-i18n-aria-label="brand.homeLabel">
+          <img class="brand-icon" src="assets/Version7.png" alt="" width="1024" height="1024" />
+          <span class="brand-copy">
+            <strong>AirPulse</strong>
+            <span data-i18n="brand.subtitle">Automatische Pulsaufzeichnung</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Hauptnavigation" data-i18n-aria-label="nav.mainLabel">
+          <a href="how-to.html" data-i18n="nav.setup">Einrichtung</a>
+          <a href="faq.html" aria-current="page" data-i18n="nav.faq">Fragen</a>
+          <a href="tags.html" data-i18n="nav.tags">Session Tags</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="language-button" type="button" data-language-toggle aria-label="Switch to English">EN</button>
+          <button class="icon-button" type="button" data-theme-toggle aria-label="Dunkles Design aktivieren" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">
+              <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M20 15.3A8.5 8.5 0 0 1 8.7 4 8.5 8.5 0 1 0 20 15.3Z" /></svg>
+              <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+            </span>
+          </button>
+          <a class="store-button" href="https://apps.apple.com/us/app/airpulse/id6760625679" data-app-store-link data-i18n="nav.store">App Store</a>
+        </div>
+      </header>
+    </div>
+
+    <main id="content">
+      <section class="faq-section container" aria-labelledby="faq-heading">
+        <div class="faq-layout">
+          <div class="faq-page-heading reveal">
+            <h1 class="section-heading" id="faq-heading" data-i18n="faq.title">Häufige Fragen</h1>
+            <div class="faq-search">
+              <div class="faq-search-control">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="6.5" />
+                  <path d="m16 16 4 4" />
+                </svg>
+                <input
+                  id="faq-search"
+                  type="search"
+                  autocomplete="off"
+                  data-faq-search
+                  aria-label="Fragen durchsuchen"
+                  data-i18n-aria-label="faq.searchLabel"
+                  data-i18n-placeholder="faq.searchLabel"
+                  placeholder="Fragen durchsuchen"
+                />
+              </div>
+              <p class="faq-search-status" data-faq-search-status aria-live="polite"></p>
+            </div>
+            <p class="faq-search-empty" data-faq-search-empty hidden data-i18n="faq.searchEmpty">Keine passende Frage gefunden</p>
+          </div>
+          <div class="faq-groups">
+            <section class="faq-group reveal" aria-labelledby="faq-group-start">
+              <h2 id="faq-group-start" data-i18n="faq.groupStart">Start &amp; Voraussetzungen</h2>
+              <div class="faq-list">
+                <details class="faq-item">
+                  <summary data-i18n="faq.q5">Wie richte ich den automatischen Start ein?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a5">Lege in Apple Kurzbefehle zuerst einen Kurzbefehl mit der AirPulse-Aktion „Start Pulse Tracking“ an. Erstelle dann eine persönliche Bluetooth-Automation, wähle deine AirPods Pro 3 als Auslöser und aktiviere „Sofort ausführen“. Weise der Automation anschließend den Kurzbefehl zu</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q1">Startet AirPulse auch bei gesperrtem iPhone?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a1">Ja. Nach der einmaligen Einrichtung führt die persönliche Automation beim Verbinden der AirPods Pro 3 den Befehl „Start Pulse Tracking“ aus. Das iPhone kann gesperrt bleiben</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q6">Brauche ich Pro für den automatischen Start?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a6">Nein. Ohne Pro sind bis zu drei Autostarts pro Tag möglich. Mit Pro gibt es kein Tageslimit</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q9">Welche Berechtigungen benötigt AirPulse?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a9">Für die Pulsaufzeichnung benötigt AirPulse Health-Zugriff, um Herzfrequenz- und Trainingsdaten zu lesen und Trainingsdaten zu schreiben. Standortzugriff betrifft optionale Ortsfilter und Session-Routen. Ohne Standortzugriff bleibt „Akku sparen“ aktiv; in diesem Modus ist die Live Activity nicht verfügbar</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q10">Kann ich AirPulse auch außerhalb eines klassischen Workouts verwenden?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a10">Ja. AirPulse-Sessions sind nicht auf Sport beschränkt. Mit Session-Tags kannst du Aufzeichnungen zum Beispiel Arbeit, Lernen, Pendeln, Zuhause oder Ruhe zuordnen</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q11">Kann AirPulse stündlich oder zu festen Zeiten einen einzelnen Messwert erfassen?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a11">Nein. AirPulse bietet keine geplanten Einzelmessungen. Die App zeichnet verfügbare Herzfrequenzwerte während einer laufenden Session auf</p></div>
+                </details>
+              </div>
+            </section>
+
+            <section class="faq-group reveal" aria-labelledby="faq-group-live">
+              <h2 id="faq-group-live" data-i18n="faq.groupLive">Live Activity &amp; Bedienung</h2>
+              <div class="faq-list">
+                <details class="faq-item">
+                  <summary data-i18n="faq.q2">Was sehe ich während einer aktiven Session?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a2">AirPulse zeigt die aktuelle Herzfrequenz in der App sowie über die Live Activity auf dem Sperrbildschirm und in der Dynamic Island</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q12">Warum erscheint keine Live Activity?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a12">Die Live Activity erscheint nur während einer aktiven Session. Prüfe außerdem in AirPulse die Einstellung „Akku sparen“: Ist sie aktiv, bleibt die Live Activity ausgeschaltet. Ohne Standortzugriff lässt sich „Akku sparen“ nicht deaktivieren</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q13">Muss ich die Anzeige als Widget hinzufügen?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a13">Nein. AirPulse bietet weder ein Home-Screen- noch ein Sperrbildschirm-Widget. Während einer aktiven Session erscheint die Live Activity automatisch auf dem Sperrbildschirm und in der Dynamic Island</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q14">Kann ich direkt mit einem bestimmten Tag starten oder ihn per Siri wechseln?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a14">Ja. Die Kurzbefehle-Aktion „Set Session Tag“ weist einer laufenden Session den gewählten Tag zu. Läuft keine Session, startet sie eine neue Session mit diesem Tag. Die benötigte Tag-ID findest du beim jeweiligen Tag in der Tag-Verwaltung</p></div>
+                </details>
+              </div>
+            </section>
+
+            <section class="faq-group reveal" aria-labelledby="faq-group-audio">
+              <h2 id="faq-group-audio" data-i18n="faq.groupAudio">Tags, Pulszonen &amp; Audio</h2>
+              <div class="faq-list">
+                <details class="faq-item">
+                  <summary data-i18n="faq.q8">Welche Ansagen bietet das Audio-Feedback?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a8">Mit Pro kann AirPulse Zonenwechsel und persönliche Limits über deine Kopfhörer ansagen. Du kannst Audioprofile Session-Tags zuordnen und eigene Audiodateien verwenden</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q15">Wie hängen Pulszonen, Audioprofile und Session-Tags zusammen?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a15">Das Audioprofil bestimmt Signale, Intervalle und persönliche Limits; das Pulszonenprofil bestimmt die BPM-Grenzen der Zonen. Beide Profile lassen sich Session-Tags zuordnen. Fehlt eine Zuordnung, verwendet AirPulse das jeweilige Standardprofil. Manuelle Pulszonenprofile kannst du selbst anlegen; ihre Verwendung im Audio-Feedback und Pulszonendiagramm setzt Pro voraus</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q16">Warum höre ich kein Audio-Feedback?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a16">Prüfe, ob Pro aktiv ist, im verwendeten Audioprofil die gewünschte Zone oder Grenze eingeschaltet ist und der laufenden Session der richtige Tag zugeordnet ist. Tags ohne eigenes Audioprofil sowie Sessions ohne Tag verwenden das Standardprofil. In der Live Activity kann das Audio-Feedback außerdem stummgeschaltet sein</p></div>
+                </details>
+              </div>
+            </section>
+
+            <section class="faq-group reveal" aria-labelledby="faq-group-data">
+              <h2 id="faq-group-data" data-i18n="faq.groupData">Standort &amp; Daten</h2>
+              <div class="faq-list">
+                <details class="faq-item">
+                  <summary data-i18n="faq.q3">Wofür verwendet AirPulse Standortdaten?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a3">AirPulse verwendet Standortdaten für optionale Ortsfilter und tagbasierte Session-Routen. Routenpunkte speichert die App nur mit aktivem Pro und nur für einen Session-Tag, bei dem der Standortverlauf eingeschaltet ist</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q17">Warum wurde für meine Session keine Route gespeichert?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a17">Für eine Route müssen Pro aktiv, der Standortzugriff erlaubt, „Akku sparen“ ausgeschaltet und der Standortverlauf für den aktiven Session-Tag eingeschaltet sein. Die Karte erscheint nach dem Ende der Session</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q7">Wo speichert AirPulse meine Sessions?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a7">Die Session-Datenbank liegt lokal auf deinem Gerät. Ist iCloud für deinen Apple-Account verfügbar, kann AirPulse die Datenbank dort sichern und wiederherstellen. Du brauchst kein AirPulse-Konto; der Anbieter betreibt keinen Upload-Server für App-Daten</p></div>
+                </details>
+              </div>
+            </section>
+
+            <section class="faq-group reveal" aria-labelledby="faq-group-compatibility">
+              <h2 id="faq-group-compatibility" data-i18n="faq.groupCompatibility">Kompatibilität &amp; Grenzen</h2>
+              <div class="faq-list">
+                <details class="faq-item">
+                  <summary data-i18n="faq.q18">Unterstützt AirPulse die Apple Watch?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a18">AirPulse hat keine eigene Apple-Watch-App und keine Watch-Steuerung. Die App liest Herzfrequenzwerte aus HealthKit, ohne nach der Quelle zu filtern; von der Watch bereitgestellte Werte können daher erscheinen. Der automatische Ablauf und die Verbindungserkennung sind jedoch für konfigurierte AirPods Pro 3 ausgelegt. Eine eigenständige, kontinuierliche Watch-Aufzeichnung bietet AirPulse nicht</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q19">Kann AirPulse Herzfrequenz an Garmin oder andere Geräte senden?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a19">Nein. AirPulse bietet derzeit keine Bluetooth-Herzfrequenzübertragung an Garmin oder andere Empfänger</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q20">Kann ich AirPulse gleichzeitig mit einer anderen Trainings-App verwenden?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a20">AirPulse startet selbst eine HealthKit-Workout-Session. Der Parallelbetrieb kann deshalb die Herzfrequenzzuordnung oder Aufzeichnung einer anderen Trainings-App beeinflussen. Eine zuverlässige Kompatibilität mit jeder App kann AirPulse nicht garantieren</p></div>
+                </details>
+                <details class="faq-item">
+                  <summary data-i18n="faq.q4">Ersetzt AirPulse eine medizinische Beurteilung?</summary>
+                  <div class="faq-answer"><p data-i18n="faq.a4">Nein. AirPulse stellt Herzfrequenzdaten für den persönlichen Gebrauch dar und ersetzt keine medizinische Beratung, Diagnose oder Notfallversorgung</p></div>
+                </details>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <div class="footer-brand">
+        <img src="assets/Version7.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
+        <span class="footer-copy">
+          <strong>AirPulse</strong>
+          <span data-i18n="footer.tagline">Automatisches Herzfrequenz-Tracking mit AirPods Pro 3</span>
+        </span>
+      </div>
+      <nav class="footer-links" aria-label="Rechtliches und Kontakt" data-i18n-aria-label="footer.navLabel">
+        <a href="terms-of-use.html" data-i18n="footer.terms">Nutzungsbedingungen</a>
+        <a href="privacy-policy.html" data-i18n="footer.privacy">Datenschutz</a>
+        <a href="imprint.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="mailto:airpulseapp@icloud.com" data-i18n="footer.contact">Kontakt</a>
+        <span>© <span id="year">2026</span> <span data-i18n="footer.copyright">AirPulse</span></span>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="footer.disclaimer">
+        AirPulse bietet keine medizinische Beratung, ist kein Notfalldienst und ersetzt keine professionelle medizinische Versorgung.
+      </p>
+    </footer>
+
+    <script src="site.js?v=20260725-13" defer></script>
+  </body>
+</html>

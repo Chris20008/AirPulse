@@ -47,7 +47,7 @@
     if (themeMeta) {
       themeMeta.setAttribute(
         "content",
-        activeTheme === "dark" ? "#07111d" : "#f7f7fb"
+        activeTheme === "dark" ? "#100f11" : "#f7f4ef"
       );
     }
 
@@ -127,84 +127,13 @@
 })();
 
 (function () {
-  var header = document.querySelector(".topbar");
-  var headerShell = document.querySelector(".topbarShell");
-  if (!header || !window.matchMedia) return;
+  var header = document.querySelector(".site-header");
+  if (!header) return;
 
-  var mobileMedia = window.matchMedia("(max-width: 760px)");
-  var compactThreshold = 20;
-  var expandedHeight = 0;
-  var compactHeight = 0;
-
-  function measureHeaderHeights() {
-    if (!headerShell) return;
-    if (!mobileMedia.matches) {
-      headerShell.style.removeProperty("--topbar-shell-height");
-      return;
-    }
-
-    var wasCompact = header.classList.contains("is-compact");
-    header.classList.add("is-measuring");
-    headerShell.classList.add("is-measuring");
-
-    header.classList.remove("is-compact");
-    expandedHeight = header.offsetHeight;
-
-    header.classList.add("is-compact");
-    compactHeight = header.offsetHeight;
-
-    header.classList.toggle("is-compact", wasCompact);
-    header.classList.remove("is-measuring");
-    headerShell.classList.remove("is-measuring");
+  function updateHeader() {
+    header.classList.toggle("is-scrolled", window.scrollY > 16);
   }
 
-  function syncHeaderShellHeight(forceCompact) {
-    if (!headerShell) return;
-    if (!mobileMedia.matches) {
-      headerShell.style.removeProperty("--topbar-shell-height");
-      return;
-    }
-
-    var compact = typeof forceCompact === "boolean" ? forceCompact : header.classList.contains("is-compact");
-    var targetHeight = compact ? compactHeight : expandedHeight;
-    if (!targetHeight) return;
-    headerShell.style.setProperty("--topbar-shell-height", targetHeight + "px");
-  }
-
-  function updateHeaderState() {
-    if (!mobileMedia.matches) {
-      header.classList.remove("is-compact");
-      syncHeaderShellHeight(false);
-      return;
-    }
-
-    var y = window.scrollY || window.pageYOffset || 0;
-    var shouldCompact = y > compactThreshold;
-    header.classList.toggle("is-compact", shouldCompact);
-    syncHeaderShellHeight(shouldCompact);
-  }
-
-  measureHeaderHeights();
-  syncHeaderShellHeight();
-  updateHeaderState();
-  window.addEventListener("scroll", updateHeaderState, { passive: true });
-  window.addEventListener("resize", function () {
-    measureHeaderHeights();
-    syncHeaderShellHeight();
-    updateHeaderState();
-  });
-
-  if (mobileMedia.addEventListener) {
-    mobileMedia.addEventListener("change", function () {
-      measureHeaderHeights();
-      syncHeaderShellHeight();
-      updateHeaderState();
-    });
-  } else if (mobileMedia.addListener) {
-    mobileMedia.addListener(function () {
-      measureHeaderHeights();
-      syncHeaderShellHeight();
-      updateHeaderState();
-    });
-  }
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
 })();

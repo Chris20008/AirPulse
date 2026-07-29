@@ -1,6 +1,6 @@
 # AirPulse Terms of Use
 
-Effective date: 31 May 2026
+Effective date: 25 July 2026
 
 ## 1. Provider
 
@@ -19,7 +19,9 @@ If you do not agree to these Terms, you must not use AirPulse.
 
 ## 3. Description of the App
 
-AirPulse is an iOS application designed to display heart rate information using Apple HealthKit and Apple's workout-related frameworks. The app includes features for Live Activities, widget-related iOS surfaces, location-based tracking filters, optional session location histories, device selection, tags, insights, audio feedback, local notifications, iCloud backup and restore, local settings storage, shortcuts, and optional Pro features.
+AirPulse is an iOS application that displays heart rate information using Apple HealthKit and Apple's workout-related frameworks. The app includes a Live Activity on the Lock Screen and in the Dynamic Island, location-based tracking filters, optional session location histories, device selection, tags, insights, audio feedback, local notifications, iCloud backup and restore, local settings storage, shortcuts, and optional Pro features.
+
+AirPulse does not save AirPulse sessions as workouts in Apple Fitness or contribute to Apple Fitness rings. AirPulse does not read, calculate, display, or store calorie or active-energy values, including in Apple Health.
 
 Depending on the current app version and App Store configuration, AirPulse may offer App Store based purchase or restore flows for optional Pro access and voluntary support purchases. AirPulse does not include user accounts or a developer-operated backend service in the current implementation.
 
@@ -41,7 +43,7 @@ Heart rate values, insights, zones, audio cues, and maps may be delayed, incompl
 
 ## 6. Permissions and Platform Dependencies
 
-Important app functions depend on Apple permissions, platform features, and system behavior, including HealthKit, workout sessions, location access, notifications, Bluetooth audio routing, Live Activities, widgets, App Intents, Siri, shortcuts, iCloud, StoreKit, and Apple Maps related services.
+Important app functions depend on Apple permissions, platform features, and system behavior, including HealthKit, workout sessions, location access, notifications, Bluetooth audio routing, Live Activities, App Intents, Siri, shortcuts, iCloud, StoreKit, and Apple Maps related services.
 
 If you deny, restrict, or revoke permissions, or if Apple platform behavior changes, some app functions may be limited or unavailable.
 
@@ -61,7 +63,7 @@ You are responsible for:
 
 - using AirPulse only in compliance with applicable law;
 - reviewing and managing your Health, location, iCloud, StoreKit, and notification permissions;
-- deciding whether to enable Live Activities, widgets, shortcuts, audio feedback, location history, and notifications, and managing your iCloud account, storage, and backup availability;
+- deciding whether to enable Live Activities, shortcuts, audio feedback, location history, and notifications, and managing your iCloud account, storage, and backup availability;
 - understanding that pulse-related or operational information may appear on your device screen or in audio output when certain features are enabled;
 - verifying that the app and your connected devices are suitable for your own intended use;
 - keeping your own backups if you rely on session history or exported data.
@@ -87,18 +89,18 @@ AirPulse depends on Apple frameworks and runtime conditions that are outside the
 - Live Activity authorization and display behavior;
 - StoreKit purchase availability and transaction behavior;
 - iCloud availability, quota, sync timing, and backup state;
-- widget, App Intent, Siri, and shortcut execution behavior;
+- App Intent, Siri, and shortcut execution behavior;
 - notification delivery behavior;
 - location availability and background execution rules;
 - Apple Maps related services.
 
 For that reason, AirPulse may not always be available without interruption, and certain features may not work in every situation, on every device, or in every device state.
 
-## 11. Notifications, Live Activities, Widgets, Shortcuts, and Audio Feedback
+## 11. Notifications, Live Activities, Shortcuts, and Audio Feedback
 
-AirPulse may offer optional local notifications and may display information through Live Activities, widgets, shortcuts, Siri/App Intent surfaces, and related integrations.
+AirPulse may offer optional local notifications and may display information through the Live Activity, shortcuts, Siri/App Intent surfaces, and related integrations.
 
-If you enable these features, you understand that pulse-related or operational information may be shown on Apple-controlled system surfaces such as the Lock Screen, Dynamic Island, widget areas, or other system interfaces.
+If you enable these features, you understand that pulse-related or operational information may be shown in the Live Activity on the Lock Screen and in the Dynamic Island.
 
 If you enable audio feedback, you understand that heart rate zone or limit information may be played through your selected audio route and may be audible according to your device and audio settings.
 
@@ -114,7 +116,7 @@ No guarantee is given that any backup, export, import, sync, or restore operatio
 
 ## 13. Third-Party Services
 
-AirPulse uses Apple-provided frameworks and services for certain app functions. If you use Apple Health, Apple Maps related features, iCloud, StoreKit, Live Activities, widgets, Siri, shortcuts, iOS notification services, App Store review flows, or App Store purchase flows, your use of those services is also subject to Apple's applicable terms and privacy policies.
+AirPulse uses Apple-provided frameworks and services for certain app functions. If you use Apple Health, Apple Maps related features, iCloud, StoreKit, Live Activities, Siri, shortcuts, iOS notification services, App Store review flows, or App Store purchase flows, your use of those services is also subject to Apple's applicable terms and privacy policies.
 
 If you open legal documents, App Store pages, email links, or feedback forms from inside the app or website, AirPulse may open an external website, mail client, App Store surface, or third-party form.
 
@@ -124,7 +126,7 @@ Your use of AirPulse is also subject to the AirPulse Privacy Policy.
 
 ## 15. Disclaimer of Warranties
 
-To the maximum extent permitted by applicable law, AirPulse is provided on an as is and as available basis.
+To the maximum extent permitted by applicable law, AirPulse is provided on an “as is” and “as available” basis.
 
 No warranty is given that the app will always be available, uninterrupted, error-free, accurate for any particular purpose, or suitable for any medical, professional, athletic, safety-critical, or emergency use.
 

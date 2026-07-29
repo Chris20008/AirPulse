@@ -1,12 +1,12 @@
 # AirPulse Privacy Policy
 
-Effective date: 31 May 2026
+Effective date: 25 July 2026
 
 ## 1. Introduction
 
-This Privacy Policy explains how AirPulse processes information when you use the AirPulse iOS app, its Live Activity and widget-related features, optional Pro features, purchase or restore flows, feedback flows, iCloud backup features, shortcuts, and the AirPulse website.
+This Privacy Policy explains how AirPulse processes information when you use the AirPulse iOS app, its Live Activity on the Lock Screen and in the Dynamic Island, optional Pro features, purchase or restore flows, feedback flows, iCloud backup features, shortcuts, and the AirPulse website.
 
-AirPulse is designed around on-device processing. The provider does not operate a custom user-account system or a developer-operated backend for uploading app data in the current implementation.
+AirPulse primarily processes app data on the device. The provider does not operate a custom user-account system or a developer-operated backend for uploading app data in the current implementation.
 
 ## 2. Controller
 
@@ -30,9 +30,10 @@ AirPulse uses Apple HealthKit and workout-related Apple frameworks to access and
 - heart rate values;
 - timestamps of heart rate samples;
 - recent heart rate history;
-- workout records created as part of the app's tracking workflow;
 - derived heart rate statistics, zones, trends, and insight summaries;
 - optional age values entered for age-based heart rate zone calculations.
+
+AirPulse does not save AirPulse sessions as workouts in Apple Fitness or contribute to Apple Fitness rings. AirPulse does not read, calculate, display, or store calorie or active-energy values, including in Apple Health.
 
 Health and workout data is processed for the app features you choose to use and is not used for advertising.
 
@@ -50,7 +51,9 @@ If you grant location permission, AirPulse may process:
 
 When you save a location filter, AirPulse stores the place name, latitude, longitude, and configured radius.
 
-When you enable location history for a session tag, AirPulse stores timestamped latitude and longitude points, and may store altitude or horizontal accuracy if iOS provides meaningful values. These points are stored locally with the session data. If iCloud is available for your Apple Account, they may also be included in the iCloud backup copy.
+With Save Battery turned off, AirPulse may process location updates in the background during an active session. These updates support active-session behavior across foreground and background transitions as permitted by iOS.
+
+AirPulse stores location history points only when Pro is active and location history is enabled for the current session tag. In that case, AirPulse stores timestamped latitude and longitude points, and may store altitude or horizontal accuracy if iOS provides meaningful values. These points are stored locally with the session data. If iCloud is available for your Apple Account, they may also be included in the iCloud backup copy.
 
 ### Device and connectivity information
 
@@ -73,7 +76,7 @@ AirPulse stores local app settings and preferences, which may include:
 - location filter mode and saved entries;
 - custom tags, tag categories, colors, favorites, and activity levels;
 - heart rate zone profiles and audio feedback profiles;
-- native preference values used for Live Activity, widget-related surfaces, shortcuts, and iCloud-synced settings.
+- native preference values used for the Live Activity, shortcuts, and iCloud-synced settings.
 
 ### Purchase, entitlement, and support purchase information
 
@@ -86,10 +89,6 @@ If you use optional Pro features, App Store purchase flows, restore flows, or op
 ### Feedback, ratings, and support contact
 
 AirPulse may let you rate the app, open an App Store review flow, contact support by email, or open an optional external feedback form. If you use these options, the information you provide is processed by the selected external service or email provider. AirPulse does not automatically attach health, location, or session data to feedback.
-
-### Diagnostic information
-
-AirPulse stores local diagnostic logs to help with troubleshooting and technical analysis. These logs may contain timestamps, launch information, error messages, warnings, workout state, connectivity state, heart rate processing events, purchase state messages, iCloud backup state, and location-filter related runtime messages.
 
 ## 4. Website Data, Cookies, and Local Storage
 
@@ -111,10 +110,11 @@ We use information processed by AirPulse to:
 - display current and recent heart rate information in the app;
 - operate pulse tracking through Apple's workout and HealthKit frameworks;
 - support background behavior permitted by iOS;
-- show information in Live Activities, widget-related surfaces, and other iOS surfaces;
+- show information in the Live Activity on the Lock Screen and in the Dynamic Island;
 - let you configure supported audio devices;
 - let you configure location-based tracking rules;
-- record optional location histories for sessions while a tag with location history enabled is assigned;
+- process background location updates during an active session when Save Battery is turned off;
+- record optional location histories only while Pro is active and a tag with location history enabled is assigned;
 - search for, label, and preview saved places;
 - calculate session statistics, daily summaries, insights, heart rate zones, and graph views;
 - provide optional audio feedback based on heart rate zones and personal limits;
@@ -122,8 +122,7 @@ We use information processed by AirPulse to:
 - create, upload, restore, export, or import session backups through iCloud when iCloud is available;
 - store your app settings, tags, profiles, and preferences;
 - send optional local notifications;
-- support feedback, rating, and support contact flows you choose to open;
-- diagnose and resolve technical issues.
+- support feedback, rating, and support contact flows you choose to open.
 
 ## 6. Legal Bases
 
@@ -132,7 +131,7 @@ Where the GDPR, UK GDPR, or similar privacy laws apply, processing may be based 
 - performance of a contract, or steps taken at your request, for core app functionality and optional purchases you choose to use;
 - consent, where permission-based access is required, including for location access, notifications, HealthKit access, and optional external feedback forms;
 - explicit consent, where required by law for health-related data processed through HealthKit or similar health-data contexts;
-- legitimate interests in maintaining app stability, reliability, fraud prevention, website delivery, and troubleshooting, to the extent permitted by law;
+- legitimate interests in maintaining app stability, reliability, fraud prevention, and website delivery, to the extent permitted by law;
 - compliance with legal obligations, where applicable.
 
 You may withdraw consent-based permissions at any time through iOS settings, Health settings, notification settings, or the relevant app setting. Withdrawal does not affect processing that already took place before withdrawal.
@@ -143,12 +142,12 @@ AirPulse stores information locally on the device, including through:
 
 - SharedPreferences, UserDefaults, or an App Group container shared between app components where needed;
 - iCloud key-value storage for selected settings that are intended to sync across your Apple devices;
-- Keychain storage for selected entitlement or developer-mode flags where needed;
+- Keychain storage for selected entitlement or app-state flags where needed;
 - the local session database for sessions, tags, optional session location histories, audio feedback profiles, zone profiles, and related app data;
 - iCloud backup storage used for session database backup and restore when iCloud is available for your Apple Account;
 - local cache storage for map preview images;
-- Apple Health / HealthKit storage for health and workout-related information handled through Apple's frameworks;
-- Live Activity state displayed by iOS on the Lock Screen, Dynamic Island, and related system surfaces;
+- Apple Health / HealthKit storage for heart rate information handled through Apple's frameworks;
+- Live Activity state displayed by iOS on the Lock Screen and in the Dynamic Island;
 - local purchase entitlement cache used for optional Pro features.
 
 When iCloud is available for your Apple Account, the backup copy is stored through Apple's iCloud infrastructure. Storage, protection, retention, availability, account access, and international processing of that iCloud data are governed by Apple's applicable iCloud terms, Apple's Privacy Policy, and Apple's iCloud data security practices. The provider of AirPulse does not operate the iCloud infrastructure and does not control how Apple stores or protects data in iCloud.
@@ -163,7 +162,7 @@ However, the app and website rely on third-party or platform services for certai
 - Apple iCloud services used for settings sync, entitlement support, and session database backup and restore when iCloud is available;
 - Apple Maps related services, including map display, address search, and reverse geocoding;
 - iOS notification services;
-- iOS Live Activity, widget, Siri, App Intents, and shortcut infrastructure;
+- iOS Live Activity, Siri, App Intents, and shortcut infrastructure;
 - Apple App Store / StoreKit purchase, restore, rating, and review services;
 - Google Forms if you choose to open an external feedback form;
 - your email provider if you contact support by email;
@@ -187,7 +186,7 @@ In particular:
 - iCloud backups remain available until overwritten, deleted, unavailable, or removed through Apple/iCloud mechanisms;
 - local website preferences remain in browser localStorage until cleared by you or your browser.
 
-HealthKit and workout-related records are also subject to Apple's Health data environment and the way those Apple frameworks manage such data.
+HealthKit heart rate records are also subject to Apple's Health data environment and the way Apple manages such data.
 
 ## 10. Your Choices and Rights
 
@@ -208,7 +207,7 @@ You can control certain processing directly by:
 
 ## 11. Required or Optional Data
 
-Providing personal data to AirPulse is generally voluntary. However, some app functions cannot work without the relevant permission or data. For example, heart rate display requires HealthKit access, location filters require location access, purchase features require StoreKit, and iCloud backup features require iCloud availability through your Apple Account.
+Providing personal data to AirPulse is generally voluntary. However, some app functions cannot work without the relevant permission or data. For example, heart rate display requires HealthKit access, location filters and optional session routes require location access, location access may also affect active-session background behavior and Live Activity availability when Save Battery is turned off, purchase features require StoreKit, and iCloud backup features require iCloud availability through your Apple Account.
 
 ## 12. Automated Decision-Making
 

@@ -16,15 +16,15 @@ Responsible for the content of AirPulse and the related app website: Christian R
 
 ## Disclaimer
 
-Reasonable efforts are made to keep the information about AirPulse accurate and up to date. However, no guarantee is given that all content is always complete, accurate, or current.
+The provider takes reasonable steps to keep the information about AirPulse accurate and up to date. The provider does not guarantee that all content is complete, accurate, or current.
 
 ## Data Privacy
 
-AirPulse processes app-related data primarily on the device itself. Depending on the features you use, the app may access health data, notification settings, device-related information, optional location data, StoreKit purchase state, iCloud backup state, feedback flows, and website preference data in order to provide its functionality.
+AirPulse processes app-related data primarily on the device itself. Depending on the features you use, the app may access health data, notification settings, device-related information, optional location data, StoreKit purchase state, iCloud backup state, feedback flows, and website preference data to provide those features.
 
 AirPulse does not require a user account and does not include a developer-operated backend service in the current implementation.
 
-If Apple services such as HealthKit, iCloud, Apple Maps, Siri, Shortcuts, StoreKit, widgets, or Live Activities are used, their use is also subject to Apple's applicable terms and privacy policies.
+If Apple services such as HealthKit, iCloud, Apple Maps, Siri, Shortcuts, StoreKit, or Live Activities are used, their use is also subject to Apple's applicable terms and privacy policies.
 
 More details are available in the [Privacy Policy](privacy-policy.html).
 

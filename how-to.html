@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title data-i18n="howto.pageTitle">Autostart in Kurzbefehle einrichten | AirPulse</title>
+    <meta
+      name="description"
+      content="Richte den AirPulse-Autostart mit der Aktion Start Pulse Tracking und einer persönlichen Bluetooth-Automation für deine AirPods Pro 3 ein."
+      data-i18n-content="howto.metaDescription"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="apple-mobile-web-app-title" content="AirPulse" />
+    <meta name="theme-color" content="#f7f4ef" />
+    <link rel="canonical" href="https://chris20008.github.io/AirPulse/how-to.html" />
+
+    <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="assets/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preload" as="image" href="assets/how-to/step-01.webp" type="image/webp" />
+    <link rel="stylesheet" href="styles.css?v=20260725-9" />
+    <link rel="stylesheet" href="how-to.css?v=20260725-5" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chris20008.github.io/AirPulse/how-to.html" />
+    <meta
+      property="og:title"
+      content="Autostart in Kurzbefehle einrichten | AirPulse"
+      data-i18n-content="howto.pageTitle"
+    />
+    <meta
+      property="og:description"
+      content="Richte den AirPulse-Autostart mit der Aktion Start Pulse Tracking und einer persönlichen Bluetooth-Automation für deine AirPods Pro 3 ein."
+      data-i18n-content="howto.metaDescription"
+    />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Autostart in Kurzbefehle einrichten | AirPulse"
+      data-i18n-content="howto.pageTitle"
+    />
+    <meta
+      name="twitter:description"
+      content="Richte den AirPulse-Autostart mit der Aktion Start Pulse Tracking und einer persönlichen Bluetooth-Automation für deine AirPods Pro 3 ein."
+      data-i18n-content="howto.metaDescription"
+    />
+    <meta name="twitter:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
+
+    <script>
+      (function () {
+        var savedTheme = "";
+        try {
+          savedTheme = window.localStorage.getItem("airpulse-theme") || "";
+        } catch (error) {
+        }
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", savedTheme === "dark" || (!savedTheme && dark) ? "dark" : "light");
+      })();
+    </script>
+  </head>
+
+  <body class="howto-page" data-page="howto">
+    <a class="skip-link" href="#content" data-i18n="skip.link">Zum Inhalt springen</a>
+
+    <div class="site-header-shell">
+      <header class="site-header container">
+        <a class="brand" href="index.html" aria-label="AirPulse Startseite" data-i18n-aria-label="brand.homeLabel">
+          <img class="brand-icon" src="assets/Version7.png" alt="" width="1024" height="1024" />
+          <span class="brand-copy">
+            <strong>AirPulse</strong>
+            <span data-i18n="brand.subtitle">Automatische Pulsaufzeichnung</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Hauptnavigation" data-i18n-aria-label="nav.mainLabel">
+          <a href="how-to.html" aria-current="page" data-i18n="nav.setup">Einrichtung</a>
+          <a href="faq.html" data-i18n="nav.faq">Fragen</a>
+          <a href="tags.html" data-i18n="nav.tags">Session Tags</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="language-button" type="button" data-language-toggle aria-label="Switch to English">EN</button>
+          <button class="icon-button" type="button" data-theme-toggle aria-label="Dunkles Design aktivieren" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">
+              <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M20 15.3A8.5 8.5 0 0 1 8.7 4 8.5 8.5 0 1 0 20 15.3Z" /></svg>
+              <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+            </span>
+          </button>
+          <a class="store-button" href="https://apps.apple.com/us/app/airpulse/id6760625679" data-app-store-link data-i18n="nav.store">App Store</a>
+        </div>
+      </header>
+    </div>
+
+    <main id="content">
+      <section class="howto-hero container" aria-labelledby="howto-title">
+        <p class="howto-kicker" data-i18n="howto.kicker">Einrichtung</p>
+        <h1 id="howto-title" data-i18n="howto.title">Autostart in Kurzbefehle einrichten</h1>
+        <p class="howto-intro" data-i18n="howto.intro">
+          Lege zuerst einen eigenen Kurzbefehl mit der AirPulse-Aktion „Start Pulse Tracking“ an. Danach erstellst du eine persönliche Bluetooth-Automation, die diesen Kurzbefehl beim Verbinden deiner AirPods Pro 3 ausführt.
+        </p>
+        <div class="howto-hero-action">
+          <a class="primary-button" href="shortcuts://">
+            <span data-i18n="howto.openShortcuts">Kurzbefehle öffnen</span>
+            <span class="button-arrow" aria-hidden="true">↗</span>
+          </a>
+          <p data-i18n="howto.languageNote">
+            Die Screenshots zeigen die englische iOS-Oberfläche. Die jeweils benötigte Schaltfläche ist rot markiert.
+          </p>
+        </div>
+      </section>
+
+      <section class="howto-section container" id="shortcut" aria-labelledby="shortcut-heading">
+        <header class="howto-section-header reveal">
+          <p class="howto-section-number" data-i18n="howto.part1.label">Teil 1</p>
+          <div>
+            <h2 id="shortcut-heading" data-i18n="howto.part1.title">Kurzbefehl für AirPulse anlegen</h2>
+            <p data-i18n="howto.part1.body">
+              Erstelle in der App Kurzbefehle einen neuen Kurzbefehl und füge die AirPulse-Aktion „Start Pulse Tracking“ hinzu.
+            </p>
+          </div>
+        </header>
+
+        <ol class="howto-grid howto-grid-four">
+          <li class="howto-step reveal">
+            <figure>
+              <div class="howto-shot">
+                <img
+                  src="assets/how-to/step-01.webp"
+                  alt="In Kurzbefehle ist die Plus-Schaltfläche zum Erstellen eines neuen Kurzbefehls markiert"
+                  data-i18n-alt="howto.step1.alt"
+                  width="1178"
+                  height="2556"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              <figcaption>
+                <span data-i18n="howto.step1.label">Schritt 1</span>
+                <strong data-i18n="howto.step1.caption">Tippe auf +, um einen neuen Kurzbefehl zu erstellen</strong>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="howto-step reveal">
+            <figure>
+              <div class="howto-shot">
+                <img
+                  src="assets/how-to/step-02.webp"
+                  alt="In der Aktionssuche von Kurzbefehle ist die Suche nach AirPulse markiert"
+                  data-i18n-alt="howto.step2.alt"
+                  width="1179"
+                  height="2556"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption>
+                <span data-i18n="howto.step2.label">Schritt 2</span>
+                <strong data-i18n="howto.step2.caption">Suche nach „AirPulse“</strong>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="howto-step reveal">
+            <figure>
+              <div class="howto-shot">
+                <img
+                  src="assets/how-to/step-03.webp"
+                  alt="Die AirPulse-Aktion Start Pulse Tracking ist in Kurzbefehle markiert"
+                  data-i18n-alt="howto.step3.alt"
+                  width="1179"
+                  height="2556"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption>
+                <span data-i18n="howto.step3.label">Schritt 3</span>
+                <strong data-i18n="howto.step3.caption">Wähle „Start Pulse Tracking“ aus</strong>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="howto-step reveal">
+            <figure>
+              <div class="howto-shot">
+                <img
+                  src="assets/how-to/step-04.webp"
+                  alt="Im Kurzbefehl mit der Aktion Start Pulse Tracking ist der Zurück-Pfeil markiert"
+                  data-i18n-alt="howto.step4.alt"
+                  width="1179"
+                  height="2556"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption>
+                <span data-i18n="howto.step4.label">Schritt 4</span>
+                <strong data-i18n="howto.step4.caption">Tippe auf den Zurück-Pfeil, um den Kurzbefehl zu schließen</strong>
+              </figcaption>
+            </figure>
+          </li>
+        </ol>
+      </section>
+
+      <section class="howto-section container" id="automation" aria-labelledby="automation-heading">
+        <header class="howto-section-header reveal">
+          <p class="howto-section-number" data-i18n="howto.part2.label">Teil 2</p>
+          <div>
+            <h2 id="automation-heading" data-i18n="howto.part2.title">Persönliche Bluetooth-Automation erstellen</h2>
+            <p data-i18n="howto.part2.body">
+              Wähle deine AirPods Pro 3 als Bluetooth-Auslöser, stelle die Automation auf „Run Immediately“ und weise ihr den gerade erstellten Kurzbefehl zu.
+            </p>
+          </div>
+        </header>
+
+        <div class="howto-stage">
+          <h3 data-i18n="howto.stage1.title">Automation anlegen</h3>
+          <ol class="howto-grid howto-grid-three" start="5">
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-05.webp"
+                    alt="In Kurzbefehle ist der Tab Automation markiert"
+                    data-i18n-alt="howto.step5.alt"
+                    width="1179"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step5.label">Schritt 5</span>
+                  <strong data-i18n="howto.step5.caption">Wechsle zum Tab „Automation“</strong>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-06.webp"
+                    alt="In Kurzbefehle ist die Schaltfläche New Automation markiert"
+                    data-i18n-alt="howto.step6.alt"
+                    width="1179"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step6.label">Schritt 6</span>
+                  <strong data-i18n="howto.step6.caption">Tippe auf „New Automation“</strong>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-07.webp"
+                    alt="In der Liste der Automationsauslöser ist Bluetooth markiert"
+                    data-i18n-alt="howto.step7.alt"
+                    width="1179"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step7.label">Schritt 7</span>
+                  <strong data-i18n="howto.step7.caption">Wähle „Bluetooth“ aus der Liste</strong>
+                </figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+
+        <div class="howto-stage">
+          <h3 data-i18n="howto.stage2.title">AirPods auswählen und sofort ausführen</h3>
+          <ol class="howto-grid howto-grid-four" start="8">
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-08.webp"
+                    alt="In der Bluetooth-Automation ist die Geräteauswahl Device markiert"
+                    data-i18n-alt="howto.step8.alt"
+                    width="1179"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step8.label">Schritt 8</span>
+                  <strong data-i18n="howto.step8.caption">Tippe auf „Device“</strong>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-09.webp"
+                    alt="In der Geräteauswahl sind AirPods Pro 3 markiert"
+                    data-i18n-alt="howto.step9.alt"
+                    width="1179"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step9.label">Schritt 9</span>
+                  <strong data-i18n="howto.step9.caption">Wähle deine AirPods Pro 3 aus der Liste aus</strong>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-10.webp"
+                    alt="In der Bluetooth-Automation ist Run Immediately markiert"
+                    data-i18n-alt="howto.step10.alt"
+                    width="1179"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step10.label">Schritt 10</span>
+                  <strong data-i18n="howto.step10.caption">Wähle „Run Immediately“ aus, damit die Automation sofort starten darf</strong>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-11.webp"
+                    alt="In der Bluetooth-Automation ist Next markiert"
+                    data-i18n-alt="howto.step11.alt"
+                    width="1178"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step11.label">Schritt 11</span>
+                  <strong data-i18n="howto.step11.caption">Tippe auf „Next“</strong>
+                </figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+
+        <div class="howto-stage howto-stage-final">
+          <h3 data-i18n="howto.stage3.title">AirPulse-Kurzbefehl zuweisen</h3>
+          <ol class="howto-grid howto-grid-one" start="12">
+            <li class="howto-step reveal">
+              <figure>
+                <div class="howto-shot">
+                  <img
+                    src="assets/how-to/step-12.webp"
+                    alt="In der Automation ist der zuvor erstellte Kurzbefehl Start Pulse Tracking markiert"
+                    data-i18n-alt="howto.step12.alt"
+                    width="1178"
+                    height="2556"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption>
+                  <span data-i18n="howto.step12.label">Schritt 12</span>
+                  <strong data-i18n="howto.step12.caption">Wähle den zuvor erstellten Kurzbefehl aus</strong>
+                </figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="howto-note reveal" aria-labelledby="howto-note-heading">
+          <h3 id="howto-note-heading" data-i18n="howto.note.title">Wenn iOS noch nachfragt</h3>
+          <p data-i18n="howto.note.body">
+            Prüfe in Kurzbefehle die Berechtigungen und ob die Automation auf „Sofort ausführen“ gestellt ist.
+          </p>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <div class="footer-brand">
+        <img src="assets/Version7.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
+        <span class="footer-copy">
+          <strong>AirPulse</strong>
+          <span data-i18n="footer.tagline">Automatisches Herzfrequenz-Tracking mit AirPods Pro 3</span>
+        </span>
+      </div>
+      <nav class="footer-links" aria-label="Rechtliches und Kontakt" data-i18n-aria-label="footer.navLabel">
+        <a href="terms-of-use.html" data-i18n="footer.terms">Nutzungsbedingungen</a>
+        <a href="privacy-policy.html" data-i18n="footer.privacy">Datenschutz</a>
+        <a href="imprint.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="mailto:airpulseapp@icloud.com" data-i18n="footer.contact">Kontakt</a>
+        <span>© <span id="year">2026</span> <span data-i18n="footer.copyright">AirPulse</span></span>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="footer.disclaimer">
+        AirPulse bietet keine medizinische Beratung, ist kein Notfalldienst und ersetzt keine professionelle medizinische Versorgung.
+      </p>
+    </footer>
+
+    <script src="site.js?v=20260725-13" defer></script>
+  </body>
+</html>

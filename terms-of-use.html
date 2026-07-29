@@ -9,59 +9,68 @@
       content="Read the terms that apply to using AirPulse, including health disclaimers, purchases, backups, permissions, platform dependencies, and liability notes."
     />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="theme-color" content="#f7f7fb" />
+    <meta name="theme-color" content="#f7f4ef" />
     <link rel="canonical" href="https://chris20008.github.io/AirPulse/terms-of-use.html" />
     <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="assets/favicon-16x16.png" sizes="16x16" type="image/png" />
     <link rel="shortcut icon" href="assets/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="legal.css" />
+    <link rel="stylesheet" href="styles.css?v=20260725-9" />
+    <link rel="stylesheet" href="legal.css?v=20260725-4" />
+    <script>
+      (function () {
+        var savedTheme = "";
+        try {
+          savedTheme = window.localStorage.getItem("airpulse-theme") || "";
+        } catch (error) {
+        }
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", savedTheme === "dark" || (!savedTheme && dark) ? "dark" : "light");
+      })();
+    </script>
   </head>
-  <body>
-    <a class="skipLink" href="#content">Skip to content</a>
+  <body class="legal-page">
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="site-header-shell">
+          <header class="site-header container">
+            <a class="brand" href="./index.html" aria-label="Back to AirPulse home">
+              <img class="brand-icon" src="assets/Version7.png" alt="" width="1024" height="1024" loading="eager" decoding="async" data-brand-icon />
+              <span class="brand-copy">
+                <strong>AirPulse</strong>
+                <span>Automatic heart rate tracking</span>
+              </span>
+            </a>
+
+            <nav class="site-nav" aria-label="Main navigation">
+              <a href="./how-to.html">Setup</a>
+              <a href="./faq.html">Questions</a>
+              <a href="./tags.html">Session Tags</a>
+            </nav>
+
+            <div class="header-actions">
+              <button class="icon-button" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true">
+                  <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M20 15.3A8.5 8.5 0 0 1 8.7 4 8.5 8.5 0 1 0 20 15.3Z" /></svg>
+                  <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+                </span>
+              </button>
+              <a class="store-button" data-app-store-link href="https://apps.apple.com/us/app/airpulse/id6760625679">App Store</a>
+            </div>
+          </header>
+        </div>
 
     <div class="page">
-      <div class="topbarShell">
-        <header class="topbar glass">
-          <a class="brandLink" href="./index.html" aria-label="Back to AirPulse home">
-            <div class="brandmark">
-              <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" decoding="async" width="1024" height="1024" data-brand-icon />
-            </div>
-            <div class="brandcopy">
-              <strong>AirPulse</strong>
-              <span>Live heart rate with AirPods Pro 3</span>
-            </div>
-          </a>
-
-          <div class="topbarActions">
-            <button class="themeToggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
-              <span class="themeToggleIcon" aria-hidden="true"></span>
-              <span class="themeToggleLabel" data-theme-toggle-label>Dark mode</span>
-            </button>
-            <a class="topbarDownload" data-app-store-link href="https://apps.apple.com/us/app/airpulse/id6760625679">Download</a>
-            <nav class="pillNav" aria-label="Legal pages">
-              <a href="./index.html">Home</a>
-              <a href="./terms-of-use.html" aria-current="page">Terms</a>
-              <a href="./privacy-policy.html">Privacy</a>
-              <a href="./imprint.html">Imprint</a>
-            </nav>
-          </div>
-        </header>
-      </div>
 
       <main id="content" class="legalLayout">
         <aside class="summaryCard glass">
-          <p class="summaryEyebrow">Legal document</p>
           <h1 class="summaryTitle">Terms of Use</h1>
-          <p class="summaryText">
-            These terms describe how AirPulse may be used, what the app depends on, and which limits apply to medical, technical, and legal use.
-          </p>
 
           <div class="metaList">
             <div class="metaItem">
               <strong>Effective date</strong>
-              <span>31 May 2026</span>
+              <span>25 July 2026</span>
             </div>
             <div class="metaItem">
               <strong>Provider</strong>
@@ -73,21 +82,11 @@
             </div>
           </div>
 
-          <nav class="docNav" aria-label="Related documents">
-            <a href="./privacy-policy.html">Privacy Policy</a>
-            <a href="./imprint.html">Imprint</a>
-            <a href="./index.html">Back to landing page</a>
-          </nav>
         </aside>
 
         <article class="contentCard glass">
-          <p class="contentLead">
-            AirPulse is built for consumer heart rate display workflows on Apple devices. By downloading, installing, or using the app, you
-            agree to the terms below.
-          </p>
-
           <p class="notice">
-            Health and safety matter: AirPulse is not medical advice, not an emergency service, and not a substitute for professional care.
+            AirPulse is not medical advice, not an emergency service, and not a substitute for professional care.
           </p>
 
           <nav class="toc" aria-label="Table of contents">
@@ -103,7 +102,7 @@
               <li><a href="#responsibilities">User Responsibilities</a></li>
               <li><a href="#prohibited">Prohibited Use</a></li>
               <li><a href="#availability">Availability and Technical Limitations</a></li>
-              <li><a href="#notifications">Notifications, Live Activities, Widgets, Shortcuts, and Audio Feedback</a></li>
+              <li><a href="#notifications">Notifications, Live Activities, Shortcuts, and Audio Feedback</a></li>
               <li><a href="#backups">Backups, Export, Import, and Data Loss</a></li>
               <li><a href="#third-party">Third-Party Services</a></li>
               <li><a href="#privacy">Privacy</a></li>
@@ -134,10 +133,14 @@
           <section id="description">
             <h2>3. Description of the App</h2>
             <p>
-              AirPulse is an iOS application designed to display heart rate information using Apple HealthKit and Apple's workout-related
-              frameworks. The app includes features for Live Activities, widget-related iOS surfaces, location-based tracking filters,
+              AirPulse is an iOS application that displays heart rate information using Apple HealthKit and Apple's workout-related
+              frameworks. The app includes a Live Activity on the Lock Screen and in the Dynamic Island, location-based tracking filters,
               optional session location histories, device selection, tags, insights, audio feedback, local notifications, iCloud backup and
               restore, local settings storage, shortcuts, and optional Pro features.
+            </p>
+            <p>
+              AirPulse does not save AirPulse sessions as workouts in Apple Fitness or contribute to Apple Fitness rings. AirPulse does not
+              read, calculate, display, or store calorie or active-energy values, including in Apple Health.
             </p>
             <p>
               Depending on the current app version and App Store configuration, AirPulse may offer App Store based purchase or restore flows
@@ -176,8 +179,8 @@
             <h2>6. Permissions and Platform Dependencies</h2>
             <p>
               Important app functions depend on Apple permissions, platform features, and system behavior, including HealthKit, workout
-              sessions, location access, notifications, Bluetooth audio routing, Live Activities, widgets, App Intents, Siri, shortcuts,
-              iCloud, StoreKit, and Apple Maps related services.
+              sessions, location access, notifications, Bluetooth audio routing, Live Activities, App Intents, Siri, shortcuts, iCloud,
+              StoreKit, and Apple Maps related services.
             </p>
             <p>
               If you deny, restrict, or revoke permissions, or if Apple platform behavior changes, some app functions may be limited or
@@ -211,7 +214,7 @@
             <ul>
               <li>using AirPulse only in compliance with applicable law;</li>
               <li>reviewing and managing your Health, location, iCloud, StoreKit, and notification permissions;</li>
-              <li>deciding whether to enable Live Activities, widgets, shortcuts, audio feedback, location history, and notifications, and managing your iCloud account, storage, and backup availability;</li>
+              <li>deciding whether to enable Live Activities, shortcuts, audio feedback, location history, and notifications, and managing your iCloud account, storage, and backup availability;</li>
               <li>understanding that pulse-related or operational information may appear on your device screen or in audio output when certain features are enabled;</li>
               <li>verifying that the app and your connected devices are suitable for your own intended use;</li>
               <li>keeping your own backups if you rely on session history or exported data.</li>
@@ -227,7 +230,7 @@
               <li>interfere with, disrupt, or misuse the app or its technical operation;</li>
               <li>reverse engineer, decompile, or modify the app except where mandatory law permits it;</li>
               <li>misuse purchases, entitlements, restore flows, feedback forms, or support contact channels;</li>
-              <li>use the app in a misleading, unsafe, or abusive manner.</li>
+              <li>use the app in a misleading, unsafe, abusive, or harmful manner.</li>
             </ul>
           </section>
 
@@ -244,7 +247,7 @@
               <li>Live Activity authorization and display behavior;</li>
               <li>StoreKit purchase availability and transaction behavior;</li>
               <li>iCloud availability, quota, sync timing, and backup state;</li>
-              <li>widget, App Intent, Siri, and shortcut execution behavior;</li>
+              <li>App Intent, Siri, and shortcut execution behavior;</li>
               <li>notification delivery behavior;</li>
               <li>location availability and background execution rules;</li>
               <li>Apple Maps related services.</li>
@@ -256,14 +259,14 @@
           </section>
 
           <section id="notifications">
-            <h2>11. Notifications, Live Activities, Widgets, Shortcuts, and Audio Feedback</h2>
+            <h2>11. Notifications, Live Activities, Shortcuts, and Audio Feedback</h2>
             <p>
-              AirPulse may offer optional local notifications and may display information through Live Activities, widgets, shortcuts,
-              Siri/App Intent surfaces, and related integrations.
+              AirPulse may offer optional local notifications and may display information through the Live Activity, shortcuts, Siri/App
+              Intent surfaces, and related integrations.
             </p>
             <p>
-              If you enable these features, you understand that pulse-related or operational information may be shown on Apple-controlled system
-              surfaces such as the Lock Screen, Dynamic Island, widget areas, or other system interfaces.
+              If you enable these features, you understand that pulse-related or operational information may be shown in the Live Activity on
+              the Lock Screen and in the Dynamic Island.
             </p>
             <p>
               If you enable audio feedback, you understand that heart rate zone or limit information may be played through your selected audio
@@ -293,8 +296,8 @@
             <h2>13. Third-Party Services</h2>
             <p>
               AirPulse uses Apple-provided frameworks and services for certain app functions. If you use Apple Health, Apple Maps related
-              features, iCloud, StoreKit, Live Activities, widgets, Siri, shortcuts, iOS notification services, App Store review flows, or App
-              Store purchase flows, your use of those services is also subject to Apple's applicable terms and privacy policies.
+              features, iCloud, StoreKit, Live Activities, Siri, shortcuts, iOS notification services, App Store review flows, or App Store
+              purchase flows, your use of those services is also subject to Apple's applicable terms and privacy policies.
             </p>
             <p>
               If you open legal documents, App Store pages, email links, or feedback forms from inside the app or website, AirPulse may open an
@@ -311,7 +314,7 @@
 
           <section id="warranties">
             <h2>15. Disclaimer of Warranties</h2>
-            <p>To the maximum extent permitted by applicable law, AirPulse is provided on an as is and as available basis.</p>
+            <p>To the maximum extent permitted by applicable law, AirPulse is provided on an “as is” and “as available” basis.</p>
             <p>
               No warranty is given that the app will always be available, uninterrupted, error-free, accurate for any particular purpose, or
               suitable for any medical, professional, athletic, safety-critical, or emergency use.
@@ -360,11 +363,28 @@
         </article>
       </main>
 
-      <footer>
-        <p>Copyright © <span id="year">2026</span> Christian Range</p>
-      </footer>
     </div>
 
-    <script src="legal-header.js"></script>
+    <footer class="site-footer container">
+      <div class="footer-brand">
+        <img src="assets/Version7.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
+        <span class="footer-copy">
+          <strong>AirPulse</strong>
+          <span>Automatic heart rate tracking with AirPods Pro 3</span>
+        </span>
+      </div>
+      <nav class="footer-links" aria-label="Legal and contact">
+        <a href="./terms-of-use.html">Terms of Use</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./imprint.html">Imprint</a>
+        <a href="mailto:airpulseapp@icloud.com">Contact</a>
+        <span>© <span id="year">2026</span> AirPulse</span>
+      </nav>
+      <p class="footer-disclaimer">
+        AirPulse is not medical advice, not an emergency service, and not a substitute for professional care.
+      </p>
+    </footer>
+
+    <script src="legal-header.js?v=20260725-3"></script>
   </body>
 </html>

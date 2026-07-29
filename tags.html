@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title data-i18n="tags.pageTitle">Session-Tags verstehen | AirPulse</title>
+    <meta
+      name="description"
+      content="Was Session-Tags in AirPulse bedeuten, welche Einstellungen sie verbinden und wie du Tags vor, während oder nach einer Session zuordnest"
+      data-i18n-content="tags.metaDescription"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="apple-mobile-web-app-title" content="AirPulse" />
+    <meta name="theme-color" content="#f7f4ef" />
+    <link rel="canonical" href="https://chris20008.github.io/AirPulse/tags.html" />
+
+    <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="assets/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="styles.css?v=20260725-9" />
+    <link rel="stylesheet" href="tags.css?v=20260725-2" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://chris20008.github.io/AirPulse/tags.html" />
+    <meta property="og:title" content="Session-Tags verstehen | AirPulse" data-i18n-content="tags.pageTitle" />
+    <meta
+      property="og:description"
+      content="Was Session-Tags in AirPulse bedeuten, welche Einstellungen sie verbinden und wie du Tags vor, während oder nach einer Session zuordnest"
+      data-i18n-content="tags.metaDescription"
+    />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Session-Tags verstehen | AirPulse" data-i18n-content="tags.pageTitle" />
+    <meta
+      name="twitter:description"
+      content="Was Session-Tags in AirPulse bedeuten, welche Einstellungen sie verbinden und wie du Tags vor, während oder nach einer Session zuordnest"
+      data-i18n-content="tags.metaDescription"
+    />
+    <meta name="twitter:image" content="https://chris20008.github.io/AirPulse/assets/icon-512.png" />
+
+    <script>
+      (function () {
+        var savedTheme = "";
+        try {
+          savedTheme = window.localStorage.getItem("airpulse-theme") || "";
+        } catch (error) {
+        }
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", savedTheme === "dark" || (!savedTheme && dark) ? "dark" : "light");
+      })();
+    </script>
+  </head>
+
+  <body class="tags-page" data-page="tags">
+    <a class="skip-link" href="#content" data-i18n="skip.link">Zum Inhalt springen</a>
+
+    <div class="site-header-shell">
+      <header class="site-header container">
+        <a class="brand" href="index.html" aria-label="AirPulse Startseite" data-i18n-aria-label="brand.homeLabel">
+          <img class="brand-icon" src="assets/Version7.png" alt="" width="1024" height="1024" />
+          <span class="brand-copy">
+            <strong>AirPulse</strong>
+            <span data-i18n="brand.subtitle">Automatische Pulsaufzeichnung</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Hauptnavigation" data-i18n-aria-label="nav.mainLabel">
+          <a href="how-to.html" data-i18n="nav.setup">Einrichtung</a>
+          <a href="faq.html" data-i18n="nav.faq">Fragen</a>
+          <a href="tags.html" aria-current="page" data-i18n="nav.tags">Session Tags</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="language-button" type="button" data-language-toggle aria-label="Switch to English">EN</button>
+          <button class="icon-button" type="button" data-theme-toggle aria-label="Dunkles Design aktivieren" aria-pressed="false">
+            <span class="theme-icon" aria-hidden="true">
+              <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M20 15.3A8.5 8.5 0 0 1 8.7 4 8.5 8.5 0 1 0 20 15.3Z" /></svg>
+              <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+            </span>
+          </button>
+          <a class="store-button" href="https://apps.apple.com/us/app/airpulse/id6760625679" data-app-store-link data-i18n="nav.store">App Store</a>
+        </div>
+      </header>
+    </div>
+
+    <main id="content">
+      <section class="tags-hero container" aria-labelledby="tags-title">
+        <div class="tags-hero-copy">
+          <h1 id="tags-title" data-i18n="tags.title">Tags geben Sessions Kontext</h1>
+          <p data-i18n="tags.intro">
+            Ein Session-Tag ordnet eine Aufzeichnung einem Kontext wie Laufen, Arbeit oder Ruhe zu. Pro Session ist ein Tag aktiv. Du kannst ihn während der Aufzeichnung oder später ändern und wieder entfernen
+          </p>
+        </div>
+
+        <div class="tags-phone tag-picker-phone" role="img" aria-label="Darstellung der Tag-Auswahl in AirPulse" data-i18n-aria-label="tags.heroMockLabel">
+          <div class="tags-phone-screen">
+            <div class="tags-phone-status" aria-hidden="true"><span>9:41</span><span>● ●●</span></div>
+            <div class="tag-picker-title"><span aria-hidden="true">‹</span><strong data-i18n="tags.pickerTitle">Tag wählen</strong><span aria-hidden="true">＋</span></div>
+            <div class="tag-picker-section">
+              <p data-i18n="tags.categorySport">Sport</p>
+              <div class="tag-picker-row is-selected">
+                <span class="tag-badge tag-badge-running" aria-hidden="true">↗</span>
+                <strong data-i18n="tags.running">Laufen</strong>
+                <span aria-hidden="true">✓</span>
+              </div>
+              <div class="tag-picker-row">
+                <span class="tag-badge tag-badge-running" aria-hidden="true">→</span>
+                <strong data-i18n="tags.walking">Spazieren</strong>
+              </div>
+            </div>
+            <div class="tag-picker-section">
+              <p data-i18n="tags.categoryWork">Arbeit</p>
+              <div class="tag-picker-row">
+                <span class="tag-badge tag-badge-work" aria-hidden="true">▣</span>
+                <strong data-i18n="tags.work">Arbeit</strong>
+              </div>
+            </div>
+            <div class="tag-picker-section">
+              <p data-i18n="tags.categoryRecovery">Erholung</p>
+              <div class="tag-picker-row">
+                <span class="tag-badge tag-badge-rest" aria-hidden="true">◒</span>
+                <strong data-i18n="tags.rest">Ruhe</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tag-map-section container reveal" aria-labelledby="tag-map-title">
+        <header class="tag-section-header">
+          <h2 id="tag-map-title" data-i18n="tags.mapTitle">Ein Tag verbindet diese Bereiche</h2>
+          <p data-i18n="tags.mapBody">
+            Die Tagesübersicht gruppiert die Sessions eines Tages nach Session-Tag und zeigt Anzahl und Gesamtdauer. Ein Session-Tag kann außerdem das Audio- und Pulszonenprofil auswählen und mit Pro den optionalen Standortverlauf aktivieren
+          </p>
+        </header>
+
+        <div class="tag-map">
+          <div class="tag-map-source">
+            <span class="tag-badge tag-badge-running" aria-hidden="true">↗</span>
+            <strong data-i18n="tags.running">Laufen</strong>
+          </div>
+          <div class="tag-map-destinations">
+            <article><span>01</span><div><h3 data-i18n="tags.mapDayTitle">Tagesübersicht</h3><p data-i18n="tags.mapDayBody">Sessions eines Tages werden nach Session-Tag gruppiert</p></div></article>
+            <article><span>02</span><div><h3 data-i18n="tags.mapAudioTitle">Audio-Feedback</h3><p data-i18n="tags.mapAudioBody">Das zugeordnete Audioprofil gilt für die Session</p></div></article>
+            <article><span>03</span><div><h3 data-i18n="tags.mapZonesTitle">Pulszonen</h3><p data-i18n="tags.mapZonesBody">Das zugeordnete Pulszonenprofil legt die Zonen fest</p></div></article>
+            <article><span>04</span><div><h3 data-i18n="tags.mapLocationTitle">Standortverlauf</h3><p data-i18n="tags.mapLocationBody">Mit Pro kann die Standortaufzeichnung pro Session-Tag aktiviert werden</p></div></article>
+            <article><span>05</span><div><h3 data-i18n="tags.mapReportsTitle">Tag-Berichte</h3><p data-i18n="tags.mapReportsBody">Mit Pro werden Sessions desselben Tags verglichen</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tag-settings-section container" aria-labelledby="tag-settings-title">
+        <header class="tag-section-header reveal">
+          <h2 id="tag-settings-title" data-i18n="tags.settingsTitle">Was du für jeden Session-Tag einstellen kannst</h2>
+          <p data-i18n="tags.settingsIntro">AirPulse enthält System-Tags und lässt dich eigene Tags anlegen. Welche Felder änderbar sind, hängt vom Tag-Typ ab</p>
+        </header>
+
+        <div class="tag-settings-layout">
+          <div
+            class="tags-phone tag-editor-phone reveal"
+            role="img"
+            aria-label="Beispielkonfiguration im AirPulse Tag-Editor"
+            data-i18n-aria-label="tags.editorMockLabel"
+          >
+            <div class="tags-phone-screen">
+              <div class="tags-phone-status" aria-hidden="true"><span>9:41</span><span>● ●●</span></div>
+              <div class="tag-editor-title"><span aria-hidden="true">‹</span><strong data-i18n="tags.editorTitle">Tag bearbeiten</strong><span aria-hidden="true">✓</span></div>
+              <p class="tag-example-label" data-i18n="tags.exampleConfig">Beispielkonfiguration</p>
+              <span class="tag-editor-icon tag-badge-running" aria-hidden="true">↗</span>
+              <strong class="tag-editor-name" data-i18n="tags.running">Laufen</strong>
+              <span class="tag-editor-meta"><span data-i18n="tags.systemTag">System-Tag</span> · <span data-i18n="tags.tagId">ID …</span></span>
+
+              <div class="tag-editor-group">
+                <p data-i18n="tags.name">Name</p>
+                <div class="tag-editor-row"><strong data-i18n="tags.running">Laufen</strong></div>
+              </div>
+              <div class="tag-editor-group">
+                <p data-i18n="tags.color">Farbe</p>
+                <div class="tag-color-row" aria-hidden="true">
+                  <span class="is-selected"></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="tag-editor-group">
+                <p data-i18n="tags.tracking">Tracking</p>
+                <div class="tag-editor-row"><span><i aria-hidden="true">★</i><strong data-i18n="tags.favorite">Favorit</strong></span><small data-i18n="tags.on">An</small></div>
+                <div class="tag-editor-row"><span><i aria-hidden="true">⌖</i><strong data-i18n="tags.location">Standortverlauf</strong></span><small data-i18n="tags.proOff">Pro · Aus</small></div>
+                <div class="tag-editor-row"><span><i aria-hidden="true">◖</i><strong data-i18n="tags.audio">Audio-Feedback</strong></span><small data-i18n="tags.standardProfile">Standardprofil</small></div>
+                <div class="tag-editor-row"><span><i aria-hidden="true">♥</i><strong data-i18n="tags.zones">Pulszonen</strong></span><small data-i18n="tags.standardProfile">Standardprofil</small></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tag-setting-list">
+            <article class="reveal"><span>01</span><div><h3 data-i18n="tags.settingDesignTitle">Name, Icon und Farbe</h3><p data-i18n="tags.settingDesignBody">Eigene Tags lassen sich vollständig gestalten. Bei System-Tags bleiben Name, Icon, Kategorie und Aktivitätsniveau fest; ihre Farbe kannst du ändern</p></div></article>
+            <article class="reveal"><span>02</span><div><h3 data-i18n="tags.settingCategoryTitle">Kategorie und Aktivitätsniveau</h3><p data-i18n="tags.settingCategoryBody">Eigene Tags gehören zu Sport, Arbeit, Erholung, Lifestyle oder Sonstiges. Das Aktivitätsniveau reicht von Unbekannt bis Sehr hoch</p></div></article>
+            <article class="reveal"><span>03</span><div><h3 data-i18n="tags.settingFavoriteTitle">Favoriten</h3><p data-i18n="tags.settingFavoriteBody">Bis zu sieben Favoriten erscheinen in der Tag-Kurzauswahl der Sperrbildschirm-Live-Activity</p></div></article>
+            <article class="reveal"><span>04</span><div><h3 data-i18n="tags.settingProfilesTitle">Audio-Feedback und Pulszonen</h3><p data-i18n="tags.settingProfilesBody">Du kannst jeweils ein Profil zuordnen. Fehlt eine Zuordnung, verwendet AirPulse das entsprechende Standardprofil</p></div></article>
+            <article class="reveal"><span>05</span><div><h3 data-i18n="tags.settingLocationTitle">Standortverlauf</h3><p data-i18n="tags.settingLocationBody">Die Pro-Funktion wird für jeden Session-Tag einzeln aktiviert und erhöht während der Aufzeichnung den Akkuverbrauch</p></div></article>
+            <article class="reveal"><span>06</span><div><h3 data-i18n="tags.settingIdTitle">Tag-ID</h3><p data-i18n="tags.settingIdBody">Die sichtbare ID wird für die Kurzbefehle-Aktion „Set Session Tag“ benötigt</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tag-assignment-section container reveal" aria-labelledby="tag-assignment-title">
+        <header class="tag-section-header">
+          <h2 id="tag-assignment-title" data-i18n="tags.assignTitle">Wann du einen Tag zuordnest</h2>
+        </header>
+        <div class="tag-assignment-flow">
+          <article><span>01</span><h3 data-i18n="tags.assignStartTitle">Beim Start</h3><p data-i18n="tags.assignStartBody">Der Kurzbefehl „Set Session Tag“ setzt einen Tag über seine ID. Läuft noch keine Session, startet er eine neue Session mit diesem Tag</p></article>
+          <article><span>02</span><h3 data-i18n="tags.assignLiveTitle">Während der Session</h3><p data-i18n="tags.assignLiveBody">In der App kannst du den Tag einer laufenden Session setzen, ändern oder entfernen. In der Sperrbildschirm-Live-Activity kannst du außerdem einen Favoriten auswählen oder den aktuellen Tag entfernen</p></article>
+          <article><span>03</span><h3 data-i18n="tags.assignAfterTitle">Nach der Session</h3><p data-i18n="tags.assignAfterBody">In den Session-Details kannst du den Tag einer abgeschlossenen Aufzeichnung setzen, ändern oder entfernen</p></article>
+        </div>
+      </section>
+
+      <section class="tag-report-section container reveal" aria-labelledby="tag-report-title">
+        <div class="tag-report-copy">
+          <h2 id="tag-report-title" data-i18n="tags.reportTitle">Sessions im selben Kontext vergleichen</h2>
+          <p data-i18n="tags.reportBody">Tag-Berichte fassen Aufzeichnungen desselben Tags zusammen. Sie vergleichen aktuelle Sessions mit deinem persönlichen Normalbereich und zeigen Verlauf und Zeitverteilung</p>
+        </div>
+        <div class="tag-report-ui" aria-hidden="true">
+          <div class="tag-report-header"><span class="tag-badge tag-badge-running">↗</span><strong data-i18n="tags.running">Laufen</strong></div>
+          <div class="tag-report-normal"><span data-i18n="tags.reportNormal">Persönlicher Normalbereich</span><div><i></i><b></b></div></div>
+          <div class="tag-report-chart"><strong data-i18n="tags.reportTrend">Verlauf</strong><svg viewBox="0 0 420 130" preserveAspectRatio="none"><path class="tag-report-grid" d="M0 26h420M0 65h420M0 104h420" /><path class="tag-report-line" d="M0 92C42 88 56 38 98 55s62 46 103 18 68-45 111-24 57 17 108-11" /></svg></div>
+          <div class="tag-report-distribution"><strong data-i18n="tags.reportDistribution">Zeitverteilung</strong><div><span></span><span></span><span></span><span></span><span></span></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <div class="footer-brand">
+        <img src="assets/Version7.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
+        <span class="footer-copy">
+          <strong>AirPulse</strong>
+          <span data-i18n="footer.tagline">Automatisches Herzfrequenz-Tracking mit AirPods Pro 3</span>
+        </span>
+      </div>
+      <nav class="footer-links" aria-label="Rechtliches und Kontakt" data-i18n-aria-label="footer.navLabel">
+        <a href="terms-of-use.html" data-i18n="footer.terms">Nutzungsbedingungen</a>
+        <a href="privacy-policy.html" data-i18n="footer.privacy">Datenschutz</a>
+        <a href="imprint.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="mailto:airpulseapp@icloud.com" data-i18n="footer.contact">Kontakt</a>
+        <span>© <span id="year">2026</span> <span data-i18n="footer.copyright">AirPulse</span></span>
+      </nav>
+      <p class="footer-disclaimer" data-i18n="footer.disclaimer">
+        AirPulse bietet keine medizinische Beratung, ist kein Notfalldienst und ersetzt keine professionelle medizinische Versorgung.
+      </p>
+    </footer>
+
+    <script src="site.js?v=20260725-13" defer></script>
+  </body>
+</html>

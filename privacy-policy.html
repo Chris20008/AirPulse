@@ -9,59 +9,68 @@
       content="Read how AirPulse processes health, location, purchase, backup, feedback, website, and preference data while keeping core app functionality on device."
     />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="theme-color" content="#f7f7fb" />
+    <meta name="theme-color" content="#f7f4ef" />
     <link rel="canonical" href="https://chris20008.github.io/AirPulse/privacy-policy.html" />
     <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="assets/favicon-16x16.png" sizes="16x16" type="image/png" />
     <link rel="shortcut icon" href="assets/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="legal.css" />
+    <link rel="stylesheet" href="styles.css?v=20260725-9" />
+    <link rel="stylesheet" href="legal.css?v=20260725-4" />
+    <script>
+      (function () {
+        var savedTheme = "";
+        try {
+          savedTheme = window.localStorage.getItem("airpulse-theme") || "";
+        } catch (error) {
+        }
+        var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", savedTheme === "dark" || (!savedTheme && dark) ? "dark" : "light");
+      })();
+    </script>
   </head>
-  <body>
-    <a class="skipLink" href="#content">Skip to content</a>
+  <body class="legal-page">
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="site-header-shell">
+          <header class="site-header container">
+            <a class="brand" href="./index.html" aria-label="Back to AirPulse home">
+              <img class="brand-icon" src="assets/Version7.png" alt="" width="1024" height="1024" loading="eager" decoding="async" data-brand-icon />
+              <span class="brand-copy">
+                <strong>AirPulse</strong>
+                <span>Automatic heart rate tracking</span>
+              </span>
+            </a>
+
+            <nav class="site-nav" aria-label="Main navigation">
+              <a href="./how-to.html">Setup</a>
+              <a href="./faq.html">Questions</a>
+              <a href="./tags.html">Session Tags</a>
+            </nav>
+
+            <div class="header-actions">
+              <button class="icon-button" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="theme-icon" aria-hidden="true">
+                  <svg class="theme-icon-moon" viewBox="0 0 24 24"><path d="M20 15.3A8.5 8.5 0 0 1 8.7 4 8.5 8.5 0 1 0 20 15.3Z" /></svg>
+                  <svg class="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></svg>
+                </span>
+              </button>
+              <a class="store-button" data-app-store-link href="https://apps.apple.com/us/app/airpulse/id6760625679">App Store</a>
+            </div>
+          </header>
+        </div>
 
     <div class="page">
-      <div class="topbarShell">
-        <header class="topbar glass">
-          <a class="brandLink" href="./index.html" aria-label="Back to AirPulse home">
-            <div class="brandmark">
-              <img src="assets/Version7.png" alt="AirPulse App Icon" loading="eager" decoding="async" width="1024" height="1024" data-brand-icon />
-            </div>
-            <div class="brandcopy">
-              <strong>AirPulse</strong>
-              <span>Live heart rate with AirPods Pro 3</span>
-            </div>
-          </a>
-
-          <div class="topbarActions">
-            <button class="themeToggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
-              <span class="themeToggleIcon" aria-hidden="true"></span>
-              <span class="themeToggleLabel" data-theme-toggle-label>Dark mode</span>
-            </button>
-            <a class="topbarDownload" data-app-store-link href="https://apps.apple.com/us/app/airpulse/id6760625679">Download</a>
-            <nav class="pillNav" aria-label="Legal pages">
-              <a href="./index.html">Home</a>
-              <a href="./terms-of-use.html">Terms</a>
-              <a href="./privacy-policy.html" aria-current="page">Privacy</a>
-              <a href="./imprint.html">Imprint</a>
-            </nav>
-          </div>
-        </header>
-      </div>
 
       <main id="content" class="legalLayout">
         <aside class="summaryCard glass">
-          <p class="summaryEyebrow">Legal document</p>
           <h1 class="summaryTitle">Privacy Policy</h1>
-          <p class="summaryText">
-            This page explains what AirPulse processes, why certain permissions are used, and which parts of the app remain on device.
-          </p>
 
           <div class="metaList">
             <div class="metaItem">
               <strong>Effective date</strong>
-              <span>31 May 2026</span>
+              <span>25 July 2026</span>
             </div>
             <div class="metaItem">
               <strong>Controller</strong>
@@ -73,19 +82,9 @@
             </div>
           </div>
 
-          <nav class="docNav" aria-label="Related documents">
-            <a href="./terms-of-use.html">Terms of Use</a>
-            <a href="./imprint.html">Imprint</a>
-            <a href="./index.html">Back to landing page</a>
-          </nav>
         </aside>
 
         <article class="contentCard glass">
-          <p class="contentLead">
-            AirPulse is designed around on-device functionality. Depending on the features you enable, the app may still process health data,
-            optional location information, purchase state, iCloud backup state, feedback flows, website preferences, and technical diagnostics.
-          </p>
-
           <nav class="toc" aria-label="Table of contents">
             <strong class="tocTitle">Contents</strong>
             <ol class="tocList">
@@ -112,12 +111,12 @@
           <section id="introduction">
             <h2>1. Introduction</h2>
             <p>
-              This Privacy Policy explains how AirPulse processes information when you use the AirPulse iOS app, its Live Activity and
-              widget-related features, optional Pro features, purchase or restore flows, feedback flows, iCloud backup features, shortcuts,
-              and the AirPulse website.
+              This Privacy Policy explains how AirPulse processes information when you use the AirPulse iOS app, its Live Activity on the
+              Lock Screen and in the Dynamic Island, optional Pro features, purchase or restore flows, feedback flows, iCloud backup features,
+              shortcuts, and the AirPulse website.
             </p>
             <p>
-              AirPulse is designed around on-device processing. The provider does not operate a custom user-account system or a
+              AirPulse primarily processes app data on the device. The provider does not operate a custom user-account system or a
               developer-operated backend for uploading app data in the current implementation.
             </p>
           </section>
@@ -141,15 +140,21 @@
             </p>
             <ul>
               <li>
-                Health and workout data: heart rate values, timestamps, recent heart rate history, workout records, derived statistics,
-                zones, trends, insight summaries, and optional age values entered for age-based heart rate zone calculations.
+                Health and workout data: heart rate values, timestamps, recent heart rate history, derived statistics, zones, trends, insight
+                summaries, and optional age values entered for age-based heart rate zone calculations. AirPulse does not save AirPulse sessions
+                as workouts in Apple Fitness or contribute to Apple Fitness rings. AirPulse does not read, calculate, display, or store calorie
+                or active-energy values, including in Apple Health. AirPulse processes this data for the app features you choose to use and does
+                not use it for advertising.
               </li>
               <li>
-                Location data: current location, whitelist or blacklist evaluation data, optional session location history points recorded
-                while a tag with location history enabled is assigned, map selections, address search results, reverse-geocoded place labels,
-                and location preview snapshots for saved places. When location history is enabled for a session tag, timestamped latitude and
-                longitude points, and optionally altitude or horizontal accuracy, are stored locally with the session data. If iCloud is
-                available for your Apple Account, they may also be included in the iCloud backup copy.
+                Location data: current location, whitelist or blacklist evaluation data, optional session location history points, map
+                selections, address search results, reverse-geocoded place labels, and location preview snapshots for saved places. With Save
+                Battery turned off, AirPulse may process location updates in the background during an active session to support active-session
+                behavior across foreground and background transitions as permitted by iOS. Location history points are stored only when Pro is
+                active and location history is enabled for the current session tag. In that case, timestamped latitude and longitude points, and
+                optionally altitude or horizontal accuracy, are stored locally with the session data. If iCloud is available for your Apple
+                Account, they may also be included in the iCloud backup copy. A saved location filter contains the place name, latitude,
+                longitude, and configured radius.
               </li>
               <li>
                 Device and connectivity information: supported Bluetooth audio device names and identifiers, active audio route state,
@@ -159,23 +164,18 @@
               <li>
                 Settings, tags, and preferences: theme, language, low power mode preference, notification preferences, onboarding completion,
                 configured device names, location filter mode, saved entries, custom tags, tag categories, colors, favorites, activity levels,
-                heart rate zone profiles, audio feedback profiles, and shared values used for Live Activity, widget-related surfaces,
-                shortcuts, and iCloud-synced settings.
+                heart rate zone profiles, audio feedback profiles, and shared values used for the Live Activity, shortcuts, and iCloud-synced
+                settings.
               </li>
               <li>
                 Purchase, entitlement, and support purchase information: App Store product identifiers, transaction states exposed by Apple
                 StoreKit, locally cached entitlement status such as plan type, expiry date, lifetime purchase flags, early-user status, or
-                purchase source.
+                purchase source, and information needed to show available products, complete or restore a purchase, and cache the result locally.
               </li>
               <li>
                 Feedback, ratings, and support contact: information you choose to provide when you rate the app, open an App Store review flow,
                 contact support by email, or open an optional external feedback form. AirPulse does not automatically attach health, location,
                 or session data to feedback.
-              </li>
-              <li>
-                Diagnostic information: timestamps, launch information, error messages, warnings, workout state, connectivity state, heart
-                rate processing events, purchase state messages, iCloud backup state, and location-filter related runtime messages stored
-                locally for troubleshooting.
               </li>
             </ul>
           </section>
@@ -209,10 +209,11 @@
               <li>display current and recent heart rate information in the app;</li>
               <li>operate pulse tracking through Apple's workout and HealthKit frameworks;</li>
               <li>support background behavior permitted by iOS;</li>
-              <li>show information in Live Activities, widget-related surfaces, and other iOS surfaces;</li>
+              <li>show information in the Live Activity on the Lock Screen and in the Dynamic Island;</li>
               <li>let you configure supported audio devices;</li>
               <li>let you configure location-based tracking rules;</li>
-              <li>record optional location histories for sessions while a tag with location history enabled is assigned;</li>
+              <li>process background location updates during an active session when Save Battery is turned off;</li>
+              <li>record optional location histories only while Pro is active and a tag with location history enabled is assigned;</li>
               <li>search for, label, and preview saved places;</li>
               <li>calculate session statistics, daily summaries, insights, heart rate zones, and graph views;</li>
               <li>provide optional audio feedback based on heart rate zones and personal limits;</li>
@@ -220,8 +221,7 @@
               <li>create, upload, restore, export, or import session backups through iCloud when iCloud is available;</li>
               <li>store your app settings, tags, profiles, and preferences;</li>
               <li>send optional local notifications; and</li>
-              <li>support feedback, rating, and support contact flows you choose to open;</li>
-              <li>diagnose and resolve technical issues.</li>
+              <li>support feedback, rating, and support contact flows you choose to open.</li>
             </ul>
           </section>
 
@@ -234,7 +234,7 @@
               <li>performance of a contract, or steps taken at your request, for core app functionality and optional purchases you choose to use;</li>
               <li>consent, where permission-based access is required, including for location access, notifications, HealthKit access, and optional external feedback forms;</li>
               <li>explicit consent, where required by law for health-related data processed through HealthKit or similar health-data contexts;</li>
-              <li>legitimate interests in maintaining app stability, reliability, fraud prevention, website delivery, and troubleshooting, to the extent permitted by law;</li>
+              <li>legitimate interests in maintaining app stability, reliability, fraud prevention, and website delivery, to the extent permitted by law;</li>
               <li>compliance with legal obligations, where applicable.</li>
             </ul>
             <p>
@@ -249,12 +249,12 @@
             <ul>
               <li>SharedPreferences, UserDefaults, or an App Group container shared between app components where needed;</li>
               <li>iCloud key-value storage for selected settings that are intended to sync across your Apple devices;</li>
-              <li>Keychain storage for selected entitlement or developer-mode flags where needed;</li>
+              <li>Keychain storage for selected entitlement or app-state flags where needed;</li>
               <li>the local session database for sessions, tags, optional session location histories, audio feedback profiles, zone profiles, and related app data;</li>
               <li>iCloud backup storage used for session database backup and restore when iCloud is available for your Apple Account;</li>
               <li>local cache storage for map preview images;</li>
-              <li>Apple Health / HealthKit storage for health and workout-related information handled through Apple's frameworks;</li>
-              <li>Live Activity state displayed by iOS on the Lock Screen, Dynamic Island, and related system surfaces; and</li>
+              <li>Apple Health / HealthKit storage for heart rate information handled through Apple's frameworks;</li>
+              <li>Live Activity state displayed by iOS on the Lock Screen and in the Dynamic Island; and</li>
               <li>local purchase entitlement cache used for optional Pro features.</li>
             </ul>
             <p>
@@ -274,7 +274,7 @@
               <li>Apple iCloud services used for settings sync, entitlement support, and session database backup and restore when iCloud is available;</li>
               <li>Apple Maps related services, including map display, address search, and reverse geocoding;</li>
               <li>iOS notification services;</li>
-              <li>iOS Live Activity, widget, Siri, App Intents, and shortcut infrastructure;</li>
+              <li>iOS Live Activity, Siri, App Intents, and shortcut infrastructure;</li>
               <li>Apple App Store / StoreKit purchase, restore, rating, and review services;</li>
               <li>Google Forms if you choose to open an external feedback form;</li>
               <li>your email provider if you contact support by email;</li>
@@ -302,8 +302,7 @@
               <li>Local website preferences remain in browser localStorage until cleared by you or your browser.</li>
             </ul>
             <p>
-              HealthKit and workout-related records are also subject to Apple's Health data environment and the way those Apple frameworks
-              manage such data.
+              HealthKit heart rate records are also subject to Apple's Health data environment and the way Apple manages such data.
             </p>
           </section>
 
@@ -336,8 +335,10 @@
             <h2>11. Required or Optional Data</h2>
             <p>
               Providing personal data to AirPulse is generally voluntary. However, some app functions cannot work without the relevant
-              permission or data. For example, heart rate display requires HealthKit access, location filters require location access,
-              purchase features require StoreKit, and iCloud backup features require iCloud availability through your Apple Account.
+              permission or data. For example, heart rate display requires HealthKit access, location filters and optional session routes require
+              location access, location access may also affect active-session background behavior and Live Activity availability when Save
+              Battery is turned off, purchase features require StoreKit, and iCloud backup features require iCloud availability through your
+              Apple Account.
             </p>
           </section>
 
@@ -406,11 +407,28 @@
         </article>
       </main>
 
-      <footer>
-        <p>Copyright © <span id="year">2026</span> Christian Range</p>
-      </footer>
     </div>
 
-    <script src="legal-header.js"></script>
+    <footer class="site-footer container">
+      <div class="footer-brand">
+        <img src="assets/Version7.png" alt="" width="1024" height="1024" loading="lazy" decoding="async" />
+        <span class="footer-copy">
+          <strong>AirPulse</strong>
+          <span>Automatic heart rate tracking with AirPods Pro 3</span>
+        </span>
+      </div>
+      <nav class="footer-links" aria-label="Legal and contact">
+        <a href="./terms-of-use.html">Terms of Use</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./imprint.html">Imprint</a>
+        <a href="mailto:airpulseapp@icloud.com">Contact</a>
+        <span>© <span id="year">2026</span> AirPulse</span>
+      </nav>
+      <p class="footer-disclaimer">
+        AirPulse is not medical advice, not an emergency service, and not a substitute for professional care.
+      </p>
+    </footer>
+
+    <script src="legal-header.js?v=20260725-3"></script>
   </body>
 </html>
