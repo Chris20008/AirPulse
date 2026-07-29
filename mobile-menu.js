@@ -14,7 +14,6 @@
   var page = document.body.getAttribute("data-page") || "";
   var root = document.documentElement;
   var previousFocus = null;
-  var lockedScrollY = 0;
   var closeTimer = null;
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -266,10 +265,7 @@
   }
 
   function unlockPage() {
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.width = "";
-    window.scrollTo(0, lockedScrollY);
+    root.classList.remove("mobile-menu-open");
     closeTimer = null;
     if (previousFocus && typeof previousFocus.focus === "function") {
       previousFocus.focus({ preventScroll: true });
@@ -283,10 +279,7 @@
       closeTimer = null;
     } else {
       previousFocus = document.activeElement;
-      lockedScrollY = window.scrollY || 0;
-      document.body.style.position = "fixed";
-      document.body.style.top = "-" + lockedScrollY + "px";
-      document.body.style.width = "100%";
+      root.classList.add("mobile-menu-open");
     }
     menu.setAttribute("aria-hidden", "false");
     toggle.setAttribute("aria-expanded", "true");
