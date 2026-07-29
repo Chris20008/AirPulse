@@ -7,7 +7,6 @@
   var languageStorageKey = "airpulse-language";
   var themeStorageKey = "airpulse-theme";
   var root = document.documentElement;
-  var themeMeta = document.querySelector('meta[name="theme-color"]');
   var language = readLanguage();
   var storedTheme = readStoredValue(themeStorageKey);
   var darkMedia = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
@@ -702,7 +701,6 @@
     var theme = activeTheme();
     root.setAttribute("data-theme", theme);
     root.style.colorScheme = theme;
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#100f11" : "#f7f4ef");
     updateThemeButton();
   }
 
