@@ -121,7 +121,7 @@ img {
 }
 
 .skip-link {
-  position: fixed;
+  position: absolute;
   top: 12px;
   left: 16px;
   z-index: 100;
@@ -149,10 +149,10 @@ img {
 
 .site-header-shell {
   position: sticky;
-  top: 0;
+  top: env(safe-area-inset-top, 0px);
   z-index: 50;
   padding: 14px 0;
-  padding: calc(14px + env(safe-area-inset-top, 0px)) 0 14px;
+  margin-bottom: env(safe-area-inset-top, 0px);
   pointer-events: none;
 }
 
@@ -1591,7 +1591,6 @@ img {
 @media (max-width: 680px) {
   .site-header-shell {
     padding: 10px 0;
-    padding: calc(10px + env(safe-area-inset-top, 0px)) 0 10px;
   }
 
   .site-header {
