@@ -37,6 +37,21 @@
     return darkMedia && darkMedia.matches ? "dark" : "light";
   }
 
+  function getThemePreference() {
+    return storedTheme || "system";
+  }
+
+  function setThemePreference(value) {
+    storedTheme = value === "light" || value === "dark" ? value : "";
+    try {
+      if (storedTheme) window.localStorage.setItem(storageKey, storedTheme);
+      else window.localStorage.removeItem(storageKey);
+    } catch (error) {
+    }
+    applyTheme();
+    window.dispatchEvent(new CustomEvent("airpulse-preferences-change"));
+  }
+
   function applyTheme() {
     var activeTheme = getActiveTheme();
     var nextLabel = activeTheme === "dark" ? "Light mode" : "Dark mode";
@@ -73,12 +88,7 @@
 
   themeButtons.forEach(function (button) {
     button.addEventListener("click", function () {
-      storedTheme = getActiveTheme() === "dark" ? "light" : "dark";
-      try {
-        window.localStorage.setItem(storageKey, storedTheme);
-      } catch (error) {
-      }
-      applyTheme();
+      setThemePreference(getActiveTheme() === "dark" ? "light" : "dark");
     });
   });
 
@@ -94,6 +104,11 @@
     });
   }
 
+  window.airPulsePreferences = {
+    getTheme: getThemePreference,
+    setTheme: setThemePreference
+  };
+  window.dispatchEvent(new CustomEvent("airpulse-preferences-ready"));
   applyTheme();
 })();
 

@@ -662,6 +662,14 @@
     }
   }
 
+  function clearStoredValue(key) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (error) {
+      // The current system preference remains active when storage is unavailable.
+    }
+  }
+
   function readLanguage() {
     var stored = readStoredValue(languageStorageKey);
     if (stored === "de" || stored === "en") return stored;
@@ -770,6 +778,43 @@
     if (refreshFaqSearch) refreshFaqSearch();
   }
 
+  function languagePreference() {
+    var stored = readStoredValue(languageStorageKey);
+    return stored === "de" || stored === "en" ? stored : "system";
+  }
+
+  function themePreference() {
+    return storedTheme === "light" || storedTheme === "dark" ? storedTheme : "system";
+  }
+
+  function notifyPreferenceChange() {
+    window.dispatchEvent(new CustomEvent("airpulse-preferences-change"));
+  }
+
+  function setLanguagePreference(value) {
+    if (value === "de" || value === "en") storeValue(languageStorageKey, value);
+    else clearStoredValue(languageStorageKey);
+    language = readLanguage();
+    applyLanguage();
+    notifyPreferenceChange();
+  }
+
+  function setThemePreference(value) {
+    storedTheme = value === "light" || value === "dark" ? value : "";
+    if (storedTheme) storeValue(themeStorageKey, storedTheme);
+    else clearStoredValue(themeStorageKey);
+    applyTheme();
+    notifyPreferenceChange();
+  }
+
+  window.airPulsePreferences = {
+    getLanguage: languagePreference,
+    setLanguage: setLanguagePreference,
+    getTheme: themePreference,
+    setTheme: setThemePreference
+  };
+  window.dispatchEvent(new CustomEvent("airpulse-preferences-ready"));
+
   document.querySelectorAll("[data-app-store-link]").forEach(function (node) {
     node.setAttribute("href", appStoreWebUrl);
     node.addEventListener("click", function (event) {
@@ -794,18 +839,14 @@
   var languageButton = document.querySelector("[data-language-toggle]");
   if (languageButton) {
     languageButton.addEventListener("click", function () {
-      language = language === "de" ? "en" : "de";
-      storeValue(languageStorageKey, language);
-      applyLanguage();
+      setLanguagePreference(language === "de" ? "en" : "de");
     });
   }
 
   var themeButton = document.querySelector("[data-theme-toggle]");
   if (themeButton) {
     themeButton.addEventListener("click", function () {
-      storedTheme = activeTheme() === "dark" ? "light" : "dark";
-      storeValue(themeStorageKey, storedTheme);
-      applyTheme();
+      setThemePreference(activeTheme() === "dark" ? "light" : "dark");
     });
   }
 
@@ -816,6 +857,13 @@
     if (darkMedia.addEventListener) darkMedia.addEventListener("change", handleThemeChange);
     else if (darkMedia.addListener) darkMedia.addListener(handleThemeChange);
   }
+
+  window.addEventListener("languagechange", function () {
+    if (languagePreference() !== "system") return;
+    language = readLanguage();
+    applyLanguage();
+    notifyPreferenceChange();
+  });
 
   var header = document.querySelector(".site-header");
   function updateHeader() {
