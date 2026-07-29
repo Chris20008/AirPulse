@@ -28,6 +28,10 @@
       setup: "Einrichtung",
       faq: "Fragen",
       tags: "Session Tags",
+      legal: "Rechtliches",
+      terms: "Nutzungsbedingungen",
+      privacy: "Datenschutz",
+      imprint: "Impressum",
       language: "Sprache",
       appearance: "Darstellung",
       system: "System",
@@ -46,6 +50,10 @@
       setup: "Setup",
       faq: "Questions",
       tags: "Session Tags",
+      legal: "Legal",
+      terms: "Terms of Use",
+      privacy: "Privacy Policy",
+      imprint: "Imprint",
       language: "Language",
       appearance: "Appearance",
       system: "System",
@@ -124,6 +132,11 @@
   navigation.className = "mobile-menu-navigation";
   menuInner.appendChild(navigation);
   var navigationPageLabels = {};
+  var currentFile = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+  function isCurrentPage(href) {
+    return (href.split("#")[0].split("?")[0].split("/").pop() || "index.html").toLowerCase() === currentFile;
+  }
 
   function addNavigationLink(href, text, isCurrent) {
     var link = document.createElement("a");
@@ -137,7 +150,7 @@
     return label;
   }
 
-  var homeLabel = addNavigationLink("index.html", "", page === "home");
+  var homeLabel = addNavigationLink("index.html", "", page === "home" || isCurrentPage("index.html"));
   if (sourceNavigation) {
     Array.prototype.forEach.call(sourceNavigation.querySelectorAll("a"), function (sourceLink) {
       var href = sourceLink.getAttribute("href") || "#";
@@ -151,6 +164,29 @@
       else if (href.indexOf("tags.html") !== -1) navigationPageLabels.tags = label;
     });
   }
+
+  var legalLabel = document.createElement("p");
+  legalLabel.className = "mobile-menu-section-label mobile-menu-legal-label";
+  menuInner.appendChild(legalLabel);
+
+  var legalNavigation = document.createElement("nav");
+  legalNavigation.className = "mobile-menu-navigation mobile-menu-legal-navigation";
+  menuInner.appendChild(legalNavigation);
+
+  function addLegalLink(href, key) {
+    var link = document.createElement("a");
+    link.href = href;
+    if (isCurrentPage(href)) link.setAttribute("aria-current", "page");
+
+    var label = document.createElement("span");
+    link.appendChild(label);
+    legalNavigation.appendChild(link);
+    navigationPageLabels[key] = label;
+  }
+
+  addLegalLink("terms-of-use.html", "terms");
+  addLegalLink("privacy-policy.html", "privacy");
+  addLegalLink("imprint.html", "imprint");
 
   var settingsLabel = document.createElement("p");
   settingsLabel.className = "mobile-menu-section-label mobile-menu-settings-label";
@@ -238,11 +274,17 @@
     closeButton.setAttribute("aria-label", strings.close);
     menuHeader.querySelector(".mobile-menu-title").textContent = strings.label;
     navigationLabel.textContent = strings.navigation;
+    navigation.setAttribute("aria-label", strings.navigation);
+    legalLabel.textContent = strings.legal;
+    legalNavigation.setAttribute("aria-label", strings.legal);
     settingsLabel.textContent = strings.settings;
     homeLabel.textContent = strings.home;
     if (navigationPageLabels.setup) navigationPageLabels.setup.textContent = strings.setup;
     if (navigationPageLabels.faq) navigationPageLabels.faq.textContent = strings.faq;
     if (navigationPageLabels.tags) navigationPageLabels.tags.textContent = strings.tags;
+    navigationPageLabels.terms.textContent = strings.terms;
+    navigationPageLabels.privacy.textContent = strings.privacy;
+    navigationPageLabels.imprint.textContent = strings.imprint;
 
     updateControl(
       languageControl,
@@ -299,6 +341,10 @@
   closeButton.addEventListener("click", closeMenu);
 
   navigation.addEventListener("click", function (event) {
+    if (event.target.closest("a")) closeMenu();
+  });
+
+  legalNavigation.addEventListener("click", function (event) {
     if (event.target.closest("a")) closeMenu();
   });
 

@@ -60,10 +60,7 @@
     root.style.colorScheme = activeTheme;
 
     if (themeMeta) {
-      themeMeta.setAttribute(
-        "content",
-        activeTheme === "dark" ? "#100f11" : "#f7f4ef"
-      );
+      themeMeta.setAttribute("content", "transparent");
     }
 
     brandIcons.forEach(function (node) {

@@ -702,7 +702,7 @@
     var theme = activeTheme();
     root.setAttribute("data-theme", theme);
     root.style.colorScheme = theme;
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#100f11" : "#f7f4ef");
+    if (themeMeta) themeMeta.setAttribute("content", "transparent");
     updateThemeButton();
   }
 

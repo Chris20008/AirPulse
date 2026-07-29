@@ -87,6 +87,10 @@ img {
   position: relative;
   z-index: 1;
   width: min(calc(100% - 32px), var(--wrap));
+  width: min(
+    calc(100% - 32px - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)),
+    var(--wrap)
+  );
   margin: 0 auto;
   padding: 24px 0 56px;
 }

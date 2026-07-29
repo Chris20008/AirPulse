@@ -9,7 +9,6 @@ Paulusstraße 19<br>
 53227 Bonn<br>
 Germany
 
-Phone: +49 15780403050<br>
 Email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
 
 Responsible for the content of AirPulse and the related app website: Christian Range.

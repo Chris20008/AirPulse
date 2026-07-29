@@ -8,7 +8,6 @@ AirPulse is provided by:
 
 - Legal name: Christian Range
 - Address: Paulusstraße 19, 53227 Bonn, Germany
-- Phone: +49 15780403050
 - Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
 
 ## 2. Acceptance of These Terms
@@ -150,5 +149,4 @@ For legal or support-related questions, please contact:
 
 - Legal name: Christian Range
 - Address: Paulusstraße 19, 53227 Bonn, Germany
-- Phone: +49 15780403050
 - Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)

@@ -14,7 +14,6 @@ The controller responsible for processing personal data in connection with AirPu
 
 - Legal name: Christian Range
 - Address: Paulusstraße 19, 53227 Bonn, Germany
-- Phone: +49 15780403050
 - Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
 
 No data protection officer has been appointed because no appointment is currently required for this project.
@@ -239,5 +238,4 @@ For privacy-related questions, please contact:
 
 - Legal name: Christian Range
 - Address: Paulusstraße 19, 53227 Bonn, Germany
-- Phone: +49 15780403050
 - Contact email: [airpulseapp@icloud.com](mailto:airpulseapp@icloud.com)
