@@ -1600,6 +1600,11 @@ img {
 }
 
 @media (max-width: 1040px) {
+  .site-header,
+  .site-header.is-scrolled {
+    box-shadow: none;
+  }
+
   .has-mobile-menu .site-header .header-actions > .language-button,
   .has-mobile-menu .site-header .header-actions > .icon-button {
     display: none;
